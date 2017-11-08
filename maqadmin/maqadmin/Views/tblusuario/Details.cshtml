@@ -1,0 +1,30 @@
+﻿@model Datos.tblusuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>tblusuario</legend>
+
+    <div class="display-label">usuario</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.usuario)
+    </div>
+
+    <div class="display-label">pass</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pass)
+    </div>
+
+    <div class="display-label">idlocal</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idlocal)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idusuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
