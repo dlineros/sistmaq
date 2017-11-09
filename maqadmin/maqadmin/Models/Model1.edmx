@@ -8,7 +8,13 @@
         <EntityContainer Name="bdloginModelStoreContainer">
           <EntitySet Name="bingoJuego" EntityType="bdloginModel.Store.bingoJuego" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="bingoParametro" EntityType="bdloginModel.Store.bingoParametro" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="tblusuario" EntityType="bdloginModel.Store.tblusuario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="estadoJuego" EntityType="bdloginModel.Store.estadoJuego" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="bdloginModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbltoken" EntityType="bdloginModel.Store.tbltoken" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_bingoParametro_estadoJuego" Association="bdloginModel.Store.FK_bingoParametro_estadoJuego">
+            <End Role="estadoJuego" EntitySet="estadoJuego" />
+            <End Role="bingoParametro" EntitySet="bingoParametro" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="bingoJuego">
           <Key>
@@ -19,7 +25,6 @@
           <Property Name="inicioJuego" Type="datetime" />
           <Property Name="finjuego" Type="datetime" />
           <Property Name="ultimonumero" Type="varchar" MaxLength="50" />
-          <Property Name="estadoJuego" Type="varchar" MaxLength="50" />
           <Property Name="premio" Type="int" />
           <Property Name="esperaNumeroSeg" Type="int" />
           <Property Name="B1" Type="bit" Nullable="false" />
@@ -104,49 +109,69 @@
           </Key>
           <Property Name="idParametro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="idLocal" Type="int" Nullable="false" />
+          <Property Name="idEstadoJuego" Type="int" />
           <Property Name="esperaNumeroSeg" Type="int" Nullable="false" />
           <Property Name="premioDefecto" Type="int" Nullable="false" />
           <Property Name="juegoAutomatico" Type="bit" Nullable="false" />
           <Property Name="juegoAutomaticoCadaSeg" Type="int" Nullable="false" />
+          <Property Name="urlVideo" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="tblusuario">
+        <EntityType Name="estadoJuego">
           <Key>
-            <PropertyRef Name="idusuario" />
+            <PropertyRef Name="idestado" />
           </Key>
-          <Property Name="idusuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="usuario" Type="varchar" MaxLength="50" />
-          <Property Name="pass" Type="varchar" MaxLength="50" />
-          <Property Name="idlocal" Type="int" Nullable="false" />
+          <Property Name="idestado" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="estadoJuego" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="descripcion" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbltoken">
+          <Key>
+            <PropertyRef Name="idToken" />
+          </Key>
+          <Property Name="idToken" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="token" Type="varchar(max)" />
+          <Property Name="local" Type="varchar" MaxLength="200" />
+          <Property Name="usuario" Type="varchar" MaxLength="200" />
+          <Property Name="idLocal" Type="int" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <Association Name="FK_bingoParametro_estadoJuego">
+          <End Role="estadoJuego" Type="bdloginModel.Store.estadoJuego" Multiplicity="0..1" />
+          <End Role="bingoParametro" Type="bdloginModel.Store.bingoParametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoJuego">
+              <PropertyRef Name="idestado" />
+            </Principal>
+            <Dependent Role="bingoParametro">
+              <PropertyRef Name="idEstadoJuego" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bdloginModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="bdloginEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tblusuario" EntityType="bdloginModel.tblusuario" />
-          <EntitySet Name="bingoParametro" EntityType="bdloginModel.bingoParametro" />
           <EntitySet Name="bingoJuego" EntityType="bdloginModel.bingoJuego" />
+          <EntitySet Name="bingoParametro" EntityType="bdloginModel.bingoParametro" />
+          <EntitySet Name="estadoJuego" EntityType="bdloginModel.estadoJuego" />
+          <EntitySet Name="sysdiagrams" EntityType="bdloginModel.sysdiagrams" />
+          <EntitySet Name="tbltoken" EntityType="bdloginModel.tbltoken" />
+          <AssociationSet Name="FK_bingoParametro_estadoJuego" Association="bdloginModel.FK_bingoParametro_estadoJuego">
+            <End Role="estadoJuego" EntitySet="estadoJuego" />
+            <End Role="bingoParametro" EntitySet="bingoParametro" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="tblusuario">
-          <Key>
-            <PropertyRef Name="idusuario" />
-          </Key>
-          <Property Type="Int32" Name="idusuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="usuario" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pass" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="idlocal" Nullable="false" />
-        </EntityType>
-        <EntityType Name="bingoParametro">
-          <Key>
-            <PropertyRef Name="idParametro" />
-          </Key>
-          <Property Type="Int32" Name="idParametro" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="idLocal" Nullable="false" />
-          <Property Type="Int32" Name="esperaNumeroSeg" Nullable="false" />
-          <Property Type="Int32" Name="premioDefecto" Nullable="false" />
-          <Property Type="Boolean" Name="juegoAutomatico" Nullable="false" />
-          <Property Type="Int32" Name="juegoAutomaticoCadaSeg" Nullable="false" />
-        </EntityType>
         <EntityType Name="bingoJuego">
           <Key>
             <PropertyRef Name="idbingo" />
@@ -156,7 +181,6 @@
           <Property Type="DateTime" Name="inicioJuego" />
           <Property Type="DateTime" Name="finjuego" />
           <Property Type="String" Name="ultimonumero" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="estadoJuego" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="premio" />
           <Property Type="Int32" Name="esperaNumeroSeg" />
           <Property Type="Boolean" Name="B1" Nullable="false" />
@@ -235,34 +259,68 @@
           <Property Type="Boolean" Name="O74" Nullable="false" />
           <Property Type="Boolean" Name="O75" Nullable="false" />
         </EntityType>
-      </Schema>
+        <EntityType Name="bingoParametro">
+          <Key>
+            <PropertyRef Name="idParametro" />
+          </Key>
+          <Property Type="Int32" Name="idParametro" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idLocal" Nullable="false" />
+          <Property Type="Int32" Name="idEstadoJuego" />
+          <Property Type="Int32" Name="esperaNumeroSeg" Nullable="false" />
+          <Property Type="Int32" Name="premioDefecto" Nullable="false" />
+          <Property Type="Boolean" Name="juegoAutomatico" Nullable="false" />
+          <Property Type="Int32" Name="juegoAutomaticoCadaSeg" Nullable="false" />
+          <Property Type="String" Name="urlVideo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="estadoJuego" Relationship="bdloginModel.FK_bingoParametro_estadoJuego" FromRole="bingoParametro" ToRole="estadoJuego" />
+        </EntityType>
+        <EntityType Name="estadoJuego">
+          <Key>
+            <PropertyRef Name="idestado" />
+          </Key>
+          <Property Type="Int32" Name="idestado" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="estadoJuego1" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="descripcion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bingoParametro" Relationship="bdloginModel.FK_bingoParametro_estadoJuego" FromRole="estadoJuego" ToRole="bingoParametro" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbltoken">
+          <Key>
+            <PropertyRef Name="idToken" />
+          </Key>
+          <Property Type="Int32" Name="idToken" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="token" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="local" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="usuario" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idLocal" />
+          <Property Type="Int32" Name="idUsuario" />
+        </EntityType>
+        <Association Name="FK_bingoParametro_estadoJuego">
+          <End Type="bdloginModel.estadoJuego" Role="estadoJuego" Multiplicity="0..1" />
+          <End Type="bdloginModel.bingoParametro" Role="bingoParametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoJuego">
+              <PropertyRef Name="idestado" />
+            </Principal>
+            <Dependent Role="bingoParametro">
+              <PropertyRef Name="idEstadoJuego" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="bdloginModelStoreContainer" CdmEntityContainer="bdloginEntities">
-          <EntitySetMapping Name="tblusuario">
-            <EntityTypeMapping TypeName="bdloginModel.tblusuario">
-              <MappingFragment StoreEntitySet="tblusuario">
-                <ScalarProperty Name="idlocal" ColumnName="idlocal" />
-                <ScalarProperty Name="pass" ColumnName="pass" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="bingoParametro">
-            <EntityTypeMapping TypeName="bdloginModel.bingoParametro">
-              <MappingFragment StoreEntitySet="bingoParametro">
-                <ScalarProperty Name="juegoAutomaticoCadaSeg" ColumnName="juegoAutomaticoCadaSeg" />
-                <ScalarProperty Name="juegoAutomatico" ColumnName="juegoAutomatico" />
-                <ScalarProperty Name="premioDefecto" ColumnName="premioDefecto" />
-                <ScalarProperty Name="esperaNumeroSeg" ColumnName="esperaNumeroSeg" />
-                <ScalarProperty Name="idLocal" ColumnName="idLocal" />
-                <ScalarProperty Name="idParametro" ColumnName="idParametro" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="bingoJuego">
             <EntityTypeMapping TypeName="bdloginModel.bingoJuego">
               <MappingFragment StoreEntitySet="bingoJuego">
@@ -343,12 +401,57 @@
                 <ScalarProperty Name="B1" ColumnName="B1" />
                 <ScalarProperty Name="esperaNumeroSeg" ColumnName="esperaNumeroSeg" />
                 <ScalarProperty Name="premio" ColumnName="premio" />
-                <ScalarProperty Name="estadoJuego" ColumnName="estadoJuego" />
                 <ScalarProperty Name="ultimonumero" ColumnName="ultimonumero" />
                 <ScalarProperty Name="finjuego" ColumnName="finjuego" />
                 <ScalarProperty Name="inicioJuego" ColumnName="inicioJuego" />
                 <ScalarProperty Name="idlocal" ColumnName="idlocal" />
                 <ScalarProperty Name="idbingo" ColumnName="idbingo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bingoParametro">
+            <EntityTypeMapping TypeName="bdloginModel.bingoParametro">
+              <MappingFragment StoreEntitySet="bingoParametro">
+                <ScalarProperty Name="urlVideo" ColumnName="urlVideo" />
+                <ScalarProperty Name="juegoAutomaticoCadaSeg" ColumnName="juegoAutomaticoCadaSeg" />
+                <ScalarProperty Name="juegoAutomatico" ColumnName="juegoAutomatico" />
+                <ScalarProperty Name="premioDefecto" ColumnName="premioDefecto" />
+                <ScalarProperty Name="esperaNumeroSeg" ColumnName="esperaNumeroSeg" />
+                <ScalarProperty Name="idEstadoJuego" ColumnName="idEstadoJuego" />
+                <ScalarProperty Name="idLocal" ColumnName="idLocal" />
+                <ScalarProperty Name="idParametro" ColumnName="idParametro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estadoJuego">
+            <EntityTypeMapping TypeName="bdloginModel.estadoJuego">
+              <MappingFragment StoreEntitySet="estadoJuego">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="estadoJuego1" ColumnName="estadoJuego" />
+                <ScalarProperty Name="idestado" ColumnName="idestado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="bdloginModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbltoken">
+            <EntityTypeMapping TypeName="bdloginModel.tbltoken">
+              <MappingFragment StoreEntitySet="tbltoken">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idLocal" ColumnName="idLocal" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="local" ColumnName="local" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="idToken" ColumnName="idToken" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -373,9 +476,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1" ZoomLevel="29">
-        <EntityTypeShape EntityType="bdloginModel.tblusuario" Width="1.5" PointX="2.75" PointY="3.75" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="bdloginModel.bingoParametro" Width="1.5" PointX="3.375" PointY="0.75" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="bdloginModel.bingoJuego" Width="1.5" PointX="5.375" PointY="0.75" Height="16.979798177083335" />
+        <EntityTypeShape EntityType="bdloginModel.bingoJuego" Width="1.5" PointX="0.75" PointY="4.75" Height="16.787496744791667" />
+        <EntityTypeShape EntityType="bdloginModel.bingoParametro" Width="1.5" PointX="3" PointY="1" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="bdloginModel.estadoJuego" Width="1.5" PointX="0.75" PointY="1.5" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="bdloginModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="bdloginModel.tbltoken" Width="1.5" PointX="4.75" PointY="4.75" Height="2.1725878906249996" />
+        <AssociationConnector Association="bdloginModel.FK_bingoParametro_estadoJuego" >
+          <ConnectorPoint PointX="2.25" PointY="2.3939925130208333" />
+          <ConnectorPoint PointX="3" PointY="2.3939925130208333" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

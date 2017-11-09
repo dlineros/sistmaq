@@ -27,7 +27,8 @@ namespace maqadmin.Models
             {
                 using (var db = new bdloginEntities())
                 {
-                    db.bingoJuego.First().estadoJuego = "!Ya se han jugado todos los números";                    
+                    //1:Juego Finalizado, ya se generaron todos los números
+                    db.bingoParametro.First().idEstadoJuego = 1;                    
                 }
             }
 
@@ -35,7 +36,8 @@ namespace maqadmin.Models
             {
                 using (var db = new bdloginEntities())
                 {
-                    db.bingoJuego.First().estadoJuego = "!Ya se han jugado todos los números";
+                    //1:Juego Finalizado, ya se generaron todos los números
+                    db.bingoParametro.First().idEstadoJuego = 1;
                     return "";
                 }
             }

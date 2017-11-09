@@ -9,7 +9,7 @@ namespace maqadmin.Models
     public class BingoFullViewModels
     {
         //public tbl
-        public tblusuario tblusuario { get; set; }
+        public tbltoken tbltoken { get; set; }
         public bingoJuego bingoJuego { get; set; }
         public bingoParametro bingoParametro { get; set; }
 

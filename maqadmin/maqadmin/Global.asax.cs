@@ -24,7 +24,8 @@ namespace maqadmin
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Home", action = "AccesoUrlGet", id = UrlParameter.Optional } // Parameter defaults
+                //new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
                 //new { controller = "Home", action = "AccesoUrlGet", id = UrlParameter.Optional } // Parameter defaults
 
                 //http://localhost:2859/Home/AccesoUrlGet?usuario=dlineros&pass=xxx&idlocal=1

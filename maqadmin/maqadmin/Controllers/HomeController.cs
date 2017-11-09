@@ -20,32 +20,23 @@ namespace maqadmin.Controllers
         }
 
         [HttpGet]
-        //http://localhost:2859/Home/AccesoUrlGet?usuario=dlineros&pass=xxx&idlocal=1
-        public ActionResult AccesoUrlGet(string usuario, string pass,int idlocal)
+        //http://localhost:2859/Home/AccesoUrlGet?token=fdsfds4543&pass=xxx&idlocal=1
+        //http://localhost:2859/Home/AccesoUrlGet?token=xxxxxx
+        public ActionResult AccesoUrlGet(string token)
         {
-            //ViewBag.Message = "Welcome to ASP.NET MVC!";
-            //var id = ControllerContext.RouteData.GetRequiredString("id");
             var obj = new acceso();
-            var resultado = obj.validaAcceso(usuario,pass,idlocal);
+            var resultado = obj.validaAcceso(token);
 
             if (resultado == true)
             {
-                return View("Index");
+                return RedirectToAction("Index", "bingoJuego");
             }
 
-            else {
-
+            else
+            {
                 return PartialView("_AccesoDenegado");
-            }       
-            
-          
-            
-        }
-
-        public ActionResult About()
-        {
-            return View();
-        }
+            }
+        }      
 
 
         public ActionResult BingoCiclico()
@@ -53,28 +44,22 @@ namespace maqadmin.Controllers
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
 
             //Obtiene siguiente numero
-             var objBingo = new bingo();
-             var numeroActual = objBingo.letraNumeroAleatorio();
+            var objBingo = new bingo();
+            var numeroActual = objBingo.letraNumeroAleatorio();
 
 
-            var objBingoFullViewModels=new BingoFullViewModels();
-            using (var db = new bdloginEntities()) {
-
-
-               
+            var objBingoFullViewModels = new BingoFullViewModels();
+            using (var db = new bdloginEntities())
+            {
 
                 var bingoJuego = db.bingoJuego.First();
-                var tblusuario = db.tblusuario.First();
+                var tbltoken = db.tbltoken.First();
                 var bingoParametro = db.bingoParametro.First();
 
                 //OBTIENE DATOS A MOSTRAR, 1 OBJETO POR MODELO
-                objBingoFullViewModels.tblusuario = tblusuario;
+                objBingoFullViewModels.tbltoken = tbltoken;
                 objBingoFullViewModels.bingoJuego = bingoJuego;
                 objBingoFullViewModels.bingoParametro = bingoParametro;
-
-                
-
-
 
             }
             return PartialView("_Bingo", objBingoFullViewModels);

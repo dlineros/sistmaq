@@ -1,10 +1,6 @@
 ﻿@model maqadmin.Models.BingoFullViewModels
 <h2>Bingo</h2>
  <div id="container" name="container">
- 
-
-
-
 
  <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -37,6 +33,18 @@
     background: #EFA697;
 }
 
+.numberCircleN {
+    background: #FCE861;
+}
+
+.numberCircleG {
+    background: #60CDEC;
+}
+
+.numberCircleO {
+    background: #F18EE9;
+}
+
 
 </style>
 
@@ -51,26 +59,12 @@
 
 
 <table class="tg" style="undefined;table-layout: fixed; width: 1200px">
-@*<colgroup>
-<col style="width: 22px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 21px">
-<col style="width: 20px">
-</colgroup>*@
   <tr>
-    <td class="tg-yw4l" style="width:75px;"><img src="../../Content/imagenes/B.png" /></td>
+    <td class="tg-yw4l" style="width:75px;">
+   @* <img alt="B" src="@Url.Content("~/Content/imagenes/B.png")" />*@
+    
+    <div class="numberCircle numberCircleB ">B</div> 
+    </td>
     <td class="tg-yw4l">
      @if (Model.bingoJuego.B1 )
         {
@@ -164,7 +158,7 @@
    
   </tr>
   <tr>
-    <td class="tg-yw4l" style="width:75px;"><img src="../../Content/imagenes/I.png" /></td>
+    <td class="tg-yw4l" style="width:75px;"><div class="numberCircle numberCircleI ">I</div> </td>
     <td class="tg-yw4l">
      @if (Model.bingoJuego.I16 )
         {
@@ -257,58 +251,284 @@
      </td>
   </tr>
   <tr>
-    <td class="tg-yw4l" style="width:75px;"><img src="../../Content/imagenes/N.png" /></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l" style="width:75px;"><div class="numberCircle numberCircleN ">N</div> </td>
+     <td class="tg-yw4l">
+     @if (Model.bingoJuego.N31 )
+        {
+          <div class="numberCircle numberCircleN ">31</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N32 )
+        {
+          <div class="numberCircle numberCircleN ">32</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N33 )
+        {
+          <div class="numberCircle numberCircleN ">33</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N34 )
+        {
+          <div class="numberCircle numberCircleN ">34</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N35 )
+        {
+          <div class="numberCircle numberCircleN ">35</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N36 )
+        {
+          <div class="numberCircle numberCircleN ">36</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N37 )
+        {
+          <div class="numberCircle numberCircleN ">37</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N38 )
+        {
+          <div class="numberCircle numberCircleN ">38</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N39 )
+        {
+          <div class="numberCircle numberCircleN ">39</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N40 )
+        {
+          <div class="numberCircle numberCircleN ">40</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N41 )
+        {
+          <div class="numberCircle numberCircleN ">41</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N42 )
+        {
+          <div class="numberCircle numberCircleN ">42</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N43 )
+        {
+          <div class="numberCircle numberCircleN ">43</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N44 )
+        {
+          <div class="numberCircle numberCircleN ">44</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.N45 )
+        {
+          <div class="numberCircle numberCircleN ">45</div>   
+        }  
+     </td>
+    
   </tr>
   <tr>
-   <td class="tg-yw4l" style="width:75px;"><img src="../../Content/imagenes/G.png" /></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
+   <td class="tg-yw4l" style="width:75px;"><div class="numberCircle numberCircleG ">G</div></td>
+    <td class="tg-yw4l">
+     @if (Model.bingoJuego.G46 )
+        {
+          <div class="numberCircle numberCircleG ">46</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G47 )
+        {
+          <div class="numberCircle numberCircleG ">47</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G48 )
+        {
+          <div class="numberCircle numberCircleG ">48</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G49 )
+        {
+          <div class="numberCircle numberCircleG ">49</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G50 )
+        {
+          <div class="numberCircle numberCircleG ">50</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G51 )
+        {
+          <div class="numberCircle numberCircleG ">51</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G52 )
+        {
+          <div class="numberCircle numberCircleG ">52</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G53 )
+        {
+          <div class="numberCircle numberCircleG ">53</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G54 )
+        {
+          <div class="numberCircle numberCircleG ">54</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G55 )
+        {
+          <div class="numberCircle numberCircleG ">55</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G56 )
+        {
+          <div class="numberCircle numberCircleG ">56</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G57 )
+        {
+          <div class="numberCircle numberCircleG ">57</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G58 )
+        {
+          <div class="numberCircle numberCircleG ">58</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G59 )
+        {
+          <div class="numberCircle numberCircleG ">59</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.G60 )
+        {
+          <div class="numberCircle numberCircleG ">60</div>   
+        }  
+     </td>
   </tr>
   <tr>
-   <td class="tg-yw4l" style="width:75px;"><img src="../../Content/imagenes/O.png" /></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
+   <td class="tg-yw4l" style="width:75px;"><div class="numberCircle numberCircleO ">O</div></td>
+     <td class="tg-yw4l">
+     @if (Model.bingoJuego.O61 )
+        {
+          <div class="numberCircle numberCircleO ">61</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O62 )
+        {
+          <div class="numberCircle numberCircleO ">62</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O63 )
+        {
+          <div class="numberCircle numberCircleO ">63</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O64 )
+        {
+          <div class="numberCircle numberCircleO ">64</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O65 )
+        {
+          <div class="numberCircle numberCircleO ">65</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O66 )
+        {
+          <div class="numberCircle numberCircleO ">66</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O67 )
+        {
+          <div class="numberCircle numberCircleO ">67</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O68 )
+        {
+          <div class="numberCircle numberCircleO ">68</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O69 )
+        {
+          <div class="numberCircle numberCircleO ">69</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O70 )
+        {
+          <div class="numberCircle numberCircleO ">70</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O71 )
+        {
+          <div class="numberCircle numberCircleO ">71</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O72 )
+        {
+          <div class="numberCircle numberCircleO ">72</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O73 )
+        {
+          <div class="numberCircle numberCircleO ">73</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O74 )
+        {
+          <div class="numberCircle numberCircleO ">74</div>   
+        }  
+     </td>
+      <td class="tg-yw4l">
+     @if (Model.bingoJuego.O75 )
+        {
+          <div class="numberCircle numberCircleO ">75</div>   
+        }  
+     </td>
   </tr>
 </table>
 

@@ -1,7 +1,7 @@
 ﻿@model maqadmin.Models.bingoJuego
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Bingos";
 }
 
 <h2>Create</h2>
@@ -12,7 +12,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>bingoJuego</legend>
+        <legend>Juegos de Bingo</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.idlocal)

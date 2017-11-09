@@ -11,22 +11,18 @@ namespace maqadmin.Models
 {
     public class acceso
     {
-        public bool validaAcceso(string usuario, string pass, int idlocal)
+        public bool validaAcceso(string token)
         {
-            var acceso=false;
-            //Session["acceso"] = "false";
+            var acceso=false;          
             using (var db = new bdloginEntities())
             {
-                var resultado = (from p in db.tblusuario
-                                 where p.usuario == usuario
-                                 && p.pass == pass
-                                 && p.idlocal == idlocal
+                var resultado = (from p in db.tbltoken
+                                 where p.token == token                               
                                  select p).SingleOrDefault();
 
                 if (resultado != null)
                 {
-                    acceso = true;
-                    //Session["acceso"] = true;
+                    acceso = true;      
                 }
             }
             return acceso;

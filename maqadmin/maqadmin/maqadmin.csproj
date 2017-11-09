@@ -70,7 +70,6 @@
     <Compile Include="Controllers\bingoJuegoController.cs" />
     <Compile Include="Controllers\bingoParametroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\tblusuarioController.cs" />
     <Compile Include="Models\bingo.cs" />
     <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -173,21 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Bingo.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\tblusuario\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\tblusuario\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\tblusuario\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\tblusuario\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\tblusuario\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Model1.edmx">
