@@ -1,41 +1,40 @@
 ﻿@model maqadmin.Models.bingoJuego
 
 @{
-    ViewBag.Title = "Detalles del Bingo";
+    ViewBag.Title = "Details";
 }
 
-@*<h2>Detalles</h2>*@
+<h2>Details</h2>
 
 <fieldset>
-    <legend>Detalles</legend>
+    <legend>bingoJuego</legend>
 
-    <div class="display-label">Id Local</div>
+    <div class="display-label">idlocal</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.idlocal)
     </div>
 
-    <div class="display-label">Fecha-Hora inicio</div>
+    <div class="display-label">inicioJuego</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.inicioJuego)
     </div>
 
-    <div class="display-label"> Fecha-Hora fin</div>
+    <div class="display-label">finjuego</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.finjuego)
     </div>
 
-   
-    <div class="display-label">Estado juego</div>
+    <div class="display-label">ultimonumero</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.estadoJuego)
+        @Html.DisplayFor(model => model.ultimonumero)
     </div>
 
-    <div class="display-label">Premio del juego</div>
+    <div class="display-label">premio</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.premio)
     </div>
 
-    <div class="display-label">Espera entre bolitas(seg.)</div>
+    <div class="display-label">esperaNumeroSeg</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.esperaNumeroSeg)
     </div>
@@ -416,6 +415,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id=Model.idbingo }) |
-    @Html.ActionLink("Volver", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idbingo }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

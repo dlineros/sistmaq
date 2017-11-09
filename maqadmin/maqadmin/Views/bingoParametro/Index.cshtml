@@ -15,6 +15,9 @@
             idLocal
         </th>
         <th>
+            estadoJuego
+        </th>
+        <th>
             esperaNumeroSeg
         </th>
         <th>
@@ -26,6 +29,9 @@
         <th>
             juegoAutomaticoCadaSeg
         </th>
+        <th>
+            urlVideo
+        </th>
         <th></th>
     </tr>
 
@@ -33,6 +39,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.idLocal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estadoJuego.estadoJuego1)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.esperaNumeroSeg)
@@ -45,6 +54,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.juegoAutomaticoCadaSeg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.urlVideo)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.idParametro }) |

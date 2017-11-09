@@ -29,6 +29,8 @@ namespace maqadmin.Controllers
 
             if (resultado == true)
             {
+               
+
                 return RedirectToAction("Index", "bingoJuego");
             }
 
@@ -36,12 +38,28 @@ namespace maqadmin.Controllers
             {
                 return PartialView("_AccesoDenegado");
             }
-        }      
+        }
 
 
         public ActionResult BingoCiclico()
         {
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
+
+
+            using (var db = new bdloginEntities())
+            {
+                //video activo
+                var videoActivo = db.bingoParametro.Where(p => p.idLocal == 1 && p.idEstadoJuego == 2).SingleOrDefault();
+                if (videoActivo != null)
+                {
+                    ViewData["videoActivo"] = true;
+                    ViewData["urlVideo"] = videoActivo.urlVideo;
+
+                    return PartialView("_Video");
+                }
+            }
+
+
 
             //Obtiene siguiente numero
             var objBingo = new bingo();
