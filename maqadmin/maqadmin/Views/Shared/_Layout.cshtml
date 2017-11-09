@@ -18,8 +18,10 @@
             </div>
             <nav>
                 <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    <li>@Html.ActionLink("Bingos", "Index", "bingoJuego")</li>
+                    <li>@Html.ActionLink("Configuración de Bingos", "Index", "bingoParametro")</li>
+                    <li>@Html.ActionLink("Ver Bingo actual del local", "Bingo", "Home")</li>
                 </ul>
             </nav>
         </header>

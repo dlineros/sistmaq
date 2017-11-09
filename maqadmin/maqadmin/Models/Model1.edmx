@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bdloginModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="bdloginModelStoreContainer">
+          <EntitySet Name="bingoJuego" EntityType="bdloginModel.Store.bingoJuego" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="bingoParametro" EntityType="bdloginModel.Store.bingoParametro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblusuario" EntityType="bdloginModel.Store.tblusuario" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="bingoJuego">
+          <Key>
+            <PropertyRef Name="idbingo" />
+          </Key>
+          <Property Name="idbingo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idlocal" Type="int" />
+          <Property Name="inicioJuego" Type="datetime" />
+          <Property Name="finjuego" Type="datetime" />
+          <Property Name="ultimonumero" Type="varchar" MaxLength="50" />
+          <Property Name="estadoJuego" Type="varchar" MaxLength="50" />
+          <Property Name="premio" Type="int" />
+          <Property Name="esperaNumeroSeg" Type="int" />
+          <Property Name="B1" Type="bit" Nullable="false" />
+          <Property Name="B2" Type="bit" Nullable="false" />
+          <Property Name="B3" Type="bit" Nullable="false" />
+          <Property Name="B4" Type="bit" Nullable="false" />
+          <Property Name="B5" Type="bit" Nullable="false" />
+          <Property Name="B6" Type="bit" Nullable="false" />
+          <Property Name="B7" Type="bit" Nullable="false" />
+          <Property Name="B8" Type="bit" Nullable="false" />
+          <Property Name="B9" Type="bit" Nullable="false" />
+          <Property Name="B10" Type="bit" Nullable="false" />
+          <Property Name="B11" Type="bit" Nullable="false" />
+          <Property Name="B12" Type="bit" Nullable="false" />
+          <Property Name="B13" Type="bit" Nullable="false" />
+          <Property Name="B14" Type="bit" Nullable="false" />
+          <Property Name="B15" Type="bit" Nullable="false" />
+          <Property Name="I16" Type="bit" Nullable="false" />
+          <Property Name="I17" Type="bit" Nullable="false" />
+          <Property Name="I18" Type="bit" Nullable="false" />
+          <Property Name="I19" Type="bit" Nullable="false" />
+          <Property Name="I20" Type="bit" Nullable="false" />
+          <Property Name="I21" Type="bit" Nullable="false" />
+          <Property Name="I22" Type="bit" Nullable="false" />
+          <Property Name="I23" Type="bit" Nullable="false" />
+          <Property Name="I24" Type="bit" Nullable="false" />
+          <Property Name="I25" Type="bit" Nullable="false" />
+          <Property Name="I26" Type="bit" Nullable="false" />
+          <Property Name="I27" Type="bit" Nullable="false" />
+          <Property Name="I28" Type="bit" Nullable="false" />
+          <Property Name="I29" Type="bit" Nullable="false" />
+          <Property Name="I30" Type="bit" Nullable="false" />
+          <Property Name="N31" Type="bit" Nullable="false" />
+          <Property Name="N32" Type="bit" Nullable="false" />
+          <Property Name="N33" Type="bit" Nullable="false" />
+          <Property Name="N34" Type="bit" Nullable="false" />
+          <Property Name="N35" Type="bit" Nullable="false" />
+          <Property Name="N36" Type="bit" Nullable="false" />
+          <Property Name="N37" Type="bit" Nullable="false" />
+          <Property Name="N38" Type="bit" Nullable="false" />
+          <Property Name="N39" Type="bit" Nullable="false" />
+          <Property Name="N40" Type="bit" Nullable="false" />
+          <Property Name="N41" Type="bit" Nullable="false" />
+          <Property Name="N42" Type="bit" Nullable="false" />
+          <Property Name="N43" Type="bit" Nullable="false" />
+          <Property Name="N44" Type="bit" Nullable="false" />
+          <Property Name="N45" Type="bit" Nullable="false" />
+          <Property Name="G46" Type="bit" Nullable="false" />
+          <Property Name="G47" Type="bit" Nullable="false" />
+          <Property Name="G48" Type="bit" Nullable="false" />
+          <Property Name="G49" Type="bit" Nullable="false" />
+          <Property Name="G50" Type="bit" Nullable="false" />
+          <Property Name="G51" Type="bit" Nullable="false" />
+          <Property Name="G52" Type="bit" Nullable="false" />
+          <Property Name="G53" Type="bit" Nullable="false" />
+          <Property Name="G54" Type="bit" Nullable="false" />
+          <Property Name="G55" Type="bit" Nullable="false" />
+          <Property Name="G56" Type="bit" Nullable="false" />
+          <Property Name="G57" Type="bit" Nullable="false" />
+          <Property Name="G58" Type="bit" Nullable="false" />
+          <Property Name="G59" Type="bit" Nullable="false" />
+          <Property Name="G60" Type="bit" Nullable="false" />
+          <Property Name="O61" Type="bit" Nullable="false" />
+          <Property Name="O62" Type="bit" Nullable="false" />
+          <Property Name="O63" Type="bit" Nullable="false" />
+          <Property Name="O64" Type="bit" Nullable="false" />
+          <Property Name="O65" Type="bit" Nullable="false" />
+          <Property Name="O66" Type="bit" Nullable="false" />
+          <Property Name="O67" Type="bit" Nullable="false" />
+          <Property Name="O68" Type="bit" Nullable="false" />
+          <Property Name="O69" Type="bit" Nullable="false" />
+          <Property Name="O70" Type="bit" Nullable="false" />
+          <Property Name="O71" Type="bit" Nullable="false" />
+          <Property Name="O72" Type="bit" Nullable="false" />
+          <Property Name="O73" Type="bit" Nullable="false" />
+          <Property Name="O74" Type="bit" Nullable="false" />
+          <Property Name="O75" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bingoParametro">
+          <Key>
+            <PropertyRef Name="idParametro" />
+          </Key>
+          <Property Name="idParametro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idLocal" Type="int" Nullable="false" />
+          <Property Name="esperaNumeroSeg" Type="int" Nullable="false" />
+          <Property Name="premioDefecto" Type="int" Nullable="false" />
+          <Property Name="juegoAutomatico" Type="bit" Nullable="false" />
+          <Property Name="juegoAutomaticoCadaSeg" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblusuario">
+          <Key>
+            <PropertyRef Name="idusuario" />
+          </Key>
+          <Property Name="idusuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="varchar" MaxLength="50" />
+          <Property Name="pass" Type="varchar" MaxLength="50" />
+          <Property Name="idlocal" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bdloginModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="bdloginEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblusuario" EntityType="bdloginModel.tblusuario" />
+          <EntitySet Name="bingoParametro" EntityType="bdloginModel.bingoParametro" />
+          <EntitySet Name="bingoJuego" EntityType="bdloginModel.bingoJuego" />
+        </EntityContainer>
+        <EntityType Name="tblusuario">
+          <Key>
+            <PropertyRef Name="idusuario" />
+          </Key>
+          <Property Type="Int32" Name="idusuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="usuario" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pass" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idlocal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bingoParametro">
+          <Key>
+            <PropertyRef Name="idParametro" />
+          </Key>
+          <Property Type="Int32" Name="idParametro" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idLocal" Nullable="false" />
+          <Property Type="Int32" Name="esperaNumeroSeg" Nullable="false" />
+          <Property Type="Int32" Name="premioDefecto" Nullable="false" />
+          <Property Type="Boolean" Name="juegoAutomatico" Nullable="false" />
+          <Property Type="Int32" Name="juegoAutomaticoCadaSeg" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bingoJuego">
+          <Key>
+            <PropertyRef Name="idbingo" />
+          </Key>
+          <Property Type="Int32" Name="idbingo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idlocal" />
+          <Property Type="DateTime" Name="inicioJuego" />
+          <Property Type="DateTime" Name="finjuego" />
+          <Property Type="String" Name="ultimonumero" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="estadoJuego" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="premio" />
+          <Property Type="Int32" Name="esperaNumeroSeg" />
+          <Property Type="Boolean" Name="B1" Nullable="false" />
+          <Property Type="Boolean" Name="B2" Nullable="false" />
+          <Property Type="Boolean" Name="B3" Nullable="false" />
+          <Property Type="Boolean" Name="B4" Nullable="false" />
+          <Property Type="Boolean" Name="B5" Nullable="false" />
+          <Property Type="Boolean" Name="B6" Nullable="false" />
+          <Property Type="Boolean" Name="B7" Nullable="false" />
+          <Property Type="Boolean" Name="B8" Nullable="false" />
+          <Property Type="Boolean" Name="B9" Nullable="false" />
+          <Property Type="Boolean" Name="B10" Nullable="false" />
+          <Property Type="Boolean" Name="B11" Nullable="false" />
+          <Property Type="Boolean" Name="B12" Nullable="false" />
+          <Property Type="Boolean" Name="B13" Nullable="false" />
+          <Property Type="Boolean" Name="B14" Nullable="false" />
+          <Property Type="Boolean" Name="B15" Nullable="false" />
+          <Property Type="Boolean" Name="I16" Nullable="false" />
+          <Property Type="Boolean" Name="I17" Nullable="false" />
+          <Property Type="Boolean" Name="I18" Nullable="false" />
+          <Property Type="Boolean" Name="I19" Nullable="false" />
+          <Property Type="Boolean" Name="I20" Nullable="false" />
+          <Property Type="Boolean" Name="I21" Nullable="false" />
+          <Property Type="Boolean" Name="I22" Nullable="false" />
+          <Property Type="Boolean" Name="I23" Nullable="false" />
+          <Property Type="Boolean" Name="I24" Nullable="false" />
+          <Property Type="Boolean" Name="I25" Nullable="false" />
+          <Property Type="Boolean" Name="I26" Nullable="false" />
+          <Property Type="Boolean" Name="I27" Nullable="false" />
+          <Property Type="Boolean" Name="I28" Nullable="false" />
+          <Property Type="Boolean" Name="I29" Nullable="false" />
+          <Property Type="Boolean" Name="I30" Nullable="false" />
+          <Property Type="Boolean" Name="N31" Nullable="false" />
+          <Property Type="Boolean" Name="N32" Nullable="false" />
+          <Property Type="Boolean" Name="N33" Nullable="false" />
+          <Property Type="Boolean" Name="N34" Nullable="false" />
+          <Property Type="Boolean" Name="N35" Nullable="false" />
+          <Property Type="Boolean" Name="N36" Nullable="false" />
+          <Property Type="Boolean" Name="N37" Nullable="false" />
+          <Property Type="Boolean" Name="N38" Nullable="false" />
+          <Property Type="Boolean" Name="N39" Nullable="false" />
+          <Property Type="Boolean" Name="N40" Nullable="false" />
+          <Property Type="Boolean" Name="N41" Nullable="false" />
+          <Property Type="Boolean" Name="N42" Nullable="false" />
+          <Property Type="Boolean" Name="N43" Nullable="false" />
+          <Property Type="Boolean" Name="N44" Nullable="false" />
+          <Property Type="Boolean" Name="N45" Nullable="false" />
+          <Property Type="Boolean" Name="G46" Nullable="false" />
+          <Property Type="Boolean" Name="G47" Nullable="false" />
+          <Property Type="Boolean" Name="G48" Nullable="false" />
+          <Property Type="Boolean" Name="G49" Nullable="false" />
+          <Property Type="Boolean" Name="G50" Nullable="false" />
+          <Property Type="Boolean" Name="G51" Nullable="false" />
+          <Property Type="Boolean" Name="G52" Nullable="false" />
+          <Property Type="Boolean" Name="G53" Nullable="false" />
+          <Property Type="Boolean" Name="G54" Nullable="false" />
+          <Property Type="Boolean" Name="G55" Nullable="false" />
+          <Property Type="Boolean" Name="G56" Nullable="false" />
+          <Property Type="Boolean" Name="G57" Nullable="false" />
+          <Property Type="Boolean" Name="G58" Nullable="false" />
+          <Property Type="Boolean" Name="G59" Nullable="false" />
+          <Property Type="Boolean" Name="G60" Nullable="false" />
+          <Property Type="Boolean" Name="O61" Nullable="false" />
+          <Property Type="Boolean" Name="O62" Nullable="false" />
+          <Property Type="Boolean" Name="O63" Nullable="false" />
+          <Property Type="Boolean" Name="O64" Nullable="false" />
+          <Property Type="Boolean" Name="O65" Nullable="false" />
+          <Property Type="Boolean" Name="O66" Nullable="false" />
+          <Property Type="Boolean" Name="O67" Nullable="false" />
+          <Property Type="Boolean" Name="O68" Nullable="false" />
+          <Property Type="Boolean" Name="O69" Nullable="false" />
+          <Property Type="Boolean" Name="O70" Nullable="false" />
+          <Property Type="Boolean" Name="O71" Nullable="false" />
+          <Property Type="Boolean" Name="O72" Nullable="false" />
+          <Property Type="Boolean" Name="O73" Nullable="false" />
+          <Property Type="Boolean" Name="O74" Nullable="false" />
+          <Property Type="Boolean" Name="O75" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bdloginModelStoreContainer" CdmEntityContainer="bdloginEntities">
+          <EntitySetMapping Name="tblusuario">
+            <EntityTypeMapping TypeName="bdloginModel.tblusuario">
+              <MappingFragment StoreEntitySet="tblusuario">
+                <ScalarProperty Name="idlocal" ColumnName="idlocal" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bingoParametro">
+            <EntityTypeMapping TypeName="bdloginModel.bingoParametro">
+              <MappingFragment StoreEntitySet="bingoParametro">
+                <ScalarProperty Name="juegoAutomaticoCadaSeg" ColumnName="juegoAutomaticoCadaSeg" />
+                <ScalarProperty Name="juegoAutomatico" ColumnName="juegoAutomatico" />
+                <ScalarProperty Name="premioDefecto" ColumnName="premioDefecto" />
+                <ScalarProperty Name="esperaNumeroSeg" ColumnName="esperaNumeroSeg" />
+                <ScalarProperty Name="idLocal" ColumnName="idLocal" />
+                <ScalarProperty Name="idParametro" ColumnName="idParametro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bingoJuego">
+            <EntityTypeMapping TypeName="bdloginModel.bingoJuego">
+              <MappingFragment StoreEntitySet="bingoJuego">
+                <ScalarProperty Name="O75" ColumnName="O75" />
+                <ScalarProperty Name="O74" ColumnName="O74" />
+                <ScalarProperty Name="O73" ColumnName="O73" />
+                <ScalarProperty Name="O72" ColumnName="O72" />
+                <ScalarProperty Name="O71" ColumnName="O71" />
+                <ScalarProperty Name="O70" ColumnName="O70" />
+                <ScalarProperty Name="O69" ColumnName="O69" />
+                <ScalarProperty Name="O68" ColumnName="O68" />
+                <ScalarProperty Name="O67" ColumnName="O67" />
+                <ScalarProperty Name="O66" ColumnName="O66" />
+                <ScalarProperty Name="O65" ColumnName="O65" />
+                <ScalarProperty Name="O64" ColumnName="O64" />
+                <ScalarProperty Name="O63" ColumnName="O63" />
+                <ScalarProperty Name="O62" ColumnName="O62" />
+                <ScalarProperty Name="O61" ColumnName="O61" />
+                <ScalarProperty Name="G60" ColumnName="G60" />
+                <ScalarProperty Name="G59" ColumnName="G59" />
+                <ScalarProperty Name="G58" ColumnName="G58" />
+                <ScalarProperty Name="G57" ColumnName="G57" />
+                <ScalarProperty Name="G56" ColumnName="G56" />
+                <ScalarProperty Name="G55" ColumnName="G55" />
+                <ScalarProperty Name="G54" ColumnName="G54" />
+                <ScalarProperty Name="G53" ColumnName="G53" />
+                <ScalarProperty Name="G52" ColumnName="G52" />
+                <ScalarProperty Name="G51" ColumnName="G51" />
+                <ScalarProperty Name="G50" ColumnName="G50" />
+                <ScalarProperty Name="G49" ColumnName="G49" />
+                <ScalarProperty Name="G48" ColumnName="G48" />
+                <ScalarProperty Name="G47" ColumnName="G47" />
+                <ScalarProperty Name="G46" ColumnName="G46" />
+                <ScalarProperty Name="N45" ColumnName="N45" />
+                <ScalarProperty Name="N44" ColumnName="N44" />
+                <ScalarProperty Name="N43" ColumnName="N43" />
+                <ScalarProperty Name="N42" ColumnName="N42" />
+                <ScalarProperty Name="N41" ColumnName="N41" />
+                <ScalarProperty Name="N40" ColumnName="N40" />
+                <ScalarProperty Name="N39" ColumnName="N39" />
+                <ScalarProperty Name="N38" ColumnName="N38" />
+                <ScalarProperty Name="N37" ColumnName="N37" />
+                <ScalarProperty Name="N36" ColumnName="N36" />
+                <ScalarProperty Name="N35" ColumnName="N35" />
+                <ScalarProperty Name="N34" ColumnName="N34" />
+                <ScalarProperty Name="N33" ColumnName="N33" />
+                <ScalarProperty Name="N32" ColumnName="N32" />
+                <ScalarProperty Name="N31" ColumnName="N31" />
+                <ScalarProperty Name="I30" ColumnName="I30" />
+                <ScalarProperty Name="I29" ColumnName="I29" />
+                <ScalarProperty Name="I28" ColumnName="I28" />
+                <ScalarProperty Name="I27" ColumnName="I27" />
+                <ScalarProperty Name="I26" ColumnName="I26" />
+                <ScalarProperty Name="I25" ColumnName="I25" />
+                <ScalarProperty Name="I24" ColumnName="I24" />
+                <ScalarProperty Name="I23" ColumnName="I23" />
+                <ScalarProperty Name="I22" ColumnName="I22" />
+                <ScalarProperty Name="I21" ColumnName="I21" />
+                <ScalarProperty Name="I20" ColumnName="I20" />
+                <ScalarProperty Name="I19" ColumnName="I19" />
+                <ScalarProperty Name="I18" ColumnName="I18" />
+                <ScalarProperty Name="I17" ColumnName="I17" />
+                <ScalarProperty Name="I16" ColumnName="I16" />
+                <ScalarProperty Name="B15" ColumnName="B15" />
+                <ScalarProperty Name="B14" ColumnName="B14" />
+                <ScalarProperty Name="B13" ColumnName="B13" />
+                <ScalarProperty Name="B12" ColumnName="B12" />
+                <ScalarProperty Name="B11" ColumnName="B11" />
+                <ScalarProperty Name="B10" ColumnName="B10" />
+                <ScalarProperty Name="B9" ColumnName="B9" />
+                <ScalarProperty Name="B8" ColumnName="B8" />
+                <ScalarProperty Name="B7" ColumnName="B7" />
+                <ScalarProperty Name="B6" ColumnName="B6" />
+                <ScalarProperty Name="B5" ColumnName="B5" />
+                <ScalarProperty Name="B4" ColumnName="B4" />
+                <ScalarProperty Name="B3" ColumnName="B3" />
+                <ScalarProperty Name="B2" ColumnName="B2" />
+                <ScalarProperty Name="B1" ColumnName="B1" />
+                <ScalarProperty Name="esperaNumeroSeg" ColumnName="esperaNumeroSeg" />
+                <ScalarProperty Name="premio" ColumnName="premio" />
+                <ScalarProperty Name="estadoJuego" ColumnName="estadoJuego" />
+                <ScalarProperty Name="ultimonumero" ColumnName="ultimonumero" />
+                <ScalarProperty Name="finjuego" ColumnName="finjuego" />
+                <ScalarProperty Name="inicioJuego" ColumnName="inicioJuego" />
+                <ScalarProperty Name="idlocal" ColumnName="idlocal" />
+                <ScalarProperty Name="idbingo" ColumnName="idbingo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="29">
+        <EntityTypeShape EntityType="bdloginModel.tblusuario" Width="1.5" PointX="2.75" PointY="3.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="bdloginModel.bingoParametro" Width="1.5" PointX="3.375" PointY="0.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="bdloginModel.bingoJuego" Width="1.5" PointX="5.375" PointY="0.75" Height="16.979798177083335" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

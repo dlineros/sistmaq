@@ -1,0 +1,40 @@
+﻿@model maqadmin.Models.bingoParametro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>bingoParametro</legend>
+
+    <div class="display-label">idLocal</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idLocal)
+    </div>
+
+    <div class="display-label">esperaNumeroSeg</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.esperaNumeroSeg)
+    </div>
+
+    <div class="display-label">premioDefecto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.premioDefecto)
+    </div>
+
+    <div class="display-label">juegoAutomatico</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.juegoAutomatico)
+    </div>
+
+    <div class="display-label">juegoAutomaticoCadaSeg</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.juegoAutomaticoCadaSeg)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idParametro }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

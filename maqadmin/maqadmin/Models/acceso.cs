@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.Entity;
 using System.Data.Linq;
 using maqadmin.Models;
-using maqadmin.Datos;
+
 
 namespace maqadmin.Models
 {

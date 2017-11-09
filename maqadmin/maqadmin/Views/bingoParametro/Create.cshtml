@@ -1,0 +1,65 @@
+﻿@model maqadmin.Models.bingoParametro
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>bingoParametro</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idLocal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idLocal)
+            @Html.ValidationMessageFor(model => model.idLocal)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.esperaNumeroSeg)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.esperaNumeroSeg)
+            @Html.ValidationMessageFor(model => model.esperaNumeroSeg)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.premioDefecto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.premioDefecto)
+            @Html.ValidationMessageFor(model => model.premioDefecto)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.juegoAutomatico)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.juegoAutomatico)
+            @Html.ValidationMessageFor(model => model.juegoAutomatico)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.juegoAutomaticoCadaSeg)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.juegoAutomaticoCadaSeg)
+            @Html.ValidationMessageFor(model => model.juegoAutomaticoCadaSeg)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

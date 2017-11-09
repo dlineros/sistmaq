@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using maqadmin.Datos;
+using maqadmin.Models;
 
 namespace maqadmin.Models
 {
@@ -10,7 +10,8 @@ namespace maqadmin.Models
     {
         //public tbl
         public tblusuario tblusuario { get; set; }
-        public tblprueba tblprueba { get; set; }
+        public bingoJuego bingoJuego { get; set; }
+        public bingoParametro bingoParametro { get; set; }
 
 
         //public UserDto User { get; set; }

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<maqadmin.Models.bingoParametro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            idLocal
+        </th>
+        <th>
+            esperaNumeroSeg
+        </th>
+        <th>
+            premioDefecto
+        </th>
+        <th>
+            juegoAutomatico
+        </th>
+        <th>
+            juegoAutomaticoCadaSeg
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idLocal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.esperaNumeroSeg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.premioDefecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.juegoAutomatico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.juegoAutomaticoCadaSeg)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idParametro }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idParametro }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idParametro })
+        </td>
+    </tr>
+}
+
+</table>

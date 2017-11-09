@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using maqadmin.Models;
 using System.Data.Entity;
 using System.Data.Linq;
-using maqadmin.Datos;
+
 
 namespace maqadmin.Controllers
 {
@@ -52,17 +52,31 @@ namespace maqadmin.Controllers
         {
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
 
+            //Obtiene siguiente numero
+             var objBingo = new bingo();
+             var numeroActual = objBingo.letraNumeroAleatorio();
+
+
             var objBingoFullViewModels=new BingoFullViewModels();
             using (var db = new bdloginEntities()) {
 
-                var objtblprueba = db.tblprueba.First();
-                objBingoFullViewModels.tblprueba = objtblprueba;
+
+               
+
+                var bingoJuego = db.bingoJuego.First();
+                var tblusuario = db.tblusuario.First();
+                var bingoParametro = db.bingoParametro.First();
+
+                //OBTIENE DATOS A MOSTRAR, 1 OBJETO POR MODELO
+                objBingoFullViewModels.tblusuario = tblusuario;
+                objBingoFullViewModels.bingoJuego = bingoJuego;
+                objBingoFullViewModels.bingoParametro = bingoParametro;
+
+                
+
+
+
             }
-
-           
-
-
-
             return PartialView("_Bingo", objBingoFullViewModels);
         }
 
