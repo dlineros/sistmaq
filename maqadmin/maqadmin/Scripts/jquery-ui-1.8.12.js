@@ -1,17 +1,12 @@
 /*!
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI
-*/
+ * jQuery UI 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI
+ */
 (function( $, undefined ) {
 
 // prevent duplicate loading
@@ -23,7 +18,7 @@ if ( $.ui.version ) {
 }
 
 $.extend( $.ui, {
-	version: "1.8.11",
+	version: "1.8.12",
 
 	keyCode: {
 		ALT: 18,
@@ -312,19 +307,14 @@ $.extend( $.ui, {
 
 })( jQuery );
 /*!
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Widget 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Widget
-*/
+ * jQuery UI Widget 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Widget
+ */
 (function( $, undefined ) {
 
 // jQuery 1.4+
@@ -579,22 +569,17 @@ $.Widget.prototype = {
 
 })( jQuery );
 /*!
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Mouse 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Mouse
-*
-* Depends:
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Mouse 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Mouse
+ *
+ * Depends:
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 $.widget("ui.mouse", {
@@ -740,19 +725,14 @@ $.widget("ui.mouse", {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Position 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Position
-*/
+ * jQuery UI Position 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Position
+ */
 (function( $, undefined ) {
 
 $.ui = $.ui || {};
@@ -997,24 +977,19 @@ if ( !$.offset.setOffset ) {
 
 }( jQuery ));
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Draggable 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Draggables
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.mouse.js
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Draggable 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Draggables
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.mouse.js
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 $.widget("ui.draggable", $.ui.mouse, {
@@ -1464,7 +1439,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 });
 
 $.extend($.ui.draggable, {
-	version: "1.8.11"
+	version: "1.8.12"
 });
 
 $.ui.plugin.add("draggable", "connectToSortable", {
@@ -1801,25 +1776,20 @@ $.ui.plugin.add("draggable", "zIndex", {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Droppable 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Droppables
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.widget.js
-*	jquery.ui.mouse.js
-*	jquery.ui.draggable.js
-*/
+ * jQuery UI Droppable 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Droppables
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.widget.js
+ *	jquery.ui.mouse.js
+ *	jquery.ui.draggable.js
+ */
 (function( $, undefined ) {
 
 $.widget("ui.droppable", {
@@ -1954,7 +1924,7 @@ $.widget("ui.droppable", {
 });
 
 $.extend($.ui.droppable, {
-	version: "1.8.11"
+	version: "1.8.12"
 });
 
 $.ui.intersect = function(draggable, droppable, toleranceMode) {
@@ -2091,24 +2061,19 @@ $.ui.ddmanager = {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Resizable 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Resizables
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.mouse.js
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Resizable 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Resizables
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.mouse.js
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 $.widget("ui.resizable", $.ui.mouse, {
@@ -2616,7 +2581,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 });
 
 $.extend($.ui.resizable, {
-	version: "1.8.11"
+	version: "1.8.12"
 });
 
 /*
@@ -2908,24 +2873,19 @@ var isNumber = function(value) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Selectable 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Selectables
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.mouse.js
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Selectable 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Selectables
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.mouse.js
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 $.widget("ui.selectable", $.ui.mouse, {
@@ -3174,29 +3134,24 @@ $.widget("ui.selectable", $.ui.mouse, {
 });
 
 $.extend($.ui.selectable, {
-	version: "1.8.11"
+	version: "1.8.12"
 });
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Sortable 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Sortables
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.mouse.js
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Sortable 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Sortables
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.mouse.js
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 $.widget("ui.sortable", $.ui.mouse, {
@@ -3800,6 +3755,10 @@ $.widget("ui.sortable", $.ui.mouse, {
 		for (var i = this.items.length - 1; i >= 0; i--){
 			var item = this.items[i];
 
+			//We ignore calculating positions of all connected containers when we're not over them
+			if(item.instance != this.currentContainer && this.currentContainer && item.item[0] != this.currentItem[0])
+				continue;
+
 			var t = this.options.toleranceElement ? $(this.options.toleranceElement, item.item) : item.item;
 
 			if (!fast) {
@@ -4252,28 +4211,23 @@ $.widget("ui.sortable", $.ui.mouse, {
 });
 
 $.extend($.ui.sortable, {
-	version: "1.8.11"
+	version: "1.8.12"
 });
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Accordion 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Accordion
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Accordion 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Accordion
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 $.widget( "ui.accordion", {
@@ -4781,7 +4735,7 @@ $.widget( "ui.accordion", {
 });
 
 $.extend( $.ui.accordion, {
-	version: "1.8.11",
+	version: "1.8.12",
 	animations: {
 		slide: function( options, additions ) {
 			options = $.extend({
@@ -4873,24 +4827,19 @@ $.extend( $.ui.accordion, {
 
 })( jQuery );
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Autocomplete 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Autocomplete
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.widget.js
-*	jquery.ui.position.js
-*/
+ * jQuery UI Autocomplete 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Autocomplete
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.widget.js
+ *	jquery.ui.position.js
+ */
 (function( $, undefined ) {
 
 // used to prevent race conditions with remote data sources
@@ -5307,27 +5256,22 @@ $.extend( $.ui.autocomplete, {
 }( jQuery ));
 
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Menu (not officially released)
-* 
-* This widget isn't yet finished and the API is subject to change. We plan to finish
-* it for the next release. You're welcome to give it a try anyway and give us feedback,
-* as long as you're okay with migrating your code later on. We can help with that, too.
-*
-* Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Menu
-*
-* Depends:
-*	jquery.ui.core.js
-*  jquery.ui.widget.js
-*/
+ * jQuery UI Menu (not officially released)
+ * 
+ * This widget isn't yet finished and the API is subject to change. We plan to finish
+ * it for the next release. You're welcome to give it a try anyway and give us feedback,
+ * as long as you're okay with migrating your code later on. We can help with that, too.
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *  jquery.ui.widget.js
+ */
 (function($) {
 
 $.widget("ui.menu", {
@@ -5495,23 +5439,18 @@ $.widget("ui.menu", {
 
 }(jQuery));
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Button 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Button
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Button 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Button
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 var lastActive,
@@ -5683,21 +5622,17 @@ $.widget( "ui.button", {
 	},
 
 	_determineButtonType: function() {
-		
+
 		if ( this.element.is(":checkbox") ) {
 			this.type = "checkbox";
+		} else if ( this.element.is(":radio") ) {
+			this.type = "radio";
+		} else if ( this.element.is("input") ) {
+			this.type = "input";
 		} else {
-			if ( this.element.is(":radio") ) {
-				this.type = "radio";
-			} else {
-				if ( this.element.is("input") ) {
-					this.type = "input";
-				} else {
-					this.type = "button";
-				}
-			}
+			this.type = "button";
 		}
-		
+
 		if ( this.type === "checkbox" || this.type === "radio" ) {
 			// we don't search against the document in case the element
 			// is disconnected from the DOM
@@ -5887,28 +5822,23 @@ $.widget( "ui.buttonset", {
 
 }( jQuery ) );
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Dialog 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Dialog
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.widget.js
-*  jquery.ui.button.js
-*	jquery.ui.draggable.js
-*	jquery.ui.mouse.js
-*	jquery.ui.position.js
-*	jquery.ui.resizable.js
-*/
+ * jQuery UI Dialog 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Dialog
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.widget.js
+ *  jquery.ui.button.js
+ *	jquery.ui.draggable.js
+ *	jquery.ui.mouse.js
+ *	jquery.ui.position.js
+ *	jquery.ui.resizable.js
+ */
 (function( $, undefined ) {
 
 var uiDialogClasses =
@@ -5930,6 +5860,18 @@ var uiDialogClasses =
 		maxWidth: true,
 		minHeight: true,
 		minWidth: true
+	},
+	// support for jQuery 1.3.2 - handle common attrFn methods for dialog
+	attrFn = $.attrFn || {
+		val: true,
+		css: true,
+		html: true,
+		text: true,
+		data: true,
+		width: true,
+		height: true,
+		offset: true,
+		click: true
 	};
 
 $.widget("ui.dialog", {
@@ -6269,12 +6211,21 @@ $.widget("ui.dialog", {
 					{ click: props, text: name } :
 					props;
 				var button = $('<button type="button"></button>')
-					.attr( props, true )
-					.unbind('click')
 					.click(function() {
 						props.click.apply(self.element[0], arguments);
 					})
 					.appendTo(uiButtonSet);
+				// can't use .attr( props, true ) with jQuery 1.3.2.
+				$.each( props, function( key, value ) {
+					if ( key === "click" ) {
+						return;
+					}
+					if ( key in attrFn ) {
+						button[ key ]( value );
+					} else {
+						button.attr( key, value );
+					}
+				});
 				if ($.fn.button) {
 					button.button();
 				}
@@ -6574,7 +6525,7 @@ $.widget("ui.dialog", {
 });
 
 $.extend($.ui.dialog, {
-	version: "1.8.11",
+	version: "1.8.12",
 
 	uuid: 0,
 	maxZ: 0,
@@ -6749,24 +6700,19 @@ $.extend($.ui.dialog.overlay.prototype, {
 
 }(jQuery));
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Slider 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)\
-*
-* http://docs.jquery.com/UI/Slider
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.mouse.js
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Slider 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Slider
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.mouse.js
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 // number of pages in a slider
@@ -7221,6 +7167,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 			this.options.value = this._trimAlignValue( newValue );
 			this._refreshValue();
 			this._change( null, 0 );
+			return;
 		}
 
 		return this._value();
@@ -7235,6 +7182,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 			this.options.values[ index ] = this._trimAlignValue( newValue );
 			this._refreshValue();
 			this._change( null, index );
+			return;
 		}
 
 		if ( arguments.length ) {
@@ -7431,28 +7379,23 @@ $.widget( "ui.slider", $.ui.mouse, {
 });
 
 $.extend( $.ui.slider, {
-	version: "1.8.11"
+	version: "1.8.12"
 });
 
 }(jQuery));
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Tabs 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Tabs
-*
-* Depends:
-*	jquery.ui.core.js
-*	jquery.ui.widget.js
-*/
+ * jQuery UI Tabs 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Tabs
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 var tabId = 0,
@@ -8140,7 +8083,7 @@ $.widget( "ui.tabs", {
 });
 
 $.extend( $.ui.tabs, {
-	version: "1.8.11"
+	version: "1.8.12"
 });
 
 /*
@@ -8199,25 +8142,20 @@ $.extend( $.ui.tabs.prototype, {
 
 })( jQuery );
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Datepicker 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Datepicker
-*
-* Depends:
-*	jquery.ui.core.js
-*/
+ * jQuery UI Datepicker 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Datepicker
+ *
+ * Depends:
+ *	jquery.ui.core.js
+ */
 (function( $, undefined ) {
 
-$.extend($.ui, { datepicker: { version: "1.8.11" } });
+$.extend($.ui, { datepicker: { version: "1.8.12" } });
 
 var PROP_NAME = 'datepicker';
 var dpuuid = new Date().getTime();
@@ -9294,7 +9232,7 @@ $.extend(Datepicker.prototype, {
 		}
 		var date = this._daylightSavingAdjust(new Date(year, month - 1, day));
 		if (date.getFullYear() != year || date.getMonth() + 1 != month || date.getDate() != day)
-			throw 'Invalid date'; // E.g. 31/02/*
+			throw 'Invalid date'; // E.g. 31/02/00
 		return date;
 	},
 
@@ -9780,40 +9718,42 @@ $.extend(Datepicker.prototype, {
 		if (!showMonthAfterYear)
 			html += monthHtml + (secondary || !(changeMonth && changeYear) ? '&#xa0;' : '');
 		// year selection
-		inst.yearshtml = '';
-		if (secondary || !changeYear)
-			html += '<span class="ui-datepicker-year">' + drawYear + '</span>';
-		else {
-			// determine range of years to display
-			var years = this._get(inst, 'yearRange').split(':');
-			var thisYear = new Date().getFullYear();
-			var determineYear = function(value) {
-				var year = (value.match(/c[+-].*/) ? drawYear + parseInt(value.substring(1), 10) :
-					(value.match(/[+-].*/) ? thisYear + parseInt(value, 10) :
-					parseInt(value, 10)));
-				return (isNaN(year) ? thisYear : year);
-			};
-			var year = determineYear(years[0]);
-			var endYear = Math.max(year, determineYear(years[1] || ''));
-			year = (minDate ? Math.max(year, minDate.getFullYear()) : year);
-			endYear = (maxDate ? Math.min(endYear, maxDate.getFullYear()) : endYear);
-			inst.yearshtml += '<select class="ui-datepicker-year" ' +
-				'onchange="DP_jQuery_' + dpuuid + '.datepicker._selectMonthYear(\'#' + inst.id + '\', this, \'Y\');" ' +
-				'onclick="DP_jQuery_' + dpuuid + '.datepicker._clickMonthYear(\'#' + inst.id + '\');"' +
-				'>';
-			for (; year <= endYear; year++) {
-				inst.yearshtml += '<option value="' + year + '"' +
-					(year == drawYear ? ' selected="selected"' : '') +
-					'>' + year + '</option>';
-			}
-			inst.yearshtml += '</select>';
-			//when showing there is no need for later update
-			if( ! $.browser.mozilla ){
-				html += inst.yearshtml;
-				inst.yearshtml = null;
-			} else {
-				// will be replaced later with inst.yearshtml
-				html += '<select class="ui-datepicker-year"><option value="' + drawYear + '" selected="selected">' + drawYear + '</option></select>';
+		if ( !inst.yearshtml ) {
+			inst.yearshtml = '';
+			if (secondary || !changeYear)
+				html += '<span class="ui-datepicker-year">' + drawYear + '</span>';
+			else {
+				// determine range of years to display
+				var years = this._get(inst, 'yearRange').split(':');
+				var thisYear = new Date().getFullYear();
+				var determineYear = function(value) {
+					var year = (value.match(/c[+-].*/) ? drawYear + parseInt(value.substring(1), 10) :
+						(value.match(/[+-].*/) ? thisYear + parseInt(value, 10) :
+						parseInt(value, 10)));
+					return (isNaN(year) ? thisYear : year);
+				};
+				var year = determineYear(years[0]);
+				var endYear = Math.max(year, determineYear(years[1] || ''));
+				year = (minDate ? Math.max(year, minDate.getFullYear()) : year);
+				endYear = (maxDate ? Math.min(endYear, maxDate.getFullYear()) : endYear);
+				inst.yearshtml += '<select class="ui-datepicker-year" ' +
+					'onchange="DP_jQuery_' + dpuuid + '.datepicker._selectMonthYear(\'#' + inst.id + '\', this, \'Y\');" ' +
+					'onclick="DP_jQuery_' + dpuuid + '.datepicker._clickMonthYear(\'#' + inst.id + '\');"' +
+					'>';
+				for (; year <= endYear; year++) {
+					inst.yearshtml += '<option value="' + year + '"' +
+						(year == drawYear ? ' selected="selected"' : '') +
+						'>' + year + '</option>';
+				}
+				inst.yearshtml += '</select>';
+				//when showing there is no need for later update
+				if( ! $.browser.mozilla ){
+					html += inst.yearshtml;
+					inst.yearshtml = null;
+				} else {
+					// will be replaced later with inst.yearshtml
+					html += '<select class="ui-datepicker-year"><option value="' + drawYear + '" selected="selected">' + drawYear + '</option></select>';
+				}
 			}
 		}
 		html += this._get(inst, 'yearSuffix');
@@ -9969,7 +9909,7 @@ $.fn.datepicker = function(options){
 $.datepicker = new Datepicker(); // singleton instance
 $.datepicker.initialized = false;
 $.datepicker.uuid = new Date().getTime();
-$.datepicker.version = "1.8.11";
+$.datepicker.version = "1.8.12";
 
 // Workaround for #4055
 // Add another global to avoid noConflict issues with inline event handlers
@@ -9977,23 +9917,18 @@ window['DP_jQuery_' + dpuuid] = $;
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Progressbar 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Progressbar
-*
-* Depends:
-*   jquery.ui.core.js
-*   jquery.ui.widget.js
-*/
+ * jQuery UI Progressbar 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Progressbar
+ *
+ * Depends:
+ *   jquery.ui.core.js
+ *   jquery.ui.widget.js
+ */
 (function( $, undefined ) {
 
 $.widget( "ui.progressbar", {
@@ -10078,6 +10013,7 @@ $.widget( "ui.progressbar", {
 		}
 
 		this.valueDiv
+			.toggle( value > this.min )
 			.toggleClass( "ui-corner-right", value === this.options.max )
 			.width( percentage.toFixed(0) + "%" );
 		this.element.attr( "aria-valuenow", value );
@@ -10085,24 +10021,19 @@ $.widget( "ui.progressbar", {
 });
 
 $.extend( $.ui.progressbar, {
-	version: "1.8.11"
+	version: "1.8.12"
 });
 
 })( jQuery );
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/
-*/
+ * jQuery UI Effects 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/
+ */
 ;jQuery.effects || (function($, undefined) {
 
 $.effects = {};
@@ -10403,7 +10334,7 @@ $.fn.extend({
 /******************************************************************************/
 
 $.extend($.effects, {
-	version: "1.8.11",
+	version: "1.8.12",
 
 	// Saves a set of properties in a data storage
 	save: function(element, set) {
@@ -10635,21 +10566,41 @@ $.fn.extend({
 /******************************************************************************/
 
 /*
- * Note: While Microsoft is not the author of this file, Microsoft is
- * offering you a license subject to the terms of the Microsoft Software
- * License Terms for Microsoft ASP.NET Model View Controller 3.
- * Microsoft reserves all other rights. The notices below are provided
- * for informational purposes only and are not the license terms under
- * which Microsoft distributed this file.
- *
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
  *
  * Uses the built in easing capabilities added In jQuery 1.1
  * to offer multiple easing options
  *
+ * TERMS OF USE - jQuery Easing
+ *
+ * Open source under the BSD License.
+ *
  * Copyright 2008 George McGinley Smith
- * 
- */
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice, this list of
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list
+ * of conditions and the following disclaimer in the documentation and/or other materials
+ * provided with the distribution.
+ *
+ * Neither the name of the author nor the names of contributors may be used to endorse
+ * or promote products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+*/
 
 // t: current time, b: begInnIng value, c: change In value, d: duration
 $.easing.jswing = $.easing.swing;
@@ -10788,38 +10739,51 @@ $.extend($.easing,
 });
 
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-*
-* Copyright 2001 Robert Penner
-* All rights reserved.
-*
-*/
+ *
+ * TERMS OF USE - EASING EQUATIONS
+ *
+ * Open source under the BSD License.
+ *
+ * Copyright 2001 Robert Penner
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice, this list of
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list
+ * of conditions and the following disclaimer in the documentation and/or other materials
+ * provided with the distribution.
+ *
+ * Neither the name of the author nor the names of contributors may be used to endorse
+ * or promote products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
 
 })(jQuery);
 /*
-
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Blind 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Blind
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Blind 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Blind
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.blind = function(o) {
@@ -10858,22 +10822,17 @@ $.effects.blind = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Bounce 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Bounce
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Bounce 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Bounce
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.bounce = function(o) {
@@ -10941,23 +10900,17 @@ $.effects.bounce = function(o) {
 
 })(jQuery);
 /*
-
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Clip 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Clip
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Clip 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Clip
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.clip = function(o) {
@@ -11001,22 +10954,17 @@ $.effects.clip = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Drop 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Drop
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Drop 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Drop
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.drop = function(o) {
@@ -11056,22 +11004,17 @@ $.effects.drop = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Explode 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Explode
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Explode 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Explode
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.explode = function(o) {
@@ -11140,22 +11083,17 @@ $.effects.explode = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Fade 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)\
-*
-* http://docs.jquery.com/UI/Effects/Fade
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Fade 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Fade
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.fade = function(o) {
@@ -11177,22 +11115,17 @@ $.effects.fade = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Fold 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Fold
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Fold 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Fold
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.fold = function(o) {
@@ -11238,22 +11171,17 @@ $.effects.fold = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Highlight 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)\
-*
-* http://docs.jquery.com/UI/Effects/Highlight
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Highlight 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Highlight
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.highlight = function(o) {
@@ -11293,22 +11221,17 @@ $.effects.highlight = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Pulsate 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Pulsate
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Pulsate 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Pulsate
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.pulsate = function(o) {
@@ -11349,22 +11272,17 @@ $.effects.pulsate = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Scale 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Scale
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Scale 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Scale
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.puff = function(o) {
@@ -11532,22 +11450,17 @@ $.effects.size = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Shake 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Shake
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Shake 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Shake
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.shake = function(o) {
@@ -11594,22 +11507,17 @@ $.effects.shake = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Slide 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Slide
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Slide 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Slide
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.slide = function(o) {
@@ -11649,22 +11557,17 @@ $.effects.slide = function(o) {
 
 })(jQuery);
 /*
-* Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
-* License Terms for Microsoft ASP.NET Model View Controller 3.
-* Microsoft reserves all other rights. The notices below are provided
-* for informational purposes only and are not the license terms under
-* which Microsoft distributed this file.
-*
-* jQuery UI Effects Transfer 1.8.11
-*
-* Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
-*
-* http://docs.jquery.com/UI/Effects/Transfer
-*
-* Depends:
-*	jquery.effects.core.js
-*/
+ * jQuery UI Effects Transfer 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Effects/Transfer
+ *
+ * Depends:
+ *	jquery.effects.core.js
+ */
 (function( $, undefined ) {
 
 $.effects.transfer = function(o) {

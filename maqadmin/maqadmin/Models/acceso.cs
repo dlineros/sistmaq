@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.Entity;
 using System.Data.Linq;
 using maqadmin.Models;
+using System.Web;
 
 
 namespace maqadmin.Models
@@ -22,12 +23,30 @@ namespace maqadmin.Models
 
                 if (resultado != null)
                 {
-                    acceso = true;      
+                    acceso = true;
+                    SeteaInicio(resultado);
                 }
             }
             return acceso;
 
         }
+
+        public void SeteaInicio(tbltoken objtbltoken) 
+        {
+
+            using (var db = new bdloginEntities()) {
+
+                HttpContext.Current.Session["idlocal"] = objtbltoken.idLocal;
+                var parametro = db.bingoParametro.Where(p => p.idLocal == objtbltoken.idLocal).Single();
+                parametro.videoActivo = false;                
+                db.SaveChanges();
+            
+            }
+        
+        
+        
+        }
+
 
     }
 }

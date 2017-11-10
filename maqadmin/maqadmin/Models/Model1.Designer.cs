@@ -19,7 +19,7 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
 
-[assembly: EdmRelationshipAttribute("bdloginModel", "FK_bingoParametro_estadoJuego", "estadoJuego", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(maqadmin.Models.estadoJuego), "bingoParametro", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(maqadmin.Models.bingoParametro), true)]
+[assembly: EdmRelationshipAttribute("bdloginModel", "FK_bingoParametro_estadoJuego", "estadoJuego", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(maqadmin.Models.estadoJuego), "bingoParametro", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(maqadmin.Models.bingoParametro), true)]
 
 #endregion
 
@@ -150,6 +150,22 @@ namespace maqadmin.Models
             }
         }
         private ObjectSet<tbltoken> _tbltoken;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<tblusuario> tblusuario
+        {
+            get
+            {
+                if ((_tblusuario == null))
+                {
+                    _tblusuario = base.CreateObjectSet<tblusuario>("tblusuario");
+                }
+                return _tblusuario;
+            }
+        }
+        private ObjectSet<tblusuario> _tblusuario;
 
         #endregion
 
@@ -193,6 +209,14 @@ namespace maqadmin.Models
         public void AddTotbltoken(tbltoken tbltoken)
         {
             base.AddObject("tbltoken", tbltoken);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet tblusuario. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddTotblusuario(tblusuario tblusuario)
+        {
+            base.AddObject("tblusuario", tblusuario);
         }
 
         #endregion
@@ -2369,15 +2393,17 @@ namespace maqadmin.Models
         /// </summary>
         /// <param name="idParametro">Valor inicial de la propiedad idParametro.</param>
         /// <param name="idLocal">Valor inicial de la propiedad idLocal.</param>
+        /// <param name="idEstadoJuego">Valor inicial de la propiedad idEstadoJuego.</param>
         /// <param name="esperaNumeroSeg">Valor inicial de la propiedad esperaNumeroSeg.</param>
         /// <param name="premioDefecto">Valor inicial de la propiedad premioDefecto.</param>
         /// <param name="juegoAutomatico">Valor inicial de la propiedad juegoAutomatico.</param>
         /// <param name="juegoAutomaticoCadaSeg">Valor inicial de la propiedad juegoAutomaticoCadaSeg.</param>
-        public static bingoParametro CreatebingoParametro(global::System.Int32 idParametro, global::System.Int32 idLocal, global::System.Int32 esperaNumeroSeg, global::System.Int32 premioDefecto, global::System.Boolean juegoAutomatico, global::System.Int32 juegoAutomaticoCadaSeg)
+        public static bingoParametro CreatebingoParametro(global::System.Int32 idParametro, global::System.Int32 idLocal, global::System.Int32 idEstadoJuego, global::System.Int32 esperaNumeroSeg, global::System.Int32 premioDefecto, global::System.Boolean juegoAutomatico, global::System.Int32 juegoAutomaticoCadaSeg)
         {
             bingoParametro bingoParametro = new bingoParametro();
             bingoParametro.idParametro = idParametro;
             bingoParametro.idLocal = idLocal;
+            bingoParametro.idEstadoJuego = idEstadoJuego;
             bingoParametro.esperaNumeroSeg = esperaNumeroSeg;
             bingoParametro.premioDefecto = premioDefecto;
             bingoParametro.juegoAutomatico = juegoAutomatico;
@@ -2443,9 +2469,9 @@ namespace maqadmin.Models
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> idEstadoJuego
+        public global::System.Int32 idEstadoJuego
         {
             get
             {
@@ -2460,9 +2486,33 @@ namespace maqadmin.Models
                 OnidEstadoJuegoChanged();
             }
         }
-        private Nullable<global::System.Int32> _idEstadoJuego;
-        partial void OnidEstadoJuegoChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _idEstadoJuego;
+        partial void OnidEstadoJuegoChanging(global::System.Int32 value);
         partial void OnidEstadoJuegoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> videoActivo
+        {
+            get
+            {
+                return _videoActivo;
+            }
+            set
+            {
+                OnvideoActivoChanging(value);
+                ReportPropertyChanging("videoActivo");
+                _videoActivo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("videoActivo");
+                OnvideoActivoChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _videoActivo;
+        partial void OnvideoActivoChanging(Nullable<global::System.Boolean> value);
+        partial void OnvideoActivoChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -2583,6 +2633,30 @@ namespace maqadmin.Models
         private global::System.String _urlVideo;
         partial void OnurlVideoChanging(global::System.String value);
         partial void OnurlVideoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MensajeVideo
+        {
+            get
+            {
+                return _MensajeVideo;
+            }
+            set
+            {
+                OnMensajeVideoChanging(value);
+                ReportPropertyChanging("MensajeVideo");
+                _MensajeVideo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MensajeVideo");
+                OnMensajeVideoChanged();
+            }
+        }
+        private global::System.String _MensajeVideo;
+        partial void OnMensajeVideoChanging(global::System.String value);
+        partial void OnMensajeVideoChanged();
 
         #endregion
 
@@ -3092,6 +3166,137 @@ namespace maqadmin.Models
         private Nullable<global::System.Int32> _idUsuario;
         partial void OnidUsuarioChanging(Nullable<global::System.Int32> value);
         partial void OnidUsuarioChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="bdloginModel", Name="tblusuario")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tblusuario : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto tblusuario.
+        /// </summary>
+        /// <param name="idusuario">Valor inicial de la propiedad idusuario.</param>
+        /// <param name="idlocal">Valor inicial de la propiedad idlocal.</param>
+        public static tblusuario Createtblusuario(global::System.Int32 idusuario, global::System.Int32 idlocal)
+        {
+            tblusuario tblusuario = new tblusuario();
+            tblusuario.idusuario = idusuario;
+            tblusuario.idlocal = idlocal;
+            return tblusuario;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idusuario
+        {
+            get
+            {
+                return _idusuario;
+            }
+            set
+            {
+                if (_idusuario != value)
+                {
+                    OnidusuarioChanging(value);
+                    ReportPropertyChanging("idusuario");
+                    _idusuario = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idusuario");
+                    OnidusuarioChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idusuario;
+        partial void OnidusuarioChanging(global::System.Int32 value);
+        partial void OnidusuarioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String usuario
+        {
+            get
+            {
+                return _usuario;
+            }
+            set
+            {
+                OnusuarioChanging(value);
+                ReportPropertyChanging("usuario");
+                _usuario = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("usuario");
+                OnusuarioChanged();
+            }
+        }
+        private global::System.String _usuario;
+        partial void OnusuarioChanging(global::System.String value);
+        partial void OnusuarioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pass
+        {
+            get
+            {
+                return _pass;
+            }
+            set
+            {
+                OnpassChanging(value);
+                ReportPropertyChanging("pass");
+                _pass = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pass");
+                OnpassChanged();
+            }
+        }
+        private global::System.String _pass;
+        partial void OnpassChanging(global::System.String value);
+        partial void OnpassChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idlocal
+        {
+            get
+            {
+                return _idlocal;
+            }
+            set
+            {
+                OnidlocalChanging(value);
+                ReportPropertyChanging("idlocal");
+                _idlocal = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idlocal");
+                OnidlocalChanged();
+            }
+        }
+        private global::System.Int32 _idlocal;
+        partial void OnidlocalChanging(global::System.Int32 value);
+        partial void OnidlocalChanged();
 
         #endregion
 

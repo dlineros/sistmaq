@@ -8,7 +8,8 @@ using System.Web.Mvc;
 using maqadmin.Models;
 
 namespace maqadmin.Controllers
-{ 
+{
+     [Authorize]
     public class bingoJuegoController : Controller
     {
         private bdloginEntities db = new bdloginEntities();
