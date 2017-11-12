@@ -9,6 +9,7 @@ using maqadmin.Hubs;
 using maqadmin.Models;
 using maqadmin.Controllers;
 
+
 namespace maqadmin
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -30,50 +31,56 @@ namespace maqadmin
                 "{controller}/{action}/{id}", // URL with parameters
                 //new { controller = "Home", action = "AccesoUrlGet", id = UrlParameter.Optional } // Parameter defaults
                 //new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-                //new { controller = "Home", action = "AccesoUrlGet", id = UrlParameter.Optional } // Parameter defaults
+
+                //new { controller = "Home", action = "AccesoUrlGet", token = "xxxxxx" } // Parameter defaults
                  new { controller = "bingoParametro", action = "Index", id = UrlParameter.Optional } // Parameter defaults
 
-                
 
-                //http://localhost:2859/Home/AccesoUrlGet?usuario=dlineros&pass=xxx&idlocal=1
+
+                //http://localhost:51690/Home/AccesoUrlGet?token=xxxxxx
             );
 
         }
 
         protected void Application_Start()
         {
+
             RouteTable.Routes.MapHubs();
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
-            var objbingo = new HomeController();
-            var aTimer = new System.Timers.Timer(1000);
-            aTimer.Elapsed += aTimer_Elapsed;
-            aTimer.Interval = objbingo.obtieneEsperaNumeroSeq();
-            aTimer.Enabled = true;           
-            objbingo.SeteaEstadoVideo(false);
-            
 
-                       
+            //var aTimer = new System.Timers.Timer(1000);
+            //aTimer.Elapsed += aTimer_Elapsed;
+            //aTimer.Interval = 20000;
+            //aTimer.Enabled = true;
+            //var objacceso = new HomeController();
+            //objacceso.SeteaEstadoVideo(false);
+
         }
 
-        void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            var objbingo = new HomeController();
-            var salida = objbingo.client();
-            var videoActivo = objbingo.ObtieneEstadoVideo();
-            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-            if (videoActivo == false) 
-            {
-                context.Clients.All.broadcastMessage(salida + DateTime.Now);
+        //void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        //{
+        //    var objbingo = new HomeController();
+            
+        //    var videoActivo = objbingo.ObtieneEstadoVideo();
+        //    var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+        //    if (videoActivo == false) 
+     
+        //    {
                 
-            }
-            objbingo.SeteaEstadoVideo(true);
-            
+        //        var salida = objbingo.ClientDownload();
+        //        context.Clients.All.broadcastMessage(salida + DateTime.Now);
+        //        //var objacceso = new HomeController();
+        //        //objacceso.SeteaEstadoVideo(true);
+        //    }
 
-        }
+           
+
+
+        //}
 
 
 

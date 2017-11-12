@@ -55,6 +55,7 @@
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.1.0.1\lib\net40\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -98,6 +99,7 @@
     <Compile Include="Controllers\bingoJuegoController.cs" />
     <Compile Include="Controllers\bingoParametroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Hubs\ConnectionMapping.cs" />
     <Compile Include="Hubs\signal.cs" />
     <Compile Include="Models\bingo.cs" />
     <Compile Include="Models\Model1.Designer.cs">
