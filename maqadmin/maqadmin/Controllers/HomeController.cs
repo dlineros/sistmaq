@@ -23,7 +23,7 @@ namespace maqadmin.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Prueba";
-            var x=User.Identity.Name;
+            var x = User.Identity.Name;
             var sesion = Session["idlocal"];
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
             return View();
@@ -35,29 +35,29 @@ namespace maqadmin.Controllers
         //http://localhost:2859/Home/AccesoUrlGet?token=xxxxxx
         public ActionResult AccesoUrlGet(string token)
         {
-        
+
             using (var db = new bdloginEntities())
+            {
+
+                var tbltoken = (from p in db.tbltoken
+                                where p.token == token
+                                select p).SingleOrDefault();
+
+                if (tbltoken != null)
                 {
 
-                    var tbltoken = (from p in db.tbltoken
-                                     where p.token == token
-                                     select p).SingleOrDefault();
-
-                    if (tbltoken != null)
-                    {
-
-                        //FormsAuthentication.SetAuthCookie(token, true);
-                        FormsAuthentication.SetAuthCookie(tbltoken.idLocal.ToString(), true);
-                        Session["idlocal"] = tbltoken.idLocal;
-                        var parametro = db.bingoParametro.Where(p => p.idLocal == tbltoken.idLocal).Single();
-                        parametro.videoActivo = false;
-                        db.SaveChanges();
-                        return RedirectToAction("Index", "bingoJuego");
-                    }
-
-                    return PartialView("_AccesoDenegado");
+                    //FormsAuthentication.SetAuthCookie(token, true);
+                    FormsAuthentication.SetAuthCookie(tbltoken.idLocal.ToString(), true);
+                    Session["idlocal"] = tbltoken.idLocal;
+                    var parametro = db.bingoParametro.Where(p => p.idLocal == tbltoken.idLocal).Single();
+                    parametro.videoActivo = false;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "bingoJuego");
                 }
-           
+
+                return PartialView("_AccesoDenegado");
+            }
+
         }
 
 
@@ -70,34 +70,59 @@ namespace maqadmin.Controllers
             var url = string.Format("http://localhost:51690/home/BingoCiclico?varidlocal={0}", idLocal);
             try
             {
-                  salida = client.DownloadString(url);
+                salida = client.DownloadString(url);
             }
             catch (Exception)
             {
 
                 return "";
             }
-           
+
             return salida;
         }
+
+
+        public ActionResult Bingo()
+        {
+            int idlocal = Convert.ToInt32(User.Identity.Name);
+            var objacceso = new HomeController();
+            objacceso.SeteaEstadoVideo(false, idlocal);
+
+            var aTimer = new System.Timers.Timer(1000);
+            aTimer.Elapsed += aTimer_Elapsed;
+            aTimer.Interval = 10000;
+            aTimer.Enabled = true;
+
+
+
+            ViewData["hora"] = DateTime.Now.ToLongTimeString();
+            return View("Bingo");
+        }
+
+
 
         public ActionResult BingoCiclico(string varidlocal)
         {
 
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
             int idlocal = Convert.ToInt32(varidlocal);
-            
+            ViewData["idlocal"] = idlocal;
 
             using (var db = new bdloginEntities())
             {
-                
+
                 //video activo(Ya se esta ejecutando, no debe refrezcar) y estado2: Muestra el video
                 var videoActivo = db.bingoParametro.Where(p => p.idLocal == idlocal && p.idEstadoJuego == 2).SingleOrDefault();
                 if (videoActivo != null)
                 {
-                    ViewData["videoActivo"] = true;
-                    ViewData["urlVideo"] = videoActivo.urlVideo;
-                    return PartialView("_Video");
+                    if (!videoActivo.videoActivo)
+                    {
+                        ViewData["urlVideo"] = videoActivo.urlVideo;
+                        var objacceso = new HomeController();
+                        objacceso.SeteaEstadoVideo(true, idlocal);
+                        return PartialView("_Video");
+                    }
+
                 }
 
             }
@@ -115,6 +140,8 @@ namespace maqadmin.Controllers
                 var bingoParametro = db.bingoParametro.First();
 
                 //OBTIENE DATOS A MOSTRAR, 1 OBJETO POR MODELO
+                ViewData["estadoJuego"] = db.estadoJuego.Where(p => p.idestado == bingoParametro.idEstadoJuego).Single().nombre;
+
                 objBingoFullViewModels.tbltoken = tbltoken;
                 objBingoFullViewModels.bingoJuego = bingoJuego;
                 objBingoFullViewModels.bingoParametro = bingoParametro;
@@ -127,60 +154,43 @@ namespace maqadmin.Controllers
         void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             var objbingo = new HomeController();
- 
-            int idLocal = Convert.ToInt32(User.Identity.Name);
-
-            var videoActivo = objbingo.ObtieneEstadoVideo();
-            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-            if (videoActivo == false)
+            using (var db = new bdloginEntities())
             {
-                var salida = objbingo.ClientDownload(1);
-                context.Clients.All.broadcastMessage(salida + DateTime.Now);
-                //var objacceso = new HomeController();
-                //objacceso.SeteaEstadoVideo(true);
+                int idlocal = Convert.ToInt32(User.Identity.Name);
+                var parametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+                if (parametro != null)
+                {
+                    if ((!parametro.videoActivo) && (parametro.idEstadoJuego == 2))
+                    {
+                        var salida = objbingo.ClientDownload(1);
+                        var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+                        context.Clients.All.broadcastMessage(salida + DateTime.Now);
+                    }
+
+                    if ((parametro.idEstadoJuego == 1))
+                    {
+                        var salida = objbingo.ClientDownload(1);
+                        var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+                        context.Clients.All.broadcastMessage(salida + DateTime.Now);
+                    }
+                }
+
+
+
+
             }
 
 
 
-
         }
 
-        public ActionResult Bingo()
-        {
 
-
-            var aTimer = new System.Timers.Timer(1000);
-            aTimer.Elapsed += aTimer_Elapsed;
-            aTimer.Interval = 20000;
-            aTimer.Enabled = true;
-
-
-            var x = User.Identity.Name;
-            ViewData["hora"] = DateTime.Now.ToLongTimeString();
-            return View("Bingo");
-        }
 
         /// <summary>
         /// Obtiene estado del video cuando esta activado
         /// 2: Muestra video
         /// </summary>
         /// <returns></returns>
-        public bool ObtieneEstadoVideo()
-        {
-            var salida = false;
-            using (var db = new bdloginEntities())
-            {
-                if (Session != null)
-                {
-                    var videoActivo = db.bingoParametro.Where(p => p.idLocal == Convert.ToInt32(Session["idlocal"]) && p.idEstadoJuego == 2 && p.videoActivo == true).SingleOrDefault();
-                    if (videoActivo != null)
-                    {
-                        salida = true;
-                    }
-                }
-            }
-            return salida;
-        }
 
 
 
@@ -202,28 +212,16 @@ namespace maqadmin.Controllers
         }
 
 
-        public void SeteaEstadoVideo(bool estado)
+        public void SeteaEstadoVideo(bool estado, int idlocal)
         {
-            
-            var objacceso = new acceso();
-            
-            if (objacceso.ValidaSession())
+
+            using (var db = new bdloginEntities())
             {
-                var idlocal = Convert.ToInt32(Session["idlocal"]);
-                using (var db = new bdloginEntities())
-                {
-                    var videoActivo = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
-                    if (videoActivo != null) videoActivo.videoActivo = estado;
-                    db.SaveChanges();
-                }
+                var videoActivo = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+                if (videoActivo != null) videoActivo.videoActivo = estado;
+                db.SaveChanges();
             }
 
-            else
-            {
-                return;
-            }
-
-            
         }
     }
 }

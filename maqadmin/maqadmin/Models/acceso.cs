@@ -44,27 +44,27 @@ namespace maqadmin.Models
         //    }
         //}
 
-        public bool ValidaSession()
-        {
-            const bool salida = true;
-            try
-            {
-                int idlocal = Convert.ToInt32(HttpContext.Current.Session["idlocal"]);
-                if (idlocal == 0)
-                {
-                    return false;
-                }
-            }
-            catch (Exception e)
-            {
-                return false;
+        //public bool ValidaSession()
+        //{
+        //    const bool salida = true;
+        //    try
+        //    {
+        //        int idlocal = Convert.ToInt32(HttpContext.Current.Session["idlocal"]);
+        //        if (idlocal == 0)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return false;
 
-            }
+        //    }
 
-            return salida;
+        //    return salida;
 
 
-        }
+        //}
 
 
     }

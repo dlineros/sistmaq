@@ -122,22 +122,6 @@ namespace maqadmin.Models
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        public ObjectSet<sysdiagrams> sysdiagrams
-        {
-            get
-            {
-                if ((_sysdiagrams == null))
-                {
-                    _sysdiagrams = base.CreateObjectSet<sysdiagrams>("sysdiagrams");
-                }
-                return _sysdiagrams;
-            }
-        }
-        private ObjectSet<sysdiagrams> _sysdiagrams;
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
         public ObjectSet<tbltoken> tbltoken
         {
             get
@@ -193,14 +177,6 @@ namespace maqadmin.Models
         public void AddToestadoJuego(estadoJuego estadoJuego)
         {
             base.AddObject("estadoJuego", estadoJuego);
-        }
-    
-        /// <summary>
-        /// Método desusado para agregar un nuevo objeto al EntitySet sysdiagrams. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
-        /// </summary>
-        public void AddTosysdiagrams(sysdiagrams sysdiagrams)
-        {
-            base.AddObject("sysdiagrams", sysdiagrams);
         }
     
         /// <summary>
@@ -2394,16 +2370,18 @@ namespace maqadmin.Models
         /// <param name="idParametro">Valor inicial de la propiedad idParametro.</param>
         /// <param name="idLocal">Valor inicial de la propiedad idLocal.</param>
         /// <param name="idEstadoJuego">Valor inicial de la propiedad idEstadoJuego.</param>
+        /// <param name="videoActivo">Valor inicial de la propiedad videoActivo.</param>
         /// <param name="esperaNumeroSeg">Valor inicial de la propiedad esperaNumeroSeg.</param>
         /// <param name="premioDefecto">Valor inicial de la propiedad premioDefecto.</param>
         /// <param name="juegoAutomatico">Valor inicial de la propiedad juegoAutomatico.</param>
         /// <param name="juegoAutomaticoCadaSeg">Valor inicial de la propiedad juegoAutomaticoCadaSeg.</param>
-        public static bingoParametro CreatebingoParametro(global::System.Int32 idParametro, global::System.Int32 idLocal, global::System.Int32 idEstadoJuego, global::System.Int32 esperaNumeroSeg, global::System.Int32 premioDefecto, global::System.Boolean juegoAutomatico, global::System.Int32 juegoAutomaticoCadaSeg)
+        public static bingoParametro CreatebingoParametro(global::System.Int32 idParametro, global::System.Int32 idLocal, global::System.Int32 idEstadoJuego, global::System.Boolean videoActivo, global::System.Int32 esperaNumeroSeg, global::System.Int32 premioDefecto, global::System.Boolean juegoAutomatico, global::System.Int32 juegoAutomaticoCadaSeg)
         {
             bingoParametro bingoParametro = new bingoParametro();
             bingoParametro.idParametro = idParametro;
             bingoParametro.idLocal = idLocal;
             bingoParametro.idEstadoJuego = idEstadoJuego;
+            bingoParametro.videoActivo = videoActivo;
             bingoParametro.esperaNumeroSeg = esperaNumeroSeg;
             bingoParametro.premioDefecto = premioDefecto;
             bingoParametro.juegoAutomatico = juegoAutomatico;
@@ -2493,9 +2471,9 @@ namespace maqadmin.Models
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> videoActivo
+        public global::System.Boolean videoActivo
         {
             get
             {
@@ -2510,8 +2488,8 @@ namespace maqadmin.Models
                 OnvideoActivoChanged();
             }
         }
-        private Nullable<global::System.Boolean> _videoActivo;
-        partial void OnvideoActivoChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _videoActivo;
+        partial void OnvideoActivoChanging(global::System.Boolean value);
         partial void OnvideoActivoChanged();
     
         /// <summary>
@@ -2719,12 +2697,12 @@ namespace maqadmin.Models
         /// Crear un nuevo objeto estadoJuego.
         /// </summary>
         /// <param name="idestado">Valor inicial de la propiedad idestado.</param>
-        /// <param name="estadoJuego1">Valor inicial de la propiedad estadoJuego1.</param>
-        public static estadoJuego CreateestadoJuego(global::System.Int32 idestado, global::System.String estadoJuego1)
+        /// <param name="nombre">Valor inicial de la propiedad nombre.</param>
+        public static estadoJuego CreateestadoJuego(global::System.Int32 idestado, global::System.String nombre)
         {
             estadoJuego estadoJuego = new estadoJuego();
             estadoJuego.idestado = idestado;
-            estadoJuego.estadoJuego1 = estadoJuego1;
+            estadoJuego.nombre = nombre;
             return estadoJuego;
         }
 
@@ -2764,24 +2742,24 @@ namespace maqadmin.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String estadoJuego1
+        public global::System.String nombre
         {
             get
             {
-                return _estadoJuego1;
+                return _nombre;
             }
             set
             {
-                OnestadoJuego1Changing(value);
-                ReportPropertyChanging("estadoJuego1");
-                _estadoJuego1 = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("estadoJuego1");
-                OnestadoJuego1Changed();
+                OnnombreChanging(value);
+                ReportPropertyChanging("nombre");
+                _nombre = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("nombre");
+                OnnombreChanged();
             }
         }
-        private global::System.String _estadoJuego1;
-        partial void OnestadoJuego1Changing(global::System.String value);
-        partial void OnestadoJuego1Changed();
+        private global::System.String _nombre;
+        partial void OnnombreChanging(global::System.String value);
+        partial void OnnombreChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -2836,163 +2814,6 @@ namespace maqadmin.Models
 
         #endregion
 
-    }
-    
-    /// <summary>
-    /// No hay documentación de metadatos disponible.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="bdloginModel", Name="sysdiagrams")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class sysdiagrams : EntityObject
-    {
-        #region Método de generador
-    
-        /// <summary>
-        /// Crear un nuevo objeto sysdiagrams.
-        /// </summary>
-        /// <param name="name">Valor inicial de la propiedad name.</param>
-        /// <param name="principal_id">Valor inicial de la propiedad principal_id.</param>
-        /// <param name="diagram_id">Valor inicial de la propiedad diagram_id.</param>
-        public static sysdiagrams Createsysdiagrams(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
-        {
-            sysdiagrams sysdiagrams = new sysdiagrams();
-            sysdiagrams.name = name;
-            sysdiagrams.principal_id = principal_id;
-            sysdiagrams.diagram_id = diagram_id;
-            return sysdiagrams;
-        }
-
-        #endregion
-
-        #region Propiedades primitivas
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                OnnameChanging(value);
-                ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("name");
-                OnnameChanged();
-            }
-        }
-        private global::System.String _name;
-        partial void OnnameChanging(global::System.String value);
-        partial void OnnameChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 principal_id
-        {
-            get
-            {
-                return _principal_id;
-            }
-            set
-            {
-                Onprincipal_idChanging(value);
-                ReportPropertyChanging("principal_id");
-                _principal_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("principal_id");
-                Onprincipal_idChanged();
-            }
-        }
-        private global::System.Int32 _principal_id;
-        partial void Onprincipal_idChanging(global::System.Int32 value);
-        partial void Onprincipal_idChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 diagram_id
-        {
-            get
-            {
-                return _diagram_id;
-            }
-            set
-            {
-                if (_diagram_id != value)
-                {
-                    Ondiagram_idChanging(value);
-                    ReportPropertyChanging("diagram_id");
-                    _diagram_id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("diagram_id");
-                    Ondiagram_idChanged();
-                }
-            }
-        }
-        private global::System.Int32 _diagram_id;
-        partial void Ondiagram_idChanging(global::System.Int32 value);
-        partial void Ondiagram_idChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> version
-        {
-            get
-            {
-                return _version;
-            }
-            set
-            {
-                OnversionChanging(value);
-                ReportPropertyChanging("version");
-                _version = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("version");
-                OnversionChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _version;
-        partial void OnversionChanging(Nullable<global::System.Int32> value);
-        partial void OnversionChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] definition
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_definition);
-            }
-            set
-            {
-                OndefinitionChanging(value);
-                ReportPropertyChanging("definition");
-                _definition = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("definition");
-                OndefinitionChanged();
-            }
-        }
-        private global::System.Byte[] _definition;
-        partial void OndefinitionChanging(global::System.Byte[] value);
-        partial void OndefinitionChanged();
-
-        #endregion
-
-    
     }
     
     /// <summary>

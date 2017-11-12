@@ -50,6 +50,7 @@ namespace maqadmin
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+           
 
 
             //var aTimer = new System.Timers.Timer(1000);
