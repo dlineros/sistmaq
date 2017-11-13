@@ -67,7 +67,10 @@ namespace maqadmin.Controllers
             //var x = User.Identity.Name;
             var client = new WebClient();
             string salida;
-            var url = string.Format("http://localhost:51690/home/BingoCiclico?varidlocal={0}", idLocal);
+           
+            //var url = string.Format("http://localhost:51690/home/BingoCiclico?varidlocal={0}", idLocal);
+            var url = string.Format("http://dll.ddns.net:8089/home/BingoCiclico?varidlocal={0}", idLocal);
+        
             try
             {
                 salida = client.DownloadString(url);
