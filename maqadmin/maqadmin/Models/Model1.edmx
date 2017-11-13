@@ -9,6 +9,7 @@
           <EntitySet Name="bingoJuego" EntityType="bdloginModel.Store.bingoJuego" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="bingoParametro" EntityType="bdloginModel.Store.bingoParametro" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="estadoJuego" EntityType="bdloginModel.Store.estadoJuego" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="bdloginModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbltoken" EntityType="bdloginModel.Store.tbltoken" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblusuario" EntityType="bdloginModel.Store.tblusuario" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_bingoParametro_estadoJuego" Association="bdloginModel.Store.FK_bingoParametro_estadoJuego">
@@ -126,6 +127,16 @@
           <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="descripcion" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="tbltoken">
           <Key>
             <PropertyRef Name="idToken" />
@@ -166,6 +177,7 @@
           <EntitySet Name="bingoJuego" EntityType="bdloginModel.bingoJuego" />
           <EntitySet Name="bingoParametro" EntityType="bdloginModel.bingoParametro" />
           <EntitySet Name="estadoJuego" EntityType="bdloginModel.estadoJuego" />
+          <EntitySet Name="sysdiagrams" EntityType="bdloginModel.sysdiagrams" />
           <EntitySet Name="tbltoken" EntityType="bdloginModel.tbltoken" />
           <EntitySet Name="tblusuario" EntityType="bdloginModel.tblusuario" />
           <AssociationSet Name="FK_bingoParametro_estadoJuego" Association="bdloginModel.FK_bingoParametro_estadoJuego">
@@ -284,6 +296,16 @@
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="descripcion" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="bingoParametro" Relationship="bdloginModel.FK_bingoParametro_estadoJuego" FromRole="estadoJuego" ToRole="bingoParametro" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="tbltoken">
           <Key>
@@ -436,6 +458,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="bdloginModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbltoken">
             <EntityTypeMapping TypeName="bdloginModel.tbltoken">
               <MappingFragment StoreEntitySet="tbltoken">
@@ -482,8 +515,9 @@
         <EntityTypeShape EntityType="bdloginModel.bingoJuego" Width="1.5" PointX="5.75" PointY="0.75" Height="16.787496744791667" />
         <EntityTypeShape EntityType="bdloginModel.bingoParametro" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833313" />
         <EntityTypeShape EntityType="bdloginModel.estadoJuego" Width="1.5" PointX="0.75" PointY="1.625" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="bdloginModel.tbltoken" Width="1.5" PointX="0.75" PointY="5.75" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="bdloginModel.tblusuario" Width="1.5" PointX="2.75" PointY="5.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="bdloginModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="bdloginModel.tbltoken" Width="1.5" PointX="2.75" PointY="5.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="bdloginModel.tblusuario" Width="1.5" PointX="7.75" PointY="0.75" Height="1.7879850260416674" />
         <AssociationConnector Association="bdloginModel.FK_bingoParametro_estadoJuego" >
           <ConnectorPoint PointX="2.25" PointY="2.5189925130208337" />
           <ConnectorPoint PointX="3" PointY="2.5189925130208337" />

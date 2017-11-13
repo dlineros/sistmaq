@@ -7,7 +7,7 @@ namespace maqadmin.Models
 {
     public class bingo
     {
-        public string letraNumeroAleatorio()
+        public string letraNumeroAleatorio(int idlocal)
         {
             var salida = string.Empty;
             Random r = new Random();
@@ -28,7 +28,8 @@ namespace maqadmin.Models
                 using (var db = new bdloginEntities())
                 {
                     //1:Juego Finalizado, ya se generaron todos los números
-                    db.bingoParametro.First().idEstadoJuego = 1;                    
+                    db.bingoParametro.Where(p=>p.idLocal==idlocal).Single().idEstadoJuego = 1;
+                    db.SaveChanges();
                 }
             }
 
@@ -37,7 +38,8 @@ namespace maqadmin.Models
                 using (var db = new bdloginEntities())
                 {
                     //1:Juego Finalizado, ya se generaron todos los números
-                    db.bingoParametro.First().idEstadoJuego = 1;
+                    db.bingoParametro.Where(p => p.idLocal == idlocal).Single().idEstadoJuego = 1;
+                    db.SaveChanges();
                     return "";
                 }
             }

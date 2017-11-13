@@ -3,8 +3,15 @@
 
 
  <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:20px;text-align:center;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg  
+{
+    border-collapse:collapse;
+    border-spacing:0;
+ 
+    }
+.tg td
+{
+    font-family:Arial, sans-serif;font-size:20px;text-align:center;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
 .tg .tg-yw4l{vertical-align:middle}
 
@@ -66,12 +73,52 @@
 }
 
 
+.text2 {
+  font-size:28px;
+  font-family:helvetica;
+  font-weight:bold;
+  color:#71d90b;
+  text-transform:uppercase;
+}
+.parpadea {
+  
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@@-moz-keyframes parpadeo{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+
+
 </style>
 
-<table class="tg" style="undefined;table-layout: fixed; width: 1200px">
+<table class="tg" style="undefined;table-layout: fixed; width: 1200px" bgcolor="#00FF00">
 <thead>
 <td>Hora actual:@ViewData["hora"]</td>
-<td class="tg-yw4l" style="width:120px; font-size:50px;">@Model.bingoJuego.ultimonumero</td>
+<td class="tg-yw4l" style="width:120px; font-size:50px;"><span class="parpadea text"><strong>@Model.bingoJuego.ultimonumero</strong></td>
 <td>LOCAL: @ViewData["idlocal"]</td>
 <td>ESTADO: @ViewData["estadojuego"]</td>
 </thead>
@@ -79,7 +126,7 @@
 </table>
 
 
-<table class="tg" style="undefined;table-layout: fixed; width: 1200px">
+<table  background="@Url.Content("~/Content/imagenes/431.jpg")" class="tg" style="undefined;table-layout: fixed; width: 1200px"    >
   <tr>
     <td class="tg-yw4l" style="width:75px;">
       

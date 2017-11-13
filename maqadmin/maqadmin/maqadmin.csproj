@@ -117,7 +117,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.html" />
+    <Content Include="Content\imagenes\1.png" />
+    <Content Include="Content\imagenes\431.jpg" />
+    <Content Include="Content\imagenes\ajax-loader.gif" />
     <Content Include="Content\imagenes\B.png" />
+    <Content Include="Content\imagenes\bannerimage.jpg" />
+    <Content Include="Content\imagenes\control-pause.png" />
+    <Content Include="Content\imagenes\G.png" />
+    <Content Include="Content\imagenes\I.png" />
+    <Content Include="Content\imagenes\N.png" />
+    <Content Include="Content\imagenes\O.png" />
+    <Content Include="Content\imagenes\skewed_print.png" />
+    <Content Include="Content\marq.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -230,6 +241,12 @@
     <Content Include="Views\bingoJuego\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Shared\_Video.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Layaut_bingo_ciclico_cliente.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\bingoParametro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -243,12 +260,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\bingoParametro\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Video.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\Layaut_bingo_ciclico_cliente.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

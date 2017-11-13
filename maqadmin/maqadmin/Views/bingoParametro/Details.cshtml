@@ -16,7 +16,12 @@
 
     <div class="display-label">estadoJuego</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.estadoJuego.estadoJuego1)
+        @Html.DisplayFor(model => model.estadoJuego.nombre)
+    </div>
+
+    <div class="display-label">videoActivo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.videoActivo)
     </div>
 
     <div class="display-label">esperaNumeroSeg</div>
@@ -42,6 +47,11 @@
     <div class="display-label">urlVideo</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.urlVideo)
+    </div>
+
+    <div class="display-label">MensajeVideo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MensajeVideo)
     </div>
 </fieldset>
 <p>

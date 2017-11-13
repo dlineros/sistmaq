@@ -93,9 +93,7 @@ namespace maqadmin.Controllers
             aTimer.Interval = 10000;
             aTimer.Enabled = true;
 
-
-
-            ViewData["hora"] = DateTime.Now.ToLongTimeString();
+           ViewData["hora"] = DateTime.Now.ToLongTimeString();
             return View("Bingo");
         }
 
@@ -118,6 +116,7 @@ namespace maqadmin.Controllers
                     if (!videoActivo.videoActivo)
                     {
                         ViewData["urlVideo"] = videoActivo.urlVideo;
+                        ViewData["MensajeVideo"] = videoActivo.MensajeVideo;
                         var objacceso = new HomeController();
                         objacceso.SeteaEstadoVideo(true, idlocal);
                         return PartialView("_Video");
@@ -129,7 +128,7 @@ namespace maqadmin.Controllers
 
             //Obtiene siguiente numero
             var objBingo = new bingo();
-            var numeroActual = objBingo.letraNumeroAleatorio();
+            var numeroActual = objBingo.letraNumeroAleatorio(idlocal);
 
             var objBingoFullViewModels = new BingoFullViewModels();
             using (var db = new bdloginEntities())
@@ -167,21 +166,14 @@ namespace maqadmin.Controllers
                         context.Clients.All.broadcastMessage(salida + DateTime.Now);
                     }
 
-                    if ((parametro.idEstadoJuego == 1))
+                    if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3))
                     {
                         var salida = objbingo.ClientDownload(1);
                         var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
                         context.Clients.All.broadcastMessage(salida + DateTime.Now);
                     }
                 }
-
-
-
-
             }
-
-
-
         }
 
 
@@ -191,11 +183,6 @@ namespace maqadmin.Controllers
         /// 2: Muestra video
         /// </summary>
         /// <returns></returns>
-
-
-
-
-
         public int ObtieneEsperaNumeroSeq()
         {
             var salida = 0;

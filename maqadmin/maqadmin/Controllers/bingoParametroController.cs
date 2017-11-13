@@ -8,8 +8,7 @@ using System.Web.Mvc;
 using maqadmin.Models;
 
 namespace maqadmin.Controllers
-{
-    [Authorize]
+{ 
     public class bingoParametroController : Controller
     {
         private bdloginEntities db = new bdloginEntities();
@@ -37,7 +36,7 @@ namespace maqadmin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.idEstadoJuego = new SelectList(db.estadoJuego, "idestado", "estadoJuego1");
+            ViewBag.idEstadoJuego = new SelectList(db.estadoJuego, "idestado", "nombre");
             return View();
         } 
 
@@ -54,7 +53,7 @@ namespace maqadmin.Controllers
                 return RedirectToAction("Index");  
             }
 
-            ViewBag.idEstadoJuego = new SelectList(db.estadoJuego, "idestado", "estadoJuego1", bingoparametro.idEstadoJuego);
+            ViewBag.idEstadoJuego = new SelectList(db.estadoJuego, "idestado", "nombre", bingoparametro.idEstadoJuego);
             return View(bingoparametro);
         }
         
@@ -64,7 +63,7 @@ namespace maqadmin.Controllers
         public ActionResult Edit(int id)
         {
             bingoParametro bingoparametro = db.bingoParametro.Single(b => b.idParametro == id);
-            ViewBag.idEstadoJuego = new SelectList(db.estadoJuego, "idestado", "estadoJuego1", bingoparametro.idEstadoJuego);
+            ViewBag.idEstadoJuego = new SelectList(db.estadoJuego, "idestado", "nombre", bingoparametro.idEstadoJuego);
             return View(bingoparametro);
         }
 
@@ -81,7 +80,7 @@ namespace maqadmin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idEstadoJuego = new SelectList(db.estadoJuego, "idestado", "estadoJuego1", bingoparametro.idEstadoJuego);
+            ViewBag.idEstadoJuego = new SelectList(db.estadoJuego, "idestado", "nombre", bingoparametro.idEstadoJuego);
             return View(bingoparametro);
         }
 
