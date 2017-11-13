@@ -4,31 +4,31 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Listado de juegos de bingo</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo juego de bingo", "Create")
 </p>
 <table>
     <tr>
         <th>
-            idlocal
+            Local
         </th>
         <th>
-            inicioJuego
+            Inicio juego
         </th>
         <th>
-            finjuego
+            Fin juego
         </th>
         <th>
-            ultimonumero
+            Número actual
         </th>
         <th>
-            premio
+            Premio
         </th>
-        <th>
-            esperaNumeroSeg
-        </th>
+       @* <th>
+            Delay entre números
+        </th>*@
        
         <th></th>
     </tr>
@@ -50,15 +50,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.premio)
         </td>
-        <td>
+       @* <td>
             @Html.DisplayFor(modelItem => item.esperaNumeroSeg)
-        </td>
+        </td>*@
         
         <td>
             @Html.ActionLink("Limpiar Juego", "Limpiar", new { id=item.idbingo })
-            @Html.ActionLink("Edit", "Edit", new { id=item.idbingo }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idbingo }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idbingo })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idbingo }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.idbingo }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idbingo })
             
         </td>
     </tr>

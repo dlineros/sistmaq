@@ -14,17 +14,16 @@ using System.Web.Security;
 using Microsoft.AspNet.SignalR;
 
 
+
 namespace maqadmin.Controllers
 {
 
     public class HomeController : Controller
     {
-        [System.Web.Mvc.Authorize]
+        //[System.Web.Mvc.Authorize]
         public ActionResult Index()
         {
             ViewBag.Message = "Prueba";
-            var x = User.Identity.Name;
-            var sesion = Session["idlocal"];
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
             return View();
         }
@@ -61,42 +60,22 @@ namespace maqadmin.Controllers
         }
 
 
-        public string ClientDownload(int idLocal)
-        {
-            //var sesion = Session["idlocal"];
-            //var x = User.Identity.Name;
-            var client = new WebClient();
-            string salida;
-           
-            //var url = string.Format("http://localhost:51690/home/BingoCiclico?varidlocal={0}", idLocal);
-            var url = string.Format("http://dll.ddns.net:8089/home/BingoCiclico?varidlocal={0}", idLocal);
-        
-            try
-            {
-                salida = client.DownloadString(url);
-            }
-            catch (Exception)
-            {
+       
 
-                return "";
-            }
-
-            return salida;
-        }
-
-
+        [System.Web.Mvc.Authorize]
         public ActionResult Bingo()
         {
             int idlocal = Convert.ToInt32(User.Identity.Name);
-            var objacceso = new HomeController();
-            objacceso.SeteaEstadoVideo(false, idlocal);
+            
+            var objcomun = new comun();
+            objcomun.SeteaEstadoVideo(false, idlocal);
 
             var aTimer = new System.Timers.Timer(1000);
             aTimer.Elapsed += aTimer_Elapsed;
-            aTimer.Interval = 10000;
+            aTimer.Interval = objcomun.ObtieneEsperaNumeroSeq(idlocal);
             aTimer.Enabled = true;
 
-           ViewData["hora"] = DateTime.Now.ToLongTimeString();
+            ViewData["hora"] = DateTime.Now.ToLongTimeString();
             return View("Bingo");
         }
 
@@ -120,8 +99,8 @@ namespace maqadmin.Controllers
                     {
                         ViewData["urlVideo"] = videoActivo.urlVideo;
                         ViewData["MensajeVideo"] = videoActivo.MensajeVideo;
-                        var objacceso = new HomeController();
-                        objacceso.SeteaEstadoVideo(true, idlocal);
+                        var objcomun = new comun();
+                        objcomun.SeteaEstadoVideo(true, idlocal);
                         return PartialView("_Video");
                     }
 
@@ -155,7 +134,7 @@ namespace maqadmin.Controllers
 
         void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            var objbingo = new HomeController();
+            var objcomun = new comun();
             using (var db = new bdloginEntities())
             {
                 int idlocal = Convert.ToInt32(User.Identity.Name);
@@ -164,14 +143,14 @@ namespace maqadmin.Controllers
                 {
                     if ((!parametro.videoActivo) && (parametro.idEstadoJuego == 2))
                     {
-                        var salida = objbingo.ClientDownload(1);
+                        var salida = objcomun.ClientDownload(1);
                         var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
                         context.Clients.All.broadcastMessage(salida + DateTime.Now);
                     }
 
                     if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3))
                     {
-                        var salida = objbingo.ClientDownload(1);
+                        var salida = objcomun.ClientDownload(1);
                         var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
                         context.Clients.All.broadcastMessage(salida + DateTime.Now);
                     }
@@ -181,37 +160,7 @@ namespace maqadmin.Controllers
 
 
 
-        /// <summary>
-        /// Obtiene estado del video cuando esta activado
-        /// 2: Muestra video
-        /// </summary>
-        /// <returns></returns>
-        public int ObtieneEsperaNumeroSeq()
-        {
-            var salida = 0;
-            using (var db = new bdloginEntities())
-            {
-
-                var objParametro = db.bingoParametro.Where(p => p.idLocal == Convert.ToInt32(Session["idlocal"])).SingleOrDefault();
-                if (objParametro != null)
-                {
-                    salida = objParametro.esperaNumeroSeg;
-                }
-            }
-            return salida;
-        }
-
-
-        public void SeteaEstadoVideo(bool estado, int idlocal)
-        {
-
-            using (var db = new bdloginEntities())
-            {
-                var videoActivo = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
-                if (videoActivo != null) videoActivo.videoActivo = estado;
-                db.SaveChanges();
-            }
-
-        }
+        
+      
     }
 }

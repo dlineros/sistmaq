@@ -102,6 +102,7 @@
     <Compile Include="Hubs\ConnectionMapping.cs" />
     <Compile Include="Hubs\signal.cs" />
     <Compile Include="Models\bingo.cs" />
+    <Compile Include="Models\comun.cs" />
     <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,13 +111,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\acceso.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\BingoFullViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1.html" />
     <Content Include="Content\imagenes\1.png" />
     <Content Include="Content\imagenes\431.jpg" />
     <Content Include="Content\imagenes\ajax-loader.gif" />
@@ -157,7 +156,6 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
-    <Content Include="README.jQuery.vsdoc.txt" />
     <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -199,10 +197,39 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <None Include="_bin_deployableAssemblies\es\System.Web.Mvc.resources.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
+    <None Include="_bin_deployableAssemblies\es\WebMatrix.WebData.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\WebMatrix.Data.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\System.Web.WebPages.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\System.Web.WebPages.Razor.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\System.Web.WebPages.Deployment.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\System.Web.WebPages.Administration.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\System.Web.Razor.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\System.Web.Helpers.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\NuGet.Core.resources.dll" />
+    <None Include="_bin_deployableAssemblies\es\Microsoft.Web.Infrastructure.resources.dll" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.Data.xml" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.Data.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Deployment.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Deployment.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Administration.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Razor.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.Razor.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Helpers.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.Helpers.dll" />
+    <None Include="_bin_deployableAssemblies\NuGet.Core.dll" />
+    <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.xml" />
+    <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Datos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

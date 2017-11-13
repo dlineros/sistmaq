@@ -4,43 +4,43 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Está seguro que desea eliminar éste juego?</h3>
 <fieldset>
-    <legend>bingoJuego</legend>
+    <legend>Juego de Bingo</legend>
 
-    <div class="display-label">idlocal</div>
+    <div class="display-label">Local</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.idlocal)
     </div>
 
-    <div class="display-label">inicioJuego</div>
+    <div class="display-label">Inicio Juego</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.inicioJuego)
     </div>
 
-    <div class="display-label">finjuego</div>
+   @* <div class="display-label">finjuego</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.finjuego)
-    </div>
+    </div>*@
 
-    <div class="display-label">ultimonumero</div>
+   @* <div class="display-label">ultimonumero</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ultimonumero)
-    </div>
+    </div>*@
 
-    <div class="display-label">premio</div>
+    <div class="display-label">Premio</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.premio)
     </div>
 
-    <div class="display-label">esperaNumeroSeg</div>
+   @* <div class="display-label">esperaNumeroSeg</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.esperaNumeroSeg)
-    </div>
+    </div>*@
 
-    <div class="display-label">B1</div>
+   @* <div class="display-label">B1</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.B1)
     </div>
@@ -413,11 +413,11 @@
     <div class="display-label">O75</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.O75)
-    </div>
+    </div>*@
 </fieldset>
 @using (Html.BeginForm()) {
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Eliminar" /> |
+        @Html.ActionLink("Volver", "Index")
     </p>
 }

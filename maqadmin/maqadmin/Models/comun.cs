@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
+
+namespace maqadmin.Models
+{
+    public class comun
+    {
+        /// <summary>
+        /// Obtiene estado del video cuando esta activado
+        /// 2: Muestra video
+        /// </summary>
+        /// <returns></returns>
+        public int ObtieneEsperaNumeroSeq(int idlocal)
+        {
+            var salida = 0;
+            using (var db = new bdloginEntities())
+            {
+
+                var objParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+                if (objParametro != null)
+                {
+                    salida = objParametro.esperaNumeroSeg;
+                }
+            }
+            return salida;
+        }
+
+
+        public void SeteaEstadoVideo(bool estado, int idlocal)
+        {
+
+            using (var db = new bdloginEntities())
+            {
+                var videoActivo = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+                if (videoActivo != null) videoActivo.videoActivo = estado;
+                db.SaveChanges();
+            }
+
+        }
+
+
+        public string ClientDownload(int idLocal)
+        {
+            //var sesion = Session["idlocal"];
+            //var x = User.Identity.Name;
+            var client = new WebClient();
+            string salida;
+            string url;
+            using (var db = new bdloginEntities())
+            {
+                url = db.bingoParametro.Where(p => p.idLocal == idLocal).Single().urlDownload;
+
+            }
+
+            try
+            {
+                salida = client.DownloadString(url);
+            }
+            catch (Exception)
+            {
+
+                return "Problemas con urlDownload";
+            }
+
+            return salida;
+        }
+
+
+
+
+
+
+    }
+}
