@@ -4,40 +4,40 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>*@
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo Local", "Create")
 </p>
 <table>
     <tr>
         <th>
-            idLocal
+            Local
         </th>
         <th>
-            estadoJuego
+            Estado Juego
         </th>
-        <th>
+       @* <th>
             videoActivo
+        </th>*@
+        <th>
+            Espera entre números
         </th>
         <th>
-            esperaNumeroSeg
+           Premio
         </th>
-        <th>
-            premioDefecto
-        </th>
-        <th>
+       @* <th>
             juegoAutomatico
-        </th>
-        <th>
+        </th>*@
+       @* <th>
             juegoAutomaticoCadaSeg
-        </th>
-        <th>
+        </th>*@
+       @* <th>
             urlVideo
-        </th>
-        <th>
+        </th>*@
+       @* <th>
             MensajeVideo
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -49,31 +49,32 @@
         <td>
             @Html.DisplayFor(modelItem => item.estadoJuego.nombre)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.videoActivo)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.esperaNumeroSeg)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.premioDefecto)
         </td>
-        <td>
+       @* <td>
             @Html.DisplayFor(modelItem => item.juegoAutomatico)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.juegoAutomaticoCadaSeg)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.DisplayFor(modelItem => item.urlVideo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MensajeVideo)
-        </td>
+        </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idParametro }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idParametro }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idParametro })
+            @Html.ActionLink("Reiniciar juego y dejar pausado", "Limpiar", new { id=item.idLocal })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idParametro }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.idParametro }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idParametro })
         </td>
     </tr>
 }

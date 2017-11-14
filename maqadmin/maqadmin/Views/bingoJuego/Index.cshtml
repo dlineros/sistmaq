@@ -6,9 +6,9 @@
 
 <h2>Listado de juegos de bingo</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Crear nuevo juego de bingo", "Create")
-</p>
+</p>*@
 <table>
     <tr>
         <th>
@@ -55,10 +55,10 @@
         </td>*@
         
         <td>
-            @Html.ActionLink("Limpiar Juego", "Limpiar", new { id=item.idbingo })
-            @Html.ActionLink("Editar", "Edit", new { id=item.idbingo }) |
-            @Html.ActionLink("Ver", "Details", new { id=item.idbingo }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idbingo })
+            @Html.ActionLink("Reiniciar juego y dejar pausado", "Limpiar", new { id=item.idbingo })
+            @*@Html.ActionLink("Editar", "Edit", new { id=item.idbingo })*@ |
+            @*@Html.ActionLink("Ver", "Details", new { id=item.idbingo })*@ |
+            @*@Html.ActionLink("Eliminar", "Delete", new { id=item.idbingo })*@
             
         </td>
     </tr>

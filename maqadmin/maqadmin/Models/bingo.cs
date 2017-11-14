@@ -54,7 +54,7 @@ namespace maqadmin.Models
             {
 
                 var existeBingo = (from p in db.bingoJuego
-                                   where p.idbingo == 1
+                                   where p.idlocal==idlocal
                                    select p).Single();
 
 

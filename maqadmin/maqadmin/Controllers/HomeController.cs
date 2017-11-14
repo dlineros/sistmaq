@@ -109,16 +109,23 @@ namespace maqadmin.Controllers
             }
 
             //Obtiene siguiente numero
-            var objBingo = new bingo();
-            var numeroActual = objBingo.letraNumeroAleatorio(idlocal);
+            
 
             var objBingoFullViewModels = new BingoFullViewModels();
             using (var db = new bdloginEntities())
             {
 
-                var bingoJuego = db.bingoJuego.First();
-                var tbltoken = db.tbltoken.First();
-                var bingoParametro = db.bingoParametro.First();
+                var objBingo = new bingo();
+                
+                var bingoJuego = db.bingoJuego.Where(p => p.idlocal == idlocal).Single();
+                var tbltoken = db.tbltoken.Where(p => p.idLocal == idlocal).Single();
+                var bingoParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).Single();
+
+                if (bingoParametro.idEstadoJuego==3)  //En juego
+                {
+                    objBingo.letraNumeroAleatorio(idlocal);
+                    bingoParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).Single();
+                }
 
                 //OBTIENE DATOS A MOSTRAR, 1 OBJETO POR MODELO
                 ViewData["estadoJuego"] = db.estadoJuego.Where(p => p.idestado == bingoParametro.idEstadoJuego).Single().nombre;
@@ -148,7 +155,7 @@ namespace maqadmin.Controllers
                         context.Clients.All.broadcastMessage(salida + DateTime.Now);
                     }
 
-                    if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3))
+                    if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3) || (parametro.idEstadoJuego == 4))
                     {
                         var salida = objcomun.ClientDownload(1);
                         var context = GlobalHost.ConnectionManager.GetHubContext<signal>();

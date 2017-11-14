@@ -168,10 +168,12 @@ namespace maqadmin.Controllers
             bingojuego.O73 = false;
             bingojuego.O74 = false;
             bingojuego.O75 = false;
-            bingojuego.inicioJuego = null;
+            bingojuego.inicioJuego = DateTime.UtcNow;
             bingojuego.finjuego = null;
             bingojuego.ultimonumero = null;
 
+            var bingoparametro = db.bingoParametro.Where(p => p.idLocal == bingojuego.idlocal).Single();
+            bingoparametro.idEstadoJuego = 4; //pausado
 
             db.SaveChanges();
 

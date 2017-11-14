@@ -78,6 +78,14 @@
             @Html.ValidationMessageFor(model => model.urlVideo)
         </div>
 
+         <div class="editor-label">
+            @Html.LabelFor(model => model.urlDownload)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.urlDownload)
+            @Html.ValidationMessageFor(model => model.urlDownload)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.MensajeVideo)
         </div>
