@@ -29,6 +29,43 @@ namespace maqadmin.Models
         }
 
 
+        public bool ActualizaCliente(int idlocal)
+        {
+            var salida = false;
+            using (var db = new bdloginEntities())
+            {
+
+                var objParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+                if (objParametro != null)
+                {
+                    if (objParametro.ultimaActualizacion == null)
+                    {
+                        objParametro.ultimaActualizacion = DateTime.Now;
+                    }
+
+                    if (objParametro.ultimaActualizacion != null)
+                    {
+                        DateTime oldDate = objParametro.ultimaActualizacion.Value;
+                        DateTime newDate = DateTime.Now;
+
+                        TimeSpan ts = newDate - oldDate;
+
+                        // Difference in days.
+                        double differenceInSeconds = ts.TotalSeconds;
+
+                        if (ObtieneEsperaNumeroSeq(idlocal)>=differenceInSeconds)
+                        {
+                            salida = true;
+                            objParametro.ultimaActualizacion = DateTime.Now;
+                            db.SaveChanges();
+                        }
+                    }
+                }
+            }
+            return salida;
+        }
+
+
         public void SeteaEstadoVideo(bool estado, int idlocal)
         {
 
@@ -73,5 +110,15 @@ namespace maqadmin.Models
 
 
 
+
+        internal void SeteaUltimaActualizacion(int idlocal)
+        {
+            using (var db = new bdloginEntities())
+            {
+                var bingoParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+                if (bingoParametro != null) bingoParametro.ultimaActualizacion = DateTime.Now;
+                db.SaveChanges();
+            }
+        }
     }
 }

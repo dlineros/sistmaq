@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using maqadmin.Models;
@@ -51,7 +52,7 @@ namespace maqadmin.Controllers
                     var parametro = db.bingoParametro.Where(p => p.idLocal == tbltoken.idLocal).Single();
                     parametro.videoActivo = false;
                     db.SaveChanges();
-                    return RedirectToAction("Index", "bingoJuego");
+                    return RedirectToAction("Index", "bingoParametro");
                 }
 
                 return PartialView("_AccesoDenegado");
@@ -60,20 +61,22 @@ namespace maqadmin.Controllers
         }
 
 
-       
+
 
         [System.Web.Mvc.Authorize]
         public ActionResult Bingo()
         {
             int idlocal = Convert.ToInt32(User.Identity.Name);
-            
+
             var objcomun = new comun();
             objcomun.SeteaEstadoVideo(false, idlocal);
+            objcomun.SeteaUltimaActualizacion(idlocal);
 
             var aTimer = new System.Timers.Timer(1000);
             aTimer.Elapsed += aTimer_Elapsed;
             aTimer.Interval = objcomun.ObtieneEsperaNumeroSeq(idlocal);
             aTimer.Enabled = true;
+
 
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
             return View("Bingo");
@@ -83,6 +86,8 @@ namespace maqadmin.Controllers
 
         public ActionResult BingoCiclico(string varidlocal)
         {
+            //int milliseconds = 20000;
+            //Thread.Sleep(milliseconds);
 
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
             int idlocal = Convert.ToInt32(varidlocal);
@@ -93,6 +98,7 @@ namespace maqadmin.Controllers
 
                 //video activo(Ya se esta ejecutando, no debe refrezcar) y estado2: Muestra el video
                 var videoActivo = db.bingoParametro.Where(p => p.idLocal == idlocal && p.idEstadoJuego == 2).SingleOrDefault();
+
                 if (videoActivo != null)
                 {
                     if (!videoActivo.videoActivo)
@@ -109,19 +115,20 @@ namespace maqadmin.Controllers
             }
 
             //Obtiene siguiente numero
-            
+
+
 
             var objBingoFullViewModels = new BingoFullViewModels();
             using (var db = new bdloginEntities())
             {
 
                 var objBingo = new bingo();
-                
+
                 var bingoJuego = db.bingoJuego.Where(p => p.idlocal == idlocal).Single();
                 var tbltoken = db.tbltoken.Where(p => p.idLocal == idlocal).Single();
                 var bingoParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).Single();
 
-                if (bingoParametro.idEstadoJuego==3)  //En juego
+                if (bingoParametro.idEstadoJuego == 3)  //En juego
                 {
                     objBingo.letraNumeroAleatorio(idlocal);
                     bingoParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).Single();
@@ -141,25 +148,39 @@ namespace maqadmin.Controllers
 
         void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            //Si la base de datos dice actualiza
+
+
+
             var objcomun = new comun();
             using (var db = new bdloginEntities())
             {
+
+
                 int idlocal = Convert.ToInt32(User.Identity.Name);
                 var parametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+
+
                 if (parametro != null)
                 {
-                    if ((!parametro.videoActivo) && (parametro.idEstadoJuego == 2))
+                    if (objcomun.ActualizaCliente(idlocal))
                     {
-                        var salida = objcomun.ClientDownload(1);
-                        var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-                        context.Clients.All.broadcastMessage(salida + DateTime.Now);
-                    }
 
-                    if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3) || (parametro.idEstadoJuego == 4))
-                    {
-                        var salida = objcomun.ClientDownload(1);
-                        var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-                        context.Clients.All.broadcastMessage(salida + DateTime.Now);
+                        if ((!parametro.videoActivo)
+                            && (parametro.idEstadoJuego == 2))
+                        {
+                            var salida = objcomun.ClientDownload(1);
+                            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+                            context.Clients.All.broadcastMessage(salida + DateTime.Now);
+                        }
+
+                        if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3) ||
+                            (parametro.idEstadoJuego == 4))
+                        {
+                            var salida = objcomun.ClientDownload(1);
+                            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+                            context.Clients.All.broadcastMessage(salida + DateTime.Now);
+                        }
                     }
                 }
             }
@@ -167,7 +188,7 @@ namespace maqadmin.Controllers
 
 
 
-        
-      
+
+
     }
 }

@@ -15,6 +15,10 @@
         <legend>bingoParametro</legend>
 
         @Html.HiddenFor(model => model.idParametro)
+        @Html.HiddenFor(model => model.videoActivo)
+        @Html.HiddenFor(model => model.juegoAutomatico)
+        @Html.HiddenFor(model => model.ultimaActualizacion)      
+
 
         <div class="editor-label">
             @Html.LabelFor(model => model.idLocal)
@@ -32,16 +36,16 @@
             @Html.ValidationMessageFor(model => model.idEstadoJuego)
         </div>
 
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.videoActivo)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.videoActivo)
             @Html.ValidationMessageFor(model => model.videoActivo)
-        </div>
+        </div>*@
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.esperaNumeroSeg)
+            Espera entre números
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.esperaNumeroSeg)
@@ -49,31 +53,31 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.premioDefecto)
+           Premio
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.premioDefecto)
             @Html.ValidationMessageFor(model => model.premioDefecto)
         </div>
 
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.juegoAutomatico)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.juegoAutomatico)
             @Html.ValidationMessageFor(model => model.juegoAutomatico)
-        </div>
+        </div>*@
 
-        <div class="editor-label">
+       @* <div class="editor-label">
             @Html.LabelFor(model => model.juegoAutomaticoCadaSeg)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.juegoAutomaticoCadaSeg)
             @Html.ValidationMessageFor(model => model.juegoAutomaticoCadaSeg)
-        </div>
+        </div>*@
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.urlVideo)
+            Url del Video
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.urlVideo)
@@ -81,7 +85,7 @@
         </div>
 
          <div class="editor-label">
-            @Html.LabelFor(model => model.urlDownload)
+           Url Download
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.urlDownload)
@@ -89,7 +93,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.MensajeVideo)
+           Mensaje del video
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.MensajeVideo)

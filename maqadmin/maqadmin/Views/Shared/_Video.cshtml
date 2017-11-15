@@ -9,8 +9,9 @@
     <div class="wrapper">
         <h1>
             Lista de videos</h1>
-        <iframe width="560" height="315" src="@ViewData["urlVideo"]" frameborder="0" allowfullscreen>
-        </iframe>
+        @*<iframe width="560" height="315" src="@ViewData["urlVideo"].ToString()" frameborder="0" allowfullscreen></iframe>*@
+        <iframe width='600' height='300' src="@ViewData["urlVideo"]" frameborder="0" allowfullscreen></iframe>
+        
         <h1>
             Mensaje</h1>
         <div class="marquee">

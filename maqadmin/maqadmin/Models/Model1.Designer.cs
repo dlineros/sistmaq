@@ -90,6 +90,22 @@ namespace maqadmin.Models
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
+        public ObjectSet<bingoParametro> bingoParametro
+        {
+            get
+            {
+                if ((_bingoParametro == null))
+                {
+                    _bingoParametro = base.CreateObjectSet<bingoParametro>("bingoParametro");
+                }
+                return _bingoParametro;
+            }
+        }
+        private ObjectSet<bingoParametro> _bingoParametro;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
         public ObjectSet<estadoJuego> estadoJuego
         {
             get
@@ -134,22 +150,6 @@ namespace maqadmin.Models
             }
         }
         private ObjectSet<tblusuario> _tblusuario;
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        public ObjectSet<bingoParametro> bingoParametro
-        {
-            get
-            {
-                if ((_bingoParametro == null))
-                {
-                    _bingoParametro = base.CreateObjectSet<bingoParametro>("bingoParametro");
-                }
-                return _bingoParametro;
-            }
-        }
-        private ObjectSet<bingoParametro> _bingoParametro;
 
         #endregion
 
@@ -161,6 +161,14 @@ namespace maqadmin.Models
         public void AddTobingoJuego(bingoJuego bingoJuego)
         {
             base.AddObject("bingoJuego", bingoJuego);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet bingoParametro. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddTobingoParametro(bingoParametro bingoParametro)
+        {
+            base.AddObject("bingoParametro", bingoParametro);
         }
     
         /// <summary>
@@ -185,14 +193,6 @@ namespace maqadmin.Models
         public void AddTotblusuario(tblusuario tblusuario)
         {
             base.AddObject("tblusuario", tblusuario);
-        }
-    
-        /// <summary>
-        /// Método desusado para agregar un nuevo objeto al EntitySet bingoParametro. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
-        /// </summary>
-        public void AddTobingoParametro(bingoParametro bingoParametro)
-        {
-            base.AddObject("bingoParametro", bingoParametro);
         }
 
         #endregion
@@ -2659,6 +2659,30 @@ namespace maqadmin.Models
         private global::System.String _urlDownload;
         partial void OnurlDownloadChanging(global::System.String value);
         partial void OnurlDownloadChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ultimaActualizacion
+        {
+            get
+            {
+                return _ultimaActualizacion;
+            }
+            set
+            {
+                OnultimaActualizacionChanging(value);
+                ReportPropertyChanging("ultimaActualizacion");
+                _ultimaActualizacion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ultimaActualizacion");
+                OnultimaActualizacionChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ultimaActualizacion;
+        partial void OnultimaActualizacionChanging(Nullable<global::System.DateTime> value);
+        partial void OnultimaActualizacionChanged();
 
         #endregion
 
