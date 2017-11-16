@@ -1,34 +1,27 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
-<style type="text/css">
-
-</style>
-</head>
-<body background="@Url.Content("~/Content/imagenes/bannerimage.jpg")"  />
-
- 
-
-
-   @*<div style="display: table; height: 400px; overflow: hidden;">
-         <div style="display: table-cell; vertical-align: middle;">*@
-           <div id ="divcontenido" align="center">
-            <img src= "@Url.Content("~/Content/imagenes/ajax-loader.gif")" alt="Image" />
-           </div>
-         @*</div>
-       </div>*@
-
-
-
-@*<div id ="divcontenido" align="center" class="area">
-
-cargando
-<img src= "@Url.Content("~/Content/imagenes/ajax-loader.gif")" alt="Image" />
-</div>*@
-    <script src="/Scripts/jquery-1.6.4.min.js" ></script>
-    <script src="/Scripts/jquery.signalR-1.1.4.js"></script>
+    <link  href="@Url.Content("~/Content/marq.css")" rel="stylesheet" type="text/css"/>
+    <script src="@Url.Content("~//Scripts/jquery-1.6.4.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.signalR-1.1.4.js")"></script>
     <script src="/signalr/hubs"></script>
+    <style type="text/css">
+        html
+        {
+             background: url(@Url.Content("~/Content/imagenes/bannerimage.jpg")) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="divcontenido" align="center" style="width: 100%;height: 100%;">
+        <img src= "@Url.Content("~/Content/imagenes/ajax-loader.gif")" alt="Image" />
+    </div>
     <script type="text/javascript">
         $(function () {
             // Declare a proxy to reference the hub. 
@@ -49,6 +42,6 @@ cargando
             });
         });
     </script>
-	@RenderBody()
+    @RenderBody()
 </body>
 </html>

@@ -190,12 +190,65 @@ namespace maqadmin.Controllers
 
             var bingoparametro = db.bingoParametro.Where(p => p.idLocal == bingojuego.idlocal).Single();
             bingoparametro.idEstadoJuego = 4; //pausado
+            bingoparametro.videoActivo = false;
 
             db.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
+
+        
+        public ActionResult Pausar(int id)
+        {
+            var objbingoparametro = db.bingoParametro.Where(p => p.idParametro == id).Single();
+            objbingoparametro.idEstadoJuego = 4;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+       
+        }
+
+        
+        public ActionResult Video(int id)
+        {
+            var objbingoparametro = db.bingoParametro.Where(p => p.idParametro == id).Single();
+            objbingoparametro.idEstadoJuego = 2;
+            objbingoparametro.videoActivo = false;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+        }
+
+        
+        public ActionResult ActivarJuego(int id)
+        {
+            var objbingoparametro = db.bingoParametro.Where(p => p.idParametro == id).Single();
+            objbingoparametro.idEstadoJuego = 3;
+            objbingoparametro.videoActivo = false;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+        }
+
+       
+         public ActionResult FinalizarJuego(int id)
+        {
+            var objbingoparametro = db.bingoParametro.Where(p => p.idParametro == id).Single();
+            objbingoparametro.idEstadoJuego = 1;
+            objbingoparametro.videoActivo = false;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+        }
+
+
+        
+
+        
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

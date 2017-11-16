@@ -50,15 +50,10 @@ namespace maqadmin
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            //var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
            
 
 
-            //var aTimer = new System.Timers.Timer(1000);
-            //aTimer.Elapsed += aTimer_Elapsed;
-            //aTimer.Interval = 20000;
-            //aTimer.Enabled = true;
-            //var objacceso = new HomeController();
-            //objacceso.SeteaEstadoVideo(false);
 
         }
 

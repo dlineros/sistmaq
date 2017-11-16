@@ -74,7 +74,7 @@ namespace maqadmin.Controllers
 
             var aTimer = new System.Timers.Timer(1000);
             aTimer.Elapsed += aTimer_Elapsed;
-            aTimer.Interval = objcomun.ObtieneEsperaNumeroSeq(idlocal);
+            aTimer.Interval = objcomun.ObtieneEsperaNumeroSeq(idlocal)*1000;
             aTimer.Enabled = true;
 
 

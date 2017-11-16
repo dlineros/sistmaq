@@ -268,7 +268,7 @@
     <Content Include="Views\bingoJuego\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Video.cshtml" />
+    <None Include="Views\Shared\_Video.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Layaut_bingo_ciclico_cliente.cshtml" />

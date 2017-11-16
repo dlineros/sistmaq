@@ -41,6 +41,7 @@ namespace maqadmin.Models
                     if (objParametro.ultimaActualizacion == null)
                     {
                         objParametro.ultimaActualizacion = DateTime.Now;
+                        db.SaveChanges();
                     }
 
                     if (objParametro.ultimaActualizacion != null)
@@ -53,7 +54,7 @@ namespace maqadmin.Models
                         // Difference in days.
                         double differenceInSeconds = ts.TotalSeconds;
 
-                        if (ObtieneEsperaNumeroSeq(idlocal)>=differenceInSeconds)
+                        if (ObtieneEsperaNumeroSeq(idlocal)<=differenceInSeconds)
                         {
                             salida = true;
                             objParametro.ultimaActualizacion = DateTime.Now;
