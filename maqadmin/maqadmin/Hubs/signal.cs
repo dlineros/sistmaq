@@ -24,12 +24,7 @@ namespace maqadmin.Hubs
 
         public void Send(string vistahtml)
         {
-            //string name = Context.User.Identity.Name;
-            //foreach (var connectionId in _connections.GetConnections("hhfhf"))
-            //{
-            //    Clients.Client(connectionId).addChatMessage(name + ": " + name);
-            //}
-
+           
             vistahtml = DateTime.Now.ToLongTimeString();
             Clients.All.broadcastMessage(vistahtml);
 

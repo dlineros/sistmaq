@@ -72,14 +72,62 @@ namespace maqadmin.Controllers
             objcomun.SeteaEstadoVideo(false, idlocal);
             objcomun.SeteaUltimaActualizacion(idlocal);
 
-            var aTimer = new System.Timers.Timer(1000);
-            aTimer.Elapsed += aTimer_Elapsed;
-            aTimer.Interval = objcomun.ObtieneEsperaNumeroSeq(idlocal)*1000;
-            aTimer.Enabled = true;
-
+           
+            //var aTimer = new MyTimer(1000);
+            //if (aTimer.Enabled == false)
+            //{
+            //    aTimer.Elapsed += ActualizaClienteSignal;
+            //    aTimer.Interval = objcomun.ObtieneEsperaNumeroSeq(idlocal) * 1000;
+            //    aTimer.Enabled = true;
+            //    aTimer.idlocal = idlocal;
+            //}
 
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
             return View("Bingo");
+        }
+
+
+
+
+
+        public void ActualizaClienteSignal(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            //Si la base de datos dice actualiza
+            //TODO: SI LA BASE DE DATOS MARCA COMO QUE HAY QUE DETENER LA TAREA APLICAR UN STOP
+
+            var objcomun = new comun();
+            using (var db = new bdloginEntities())
+            {
+                MyTimer timer = (MyTimer)sender;
+                int idlocal = timer.idlocal;
+                //int idlocal = Convert.ToInt32(User.Identity.Name);
+
+                var parametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+
+
+                if (parametro != null)
+                {
+                    if (objcomun.ActualizaCliente(idlocal))
+                    {
+
+                        if ((!parametro.videoActivo)
+                            && (parametro.idEstadoJuego == 2))
+                        {
+                            var salida = objcomun.ClientDownload(1);
+                            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+                            context.Clients.All.broadcastMessage(salida + DateTime.Now);
+                        }
+
+                        if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3) ||
+                            (parametro.idEstadoJuego == 4))
+                        {
+                            var salida = objcomun.ClientDownload(1);
+                            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+                            context.Clients.All.broadcastMessage(salida + DateTime.Now);
+                        }
+                    }
+                }
+            }
         }
 
 
@@ -109,14 +157,9 @@ namespace maqadmin.Controllers
                         objcomun.SeteaEstadoVideo(true, idlocal);
                         return PartialView("_Video");
                     }
-
                 }
-
             }
-
             //Obtiene siguiente numero
-
-
 
             var objBingoFullViewModels = new BingoFullViewModels();
             using (var db = new bdloginEntities())
@@ -146,45 +189,7 @@ namespace maqadmin.Controllers
         }
 
 
-        void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            //Si la base de datos dice actualiza
 
-
-
-            var objcomun = new comun();
-            using (var db = new bdloginEntities())
-            {
-
-
-                int idlocal = Convert.ToInt32(User.Identity.Name);
-                var parametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
-
-
-                if (parametro != null)
-                {
-                    if (objcomun.ActualizaCliente(idlocal))
-                    {
-
-                        if ((!parametro.videoActivo)
-                            && (parametro.idEstadoJuego == 2))
-                        {
-                            var salida = objcomun.ClientDownload(1);
-                            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-                            context.Clients.All.broadcastMessage(salida + DateTime.Now);
-                        }
-
-                        if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3) ||
-                            (parametro.idEstadoJuego == 4))
-                        {
-                            var salida = objcomun.ClientDownload(1);
-                            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-                            context.Clients.All.broadcastMessage(salida + DateTime.Now);
-                        }
-                    }
-                }
-            }
-        }
 
 
 

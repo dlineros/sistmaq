@@ -106,12 +106,6 @@ namespace maqadmin.Models
             return salida;
         }
 
-
-
-
-
-
-
         internal void SeteaUltimaActualizacion(int idlocal)
         {
             using (var db = new bdloginEntities())
@@ -121,5 +115,8 @@ namespace maqadmin.Models
                 db.SaveChanges();
             }
         }
+
+
+
     }
 }

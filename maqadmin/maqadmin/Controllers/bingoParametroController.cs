@@ -245,6 +245,29 @@ namespace maqadmin.Controllers
 
         }
 
+         public ActionResult ActivarTimer(int id)
+         {
+
+             var aTimer = new MyTimer(1000);
+             if (aTimer.Enabled == false)
+             {
+                 var obj = new HomeController();
+                 aTimer.Elapsed += obj.ActualizaClienteSignal;
+                 aTimer.Interval = 10000;
+                 aTimer.Enabled = true;
+                 aTimer.idlocal = id;
+             }
+
+
+             return RedirectToAction("Index");
+         }
+
+         public ActionResult DetenerTimer()
+         {
+             
+             return RedirectToAction("Index");
+         }
+
 
         
 
