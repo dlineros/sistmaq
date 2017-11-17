@@ -98,6 +98,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\bingoJuegoController.cs" />
     <Compile Include="Controllers\bingoParametroController.cs" />
+    <Compile Include="Controllers\CartonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Hubs\ConnectionMapping.cs" />
     <Compile Include="Hubs\signal.cs" />
@@ -203,6 +204,11 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Carton\Index.cshtml" />
+    <Content Include="Views\Carton\Details.cshtml" />
+    <Content Include="Views\Carton\Create.cshtml" />
+    <Content Include="Views\Carton\Edit.cshtml" />
+    <Content Include="Views\Carton\Delete.cshtml" />
     <None Include="_bin_deployableAssemblies\es\System.Web.Mvc.resources.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\es\WebMatrix.WebData.resources.dll" />

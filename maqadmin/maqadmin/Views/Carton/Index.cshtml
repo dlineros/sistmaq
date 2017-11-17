@@ -1,0 +1,177 @@
+﻿@model IEnumerable<maqadmin.Models.carton>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            idlocal
+        </th>
+        <th>
+            n1
+        </th>
+        <th>
+            n2
+        </th>
+        <th>
+            n3
+        </th>
+        <th>
+            n4
+        </th>
+        <th>
+            n5
+        </th>
+        <th>
+            n6
+        </th>
+        <th>
+            n7
+        </th>
+        <th>
+            n8
+        </th>
+        <th>
+            n9
+        </th>
+        <th>
+            n10
+        </th>
+        <th>
+            n11
+        </th>
+        <th>
+            n12
+        </th>
+        <th>
+            n13
+        </th>
+        <th>
+            n14
+        </th>
+        <th>
+            n15
+        </th>
+        <th>
+            n16
+        </th>
+        <th>
+            n17
+        </th>
+        <th>
+            n18
+        </th>
+        <th>
+            n19
+        </th>
+        <th>
+            n20
+        </th>
+        <th>
+            n21
+        </th>
+        <th>
+            n22
+        </th>
+        <th>
+            n23
+        </th>
+        <th>
+            n24
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idlocal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n14)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n15)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n16)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n17)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n18)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n19)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n20)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n21)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n22)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n23)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.n24)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -61,8 +61,6 @@ namespace maqadmin.Controllers
         }
 
 
-
-
         [System.Web.Mvc.Authorize]
         public ActionResult Bingo()
         {
@@ -92,17 +90,20 @@ namespace maqadmin.Controllers
 
         public void ActualizaClienteSignal(object sender, System.Timers.ElapsedEventArgs e)
         {
-            //Si la base de datos dice actualiza
-            //TODO: SI LA BASE DE DATOS MARCA COMO QUE HAY QUE DETENER LA TAREA APLICAR UN STOP
-
             var objcomun = new comun();
             using (var db = new bdloginEntities())
             {
                 MyTimer timer = (MyTimer)sender;
                 int idlocal = timer.idlocal;
-                //int idlocal = Convert.ToInt32(User.Identity.Name);
 
                 var parametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+
+                if (parametro.apagarCliente)
+                {
+                    timer.Stop();
+                    timer.Close();
+                    timer.Dispose();
+                }
 
 
                 if (parametro != null)
@@ -179,6 +180,15 @@ namespace maqadmin.Controllers
 
                 //OBTIENE DATOS A MOSTRAR, 1 OBJETO POR MODELO
                 ViewData["estadoJuego"] = db.estadoJuego.Where(p => p.idestado == bingoParametro.idEstadoJuego).Single().nombre;
+
+                var cartonesGanadores = objBingo.VerificaCartonGanador(idlocal);
+
+                if (cartonesGanadores.Count()>0)
+                {
+                    bingoParametro.idEstadoJuego =4;
+                }
+
+                ViewData["cartonesGanadores"] = string.Join(",",cartonesGanadores);
 
                 objBingoFullViewModels.tbltoken = tbltoken;
                 objBingoFullViewModels.bingoJuego = bingoJuego;

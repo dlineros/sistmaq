@@ -5,8 +5,11 @@ using System.Web;
 
 namespace maqadmin.Models
 {
+
     public class bingo
     {
+        
+
         public string letraNumeroAleatorio(int idlocal)
         {
             var salida = string.Empty;
@@ -263,6 +266,60 @@ namespace maqadmin.Models
 
             return lista;
         }
+
+        public List<int> VerificaCartonGanador(int idlocal)
+        {
+            var listaGanadores = new List<int>();
+
+            var numerosactuales = numerosActuales(idlocal);
+
+            using(var db= new bdloginEntities())
+            {
+                //obtiene cartones
+                var objcartones = db.carton.Where(p => p.idlocal == idlocal).ToList();
+                int aciertos = 0;
+                foreach (var objcarton in objcartones)
+                {
+                    //llena lista con numeros de cartones
+                    if (numerosactuales.Contains(objcarton.n1)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n2)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n3)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n4)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n5)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n6)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n7)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n8)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n9)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n10)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n11)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n12)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n13)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n14)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n15)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n16)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n17)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n18)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n19)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n20)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n21)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n22)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n23)) aciertos = aciertos + 1;
+                    if (numerosactuales.Contains(objcarton.n24)) aciertos = aciertos + 1;
+
+                   if (aciertos==24)
+                   {
+                       listaGanadores.Add(objcarton.id);
+                   }
+                }
+            }
+
+            return listaGanadores;
+
+
+
+        }
+
+       
 
 
 

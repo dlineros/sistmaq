@@ -8,6 +8,7 @@
         <EntityContainer Name="bdloginModelStoreContainer">
           <EntitySet Name="bingoJuego" EntityType="bdloginModel.Store.bingoJuego" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="bingoParametro" EntityType="bdloginModel.Store.bingoParametro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="carton" EntityType="bdloginModel.Store.carton" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="estadoJuego" EntityType="bdloginModel.Store.estadoJuego" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbltoken" EntityType="bdloginModel.Store.tbltoken" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblusuario" EntityType="bdloginModel.Store.tblusuario" store:Type="Tables" Schema="dbo" />
@@ -119,6 +120,38 @@
           <Property Name="MensajeVideo" Type="varchar(max)" />
           <Property Name="urlDownload" Type="varchar" MaxLength="300" />
           <Property Name="ultimaActualizacion" Type="datetime" />
+          <Property Name="apagarCliente" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="carton">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idlocal" Type="int" Nullable="false" />
+          <Property Name="n1" Type="int" Nullable="false" />
+          <Property Name="n2" Type="int" Nullable="false" />
+          <Property Name="n3" Type="int" Nullable="false" />
+          <Property Name="n4" Type="int" Nullable="false" />
+          <Property Name="n5" Type="int" Nullable="false" />
+          <Property Name="n6" Type="int" Nullable="false" />
+          <Property Name="n7" Type="int" Nullable="false" />
+          <Property Name="n8" Type="int" Nullable="false" />
+          <Property Name="n9" Type="int" Nullable="false" />
+          <Property Name="n10" Type="int" Nullable="false" />
+          <Property Name="n11" Type="int" Nullable="false" />
+          <Property Name="n12" Type="int" Nullable="false" />
+          <Property Name="n13" Type="int" Nullable="false" />
+          <Property Name="n14" Type="int" Nullable="false" />
+          <Property Name="n15" Type="int" Nullable="false" />
+          <Property Name="n16" Type="int" Nullable="false" />
+          <Property Name="n17" Type="int" Nullable="false" />
+          <Property Name="n18" Type="int" Nullable="false" />
+          <Property Name="n19" Type="int" Nullable="false" />
+          <Property Name="n20" Type="int" Nullable="false" />
+          <Property Name="n21" Type="int" Nullable="false" />
+          <Property Name="n22" Type="int" Nullable="false" />
+          <Property Name="n23" Type="int" Nullable="false" />
+          <Property Name="n24" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="estadoJuego">
           <Key>
@@ -174,6 +207,7 @@
             <End Role="estadoJuego" EntitySet="estadoJuego" />
             <End Role="bingoParametro" EntitySet="bingoParametro" />
           </AssociationSet>
+          <EntitySet Name="carton" EntityType="bdloginModel.carton" />
         </EntityContainer>
         <EntityType Name="bingoJuego">
           <Key>
@@ -279,6 +313,7 @@
           <Property Type="String" Name="urlDownload" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="ultimaActualizacion" />
           <NavigationProperty Name="estadoJuego" Relationship="bdloginModel.FK_bingoParametro_estadoJuego" FromRole="bingoParametro" ToRole="estadoJuego" />
+          <Property Type="Boolean" Name="apagarCliente" Nullable="false" />
         </EntityType>
         <EntityType Name="estadoJuego">
           <Key>
@@ -321,6 +356,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="carton">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idlocal" Nullable="false" />
+          <Property Type="Int32" Name="n1" Nullable="false" />
+          <Property Type="Int32" Name="n2" Nullable="false" />
+          <Property Type="Int32" Name="n3" Nullable="false" />
+          <Property Type="Int32" Name="n4" Nullable="false" />
+          <Property Type="Int32" Name="n5" Nullable="false" />
+          <Property Type="Int32" Name="n6" Nullable="false" />
+          <Property Type="Int32" Name="n7" Nullable="false" />
+          <Property Type="Int32" Name="n8" Nullable="false" />
+          <Property Type="Int32" Name="n9" Nullable="false" />
+          <Property Type="Int32" Name="n10" Nullable="false" />
+          <Property Type="Int32" Name="n11" Nullable="false" />
+          <Property Type="Int32" Name="n12" Nullable="false" />
+          <Property Type="Int32" Name="n13" Nullable="false" />
+          <Property Type="Int32" Name="n14" Nullable="false" />
+          <Property Type="Int32" Name="n15" Nullable="false" />
+          <Property Type="Int32" Name="n16" Nullable="false" />
+          <Property Type="Int32" Name="n17" Nullable="false" />
+          <Property Type="Int32" Name="n18" Nullable="false" />
+          <Property Type="Int32" Name="n19" Nullable="false" />
+          <Property Type="Int32" Name="n20" Nullable="false" />
+          <Property Type="Int32" Name="n21" Nullable="false" />
+          <Property Type="Int32" Name="n22" Nullable="false" />
+          <Property Type="Int32" Name="n23" Nullable="false" />
+          <Property Type="Int32" Name="n24" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -418,6 +484,7 @@
           <EntitySetMapping Name="bingoParametro">
             <EntityTypeMapping TypeName="bdloginModel.bingoParametro">
               <MappingFragment StoreEntitySet="bingoParametro">
+                <ScalarProperty Name="apagarCliente" ColumnName="apagarCliente" />
                 <ScalarProperty Name="ultimaActualizacion" ColumnName="ultimaActualizacion" />
                 <ScalarProperty Name="urlDownload" ColumnName="urlDownload" />
                 <ScalarProperty Name="MensajeVideo" ColumnName="MensajeVideo" />
@@ -464,6 +531,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="carton">
+            <EntityTypeMapping TypeName="bdloginModel.carton">
+              <MappingFragment StoreEntitySet="carton">
+                <ScalarProperty Name="n24" ColumnName="n24" />
+                <ScalarProperty Name="n23" ColumnName="n23" />
+                <ScalarProperty Name="n22" ColumnName="n22" />
+                <ScalarProperty Name="n21" ColumnName="n21" />
+                <ScalarProperty Name="n20" ColumnName="n20" />
+                <ScalarProperty Name="n19" ColumnName="n19" />
+                <ScalarProperty Name="n18" ColumnName="n18" />
+                <ScalarProperty Name="n17" ColumnName="n17" />
+                <ScalarProperty Name="n16" ColumnName="n16" />
+                <ScalarProperty Name="n15" ColumnName="n15" />
+                <ScalarProperty Name="n14" ColumnName="n14" />
+                <ScalarProperty Name="n13" ColumnName="n13" />
+                <ScalarProperty Name="n12" ColumnName="n12" />
+                <ScalarProperty Name="n11" ColumnName="n11" />
+                <ScalarProperty Name="n10" ColumnName="n10" />
+                <ScalarProperty Name="n9" ColumnName="n9" />
+                <ScalarProperty Name="n8" ColumnName="n8" />
+                <ScalarProperty Name="n7" ColumnName="n7" />
+                <ScalarProperty Name="n6" ColumnName="n6" />
+                <ScalarProperty Name="n5" ColumnName="n5" />
+                <ScalarProperty Name="n4" ColumnName="n4" />
+                <ScalarProperty Name="n3" ColumnName="n3" />
+                <ScalarProperty Name="n2" ColumnName="n2" />
+                <ScalarProperty Name="n1" ColumnName="n1" />
+                <ScalarProperty Name="idlocal" ColumnName="idlocal" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -494,6 +593,7 @@
           <ConnectorPoint PointX="2.25" PointY="2.7689925130208337" />
           <ConnectorPoint PointX="3" PointY="2.7689925130208337" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="bdloginModel.carton" Width="1.5" PointX="8.375" PointY="0.75" Height="6.0186165364583317" />
       </Diagram>
     </Diagrams>
   </Designer>

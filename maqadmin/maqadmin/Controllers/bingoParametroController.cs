@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using maqadmin.Models;
@@ -251,6 +252,9 @@ namespace maqadmin.Controllers
              var aTimer = new MyTimer(1000);
              if (aTimer.Enabled == false)
              {
+
+                 var objComun = new comun();
+                 objComun.ApagaCliente(false, id);
                  var obj = new HomeController();
                  aTimer.Elapsed += obj.ActualizaClienteSignal;
                  aTimer.Interval = 10000;
@@ -262,9 +266,11 @@ namespace maqadmin.Controllers
              return RedirectToAction("Index");
          }
 
-         public ActionResult DetenerTimer()
+         public ActionResult DetenerTimer(int id)
          {
-             
+             var objComun = new comun();
+             objComun.ApagaCliente(true,id);
+             Thread.Sleep(15000);
              return RedirectToAction("Index");
          }
 

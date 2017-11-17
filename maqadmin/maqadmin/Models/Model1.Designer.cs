@@ -150,6 +150,22 @@ namespace maqadmin.Models
             }
         }
         private ObjectSet<tblusuario> _tblusuario;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<carton> carton
+        {
+            get
+            {
+                if ((_carton == null))
+                {
+                    _carton = base.CreateObjectSet<carton>("carton");
+                }
+                return _carton;
+            }
+        }
+        private ObjectSet<carton> _carton;
 
         #endregion
 
@@ -193,6 +209,14 @@ namespace maqadmin.Models
         public void AddTotblusuario(tblusuario tblusuario)
         {
             base.AddObject("tblusuario", tblusuario);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet carton. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddTocarton(carton carton)
+        {
+            base.AddObject("carton", carton);
         }
 
         #endregion
@@ -2375,7 +2399,8 @@ namespace maqadmin.Models
         /// <param name="premioDefecto">Valor inicial de la propiedad premioDefecto.</param>
         /// <param name="juegoAutomatico">Valor inicial de la propiedad juegoAutomatico.</param>
         /// <param name="juegoAutomaticoCadaSeg">Valor inicial de la propiedad juegoAutomaticoCadaSeg.</param>
-        public static bingoParametro CreatebingoParametro(global::System.Int32 idParametro, global::System.Int32 idLocal, global::System.Int32 idEstadoJuego, global::System.Boolean videoActivo, global::System.Int32 esperaNumeroSeg, global::System.Int32 premioDefecto, global::System.Boolean juegoAutomatico, global::System.Int32 juegoAutomaticoCadaSeg)
+        /// <param name="apagarCliente">Valor inicial de la propiedad apagarCliente.</param>
+        public static bingoParametro CreatebingoParametro(global::System.Int32 idParametro, global::System.Int32 idLocal, global::System.Int32 idEstadoJuego, global::System.Boolean videoActivo, global::System.Int32 esperaNumeroSeg, global::System.Int32 premioDefecto, global::System.Boolean juegoAutomatico, global::System.Int32 juegoAutomaticoCadaSeg, global::System.Boolean apagarCliente)
         {
             bingoParametro bingoParametro = new bingoParametro();
             bingoParametro.idParametro = idParametro;
@@ -2386,6 +2411,7 @@ namespace maqadmin.Models
             bingoParametro.premioDefecto = premioDefecto;
             bingoParametro.juegoAutomatico = juegoAutomatico;
             bingoParametro.juegoAutomaticoCadaSeg = juegoAutomaticoCadaSeg;
+            bingoParametro.apagarCliente = apagarCliente;
             return bingoParametro;
         }
 
@@ -2683,6 +2709,30 @@ namespace maqadmin.Models
         private Nullable<global::System.DateTime> _ultimaActualizacion;
         partial void OnultimaActualizacionChanging(Nullable<global::System.DateTime> value);
         partial void OnultimaActualizacionChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean apagarCliente
+        {
+            get
+            {
+                return _apagarCliente;
+            }
+            set
+            {
+                OnapagarClienteChanging(value);
+                ReportPropertyChanging("apagarCliente");
+                _apagarCliente = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("apagarCliente");
+                OnapagarClienteChanged();
+            }
+        }
+        private global::System.Boolean _apagarCliente;
+        partial void OnapagarClienteChanging(global::System.Boolean value);
+        partial void OnapagarClienteChanged();
 
         #endregion
 
@@ -2729,6 +2779,713 @@ namespace maqadmin.Models
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="bdloginModel", Name="carton")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class carton : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto carton.
+        /// </summary>
+        /// <param name="id">Valor inicial de la propiedad id.</param>
+        /// <param name="idlocal">Valor inicial de la propiedad idlocal.</param>
+        /// <param name="n1">Valor inicial de la propiedad n1.</param>
+        /// <param name="n2">Valor inicial de la propiedad n2.</param>
+        /// <param name="n3">Valor inicial de la propiedad n3.</param>
+        /// <param name="n4">Valor inicial de la propiedad n4.</param>
+        /// <param name="n5">Valor inicial de la propiedad n5.</param>
+        /// <param name="n6">Valor inicial de la propiedad n6.</param>
+        /// <param name="n7">Valor inicial de la propiedad n7.</param>
+        /// <param name="n8">Valor inicial de la propiedad n8.</param>
+        /// <param name="n9">Valor inicial de la propiedad n9.</param>
+        /// <param name="n10">Valor inicial de la propiedad n10.</param>
+        /// <param name="n11">Valor inicial de la propiedad n11.</param>
+        /// <param name="n12">Valor inicial de la propiedad n12.</param>
+        /// <param name="n13">Valor inicial de la propiedad n13.</param>
+        /// <param name="n14">Valor inicial de la propiedad n14.</param>
+        /// <param name="n15">Valor inicial de la propiedad n15.</param>
+        /// <param name="n16">Valor inicial de la propiedad n16.</param>
+        /// <param name="n17">Valor inicial de la propiedad n17.</param>
+        /// <param name="n18">Valor inicial de la propiedad n18.</param>
+        /// <param name="n19">Valor inicial de la propiedad n19.</param>
+        /// <param name="n20">Valor inicial de la propiedad n20.</param>
+        /// <param name="n21">Valor inicial de la propiedad n21.</param>
+        /// <param name="n22">Valor inicial de la propiedad n22.</param>
+        /// <param name="n23">Valor inicial de la propiedad n23.</param>
+        /// <param name="n24">Valor inicial de la propiedad n24.</param>
+        public static carton Createcarton(global::System.Int32 id, global::System.Int32 idlocal, global::System.Int32 n1, global::System.Int32 n2, global::System.Int32 n3, global::System.Int32 n4, global::System.Int32 n5, global::System.Int32 n6, global::System.Int32 n7, global::System.Int32 n8, global::System.Int32 n9, global::System.Int32 n10, global::System.Int32 n11, global::System.Int32 n12, global::System.Int32 n13, global::System.Int32 n14, global::System.Int32 n15, global::System.Int32 n16, global::System.Int32 n17, global::System.Int32 n18, global::System.Int32 n19, global::System.Int32 n20, global::System.Int32 n21, global::System.Int32 n22, global::System.Int32 n23, global::System.Int32 n24)
+        {
+            carton carton = new carton();
+            carton.id = id;
+            carton.idlocal = idlocal;
+            carton.n1 = n1;
+            carton.n2 = n2;
+            carton.n3 = n3;
+            carton.n4 = n4;
+            carton.n5 = n5;
+            carton.n6 = n6;
+            carton.n7 = n7;
+            carton.n8 = n8;
+            carton.n9 = n9;
+            carton.n10 = n10;
+            carton.n11 = n11;
+            carton.n12 = n12;
+            carton.n13 = n13;
+            carton.n14 = n14;
+            carton.n15 = n15;
+            carton.n16 = n16;
+            carton.n17 = n17;
+            carton.n18 = n18;
+            carton.n19 = n19;
+            carton.n20 = n20;
+            carton.n21 = n21;
+            carton.n22 = n22;
+            carton.n23 = n23;
+            carton.n24 = n24;
+            return carton;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idlocal
+        {
+            get
+            {
+                return _idlocal;
+            }
+            set
+            {
+                OnidlocalChanging(value);
+                ReportPropertyChanging("idlocal");
+                _idlocal = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idlocal");
+                OnidlocalChanged();
+            }
+        }
+        private global::System.Int32 _idlocal;
+        partial void OnidlocalChanging(global::System.Int32 value);
+        partial void OnidlocalChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n1
+        {
+            get
+            {
+                return _n1;
+            }
+            set
+            {
+                Onn1Changing(value);
+                ReportPropertyChanging("n1");
+                _n1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n1");
+                Onn1Changed();
+            }
+        }
+        private global::System.Int32 _n1;
+        partial void Onn1Changing(global::System.Int32 value);
+        partial void Onn1Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n2
+        {
+            get
+            {
+                return _n2;
+            }
+            set
+            {
+                Onn2Changing(value);
+                ReportPropertyChanging("n2");
+                _n2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n2");
+                Onn2Changed();
+            }
+        }
+        private global::System.Int32 _n2;
+        partial void Onn2Changing(global::System.Int32 value);
+        partial void Onn2Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n3
+        {
+            get
+            {
+                return _n3;
+            }
+            set
+            {
+                Onn3Changing(value);
+                ReportPropertyChanging("n3");
+                _n3 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n3");
+                Onn3Changed();
+            }
+        }
+        private global::System.Int32 _n3;
+        partial void Onn3Changing(global::System.Int32 value);
+        partial void Onn3Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n4
+        {
+            get
+            {
+                return _n4;
+            }
+            set
+            {
+                Onn4Changing(value);
+                ReportPropertyChanging("n4");
+                _n4 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n4");
+                Onn4Changed();
+            }
+        }
+        private global::System.Int32 _n4;
+        partial void Onn4Changing(global::System.Int32 value);
+        partial void Onn4Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n5
+        {
+            get
+            {
+                return _n5;
+            }
+            set
+            {
+                Onn5Changing(value);
+                ReportPropertyChanging("n5");
+                _n5 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n5");
+                Onn5Changed();
+            }
+        }
+        private global::System.Int32 _n5;
+        partial void Onn5Changing(global::System.Int32 value);
+        partial void Onn5Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n6
+        {
+            get
+            {
+                return _n6;
+            }
+            set
+            {
+                Onn6Changing(value);
+                ReportPropertyChanging("n6");
+                _n6 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n6");
+                Onn6Changed();
+            }
+        }
+        private global::System.Int32 _n6;
+        partial void Onn6Changing(global::System.Int32 value);
+        partial void Onn6Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n7
+        {
+            get
+            {
+                return _n7;
+            }
+            set
+            {
+                Onn7Changing(value);
+                ReportPropertyChanging("n7");
+                _n7 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n7");
+                Onn7Changed();
+            }
+        }
+        private global::System.Int32 _n7;
+        partial void Onn7Changing(global::System.Int32 value);
+        partial void Onn7Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n8
+        {
+            get
+            {
+                return _n8;
+            }
+            set
+            {
+                Onn8Changing(value);
+                ReportPropertyChanging("n8");
+                _n8 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n8");
+                Onn8Changed();
+            }
+        }
+        private global::System.Int32 _n8;
+        partial void Onn8Changing(global::System.Int32 value);
+        partial void Onn8Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n9
+        {
+            get
+            {
+                return _n9;
+            }
+            set
+            {
+                Onn9Changing(value);
+                ReportPropertyChanging("n9");
+                _n9 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n9");
+                Onn9Changed();
+            }
+        }
+        private global::System.Int32 _n9;
+        partial void Onn9Changing(global::System.Int32 value);
+        partial void Onn9Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n10
+        {
+            get
+            {
+                return _n10;
+            }
+            set
+            {
+                Onn10Changing(value);
+                ReportPropertyChanging("n10");
+                _n10 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n10");
+                Onn10Changed();
+            }
+        }
+        private global::System.Int32 _n10;
+        partial void Onn10Changing(global::System.Int32 value);
+        partial void Onn10Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n11
+        {
+            get
+            {
+                return _n11;
+            }
+            set
+            {
+                Onn11Changing(value);
+                ReportPropertyChanging("n11");
+                _n11 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n11");
+                Onn11Changed();
+            }
+        }
+        private global::System.Int32 _n11;
+        partial void Onn11Changing(global::System.Int32 value);
+        partial void Onn11Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n12
+        {
+            get
+            {
+                return _n12;
+            }
+            set
+            {
+                Onn12Changing(value);
+                ReportPropertyChanging("n12");
+                _n12 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n12");
+                Onn12Changed();
+            }
+        }
+        private global::System.Int32 _n12;
+        partial void Onn12Changing(global::System.Int32 value);
+        partial void Onn12Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n13
+        {
+            get
+            {
+                return _n13;
+            }
+            set
+            {
+                Onn13Changing(value);
+                ReportPropertyChanging("n13");
+                _n13 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n13");
+                Onn13Changed();
+            }
+        }
+        private global::System.Int32 _n13;
+        partial void Onn13Changing(global::System.Int32 value);
+        partial void Onn13Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n14
+        {
+            get
+            {
+                return _n14;
+            }
+            set
+            {
+                Onn14Changing(value);
+                ReportPropertyChanging("n14");
+                _n14 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n14");
+                Onn14Changed();
+            }
+        }
+        private global::System.Int32 _n14;
+        partial void Onn14Changing(global::System.Int32 value);
+        partial void Onn14Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n15
+        {
+            get
+            {
+                return _n15;
+            }
+            set
+            {
+                Onn15Changing(value);
+                ReportPropertyChanging("n15");
+                _n15 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n15");
+                Onn15Changed();
+            }
+        }
+        private global::System.Int32 _n15;
+        partial void Onn15Changing(global::System.Int32 value);
+        partial void Onn15Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n16
+        {
+            get
+            {
+                return _n16;
+            }
+            set
+            {
+                Onn16Changing(value);
+                ReportPropertyChanging("n16");
+                _n16 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n16");
+                Onn16Changed();
+            }
+        }
+        private global::System.Int32 _n16;
+        partial void Onn16Changing(global::System.Int32 value);
+        partial void Onn16Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n17
+        {
+            get
+            {
+                return _n17;
+            }
+            set
+            {
+                Onn17Changing(value);
+                ReportPropertyChanging("n17");
+                _n17 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n17");
+                Onn17Changed();
+            }
+        }
+        private global::System.Int32 _n17;
+        partial void Onn17Changing(global::System.Int32 value);
+        partial void Onn17Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n18
+        {
+            get
+            {
+                return _n18;
+            }
+            set
+            {
+                Onn18Changing(value);
+                ReportPropertyChanging("n18");
+                _n18 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n18");
+                Onn18Changed();
+            }
+        }
+        private global::System.Int32 _n18;
+        partial void Onn18Changing(global::System.Int32 value);
+        partial void Onn18Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n19
+        {
+            get
+            {
+                return _n19;
+            }
+            set
+            {
+                Onn19Changing(value);
+                ReportPropertyChanging("n19");
+                _n19 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n19");
+                Onn19Changed();
+            }
+        }
+        private global::System.Int32 _n19;
+        partial void Onn19Changing(global::System.Int32 value);
+        partial void Onn19Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n20
+        {
+            get
+            {
+                return _n20;
+            }
+            set
+            {
+                Onn20Changing(value);
+                ReportPropertyChanging("n20");
+                _n20 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n20");
+                Onn20Changed();
+            }
+        }
+        private global::System.Int32 _n20;
+        partial void Onn20Changing(global::System.Int32 value);
+        partial void Onn20Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n21
+        {
+            get
+            {
+                return _n21;
+            }
+            set
+            {
+                Onn21Changing(value);
+                ReportPropertyChanging("n21");
+                _n21 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n21");
+                Onn21Changed();
+            }
+        }
+        private global::System.Int32 _n21;
+        partial void Onn21Changing(global::System.Int32 value);
+        partial void Onn21Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n22
+        {
+            get
+            {
+                return _n22;
+            }
+            set
+            {
+                Onn22Changing(value);
+                ReportPropertyChanging("n22");
+                _n22 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n22");
+                Onn22Changed();
+            }
+        }
+        private global::System.Int32 _n22;
+        partial void Onn22Changing(global::System.Int32 value);
+        partial void Onn22Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n23
+        {
+            get
+            {
+                return _n23;
+            }
+            set
+            {
+                Onn23Changing(value);
+                ReportPropertyChanging("n23");
+                _n23 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n23");
+                Onn23Changed();
+            }
+        }
+        private global::System.Int32 _n23;
+        partial void Onn23Changing(global::System.Int32 value);
+        partial void Onn23Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 n24
+        {
+            get
+            {
+                return _n24;
+            }
+            set
+            {
+                Onn24Changing(value);
+                ReportPropertyChanging("n24");
+                _n24 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n24");
+                Onn24Changed();
+            }
+        }
+        private global::System.Int32 _n24;
+        partial void Onn24Changing(global::System.Int32 value);
+        partial void Onn24Changed();
+
+        #endregion
+
+    
     }
     
     /// <summary>

@@ -79,6 +79,18 @@ namespace maqadmin.Models
 
         }
 
+        public void ApagaCliente(bool estado, int idlocal)
+        {
+
+            using (var db = new bdloginEntities())
+            {
+                var objpar = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+                if (objpar != null) objpar.apagarCliente = estado;
+                db.SaveChanges();
+            }
+
+        }
+
 
         public string ClientDownload(int idLocal)
         {
