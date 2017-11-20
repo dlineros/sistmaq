@@ -13,17 +13,17 @@ body {
 }
 
 a:link {
-    color: #034af3;
-    text-decoration: underline;
+    /*color: #034af3;
+    text-decoration: underline;*/
 }
 
 a:visited {
-    color: #505abc;
+   /* color: #505abc;*/
 }
 
 a:hover {
-    color: #1d60ff;
-    text-decoration: none;
+   /* color: #1d60ff;
+    text-decoration: none;*/
 }
 
 a:active {
@@ -89,7 +89,7 @@ header, #header {
     padding: 0;
 }
 
-header h1, #header h1 {
+/*header h1, #header h1 {
     font-weight: bold;
     padding: 5px 0;
     margin: 0;
@@ -98,7 +98,24 @@ header h1, #header h1 {
     line-height: 2em;
     font-size: 32px !important;
     text-shadow: 1px 1px 2px #111;
+}*/
+
+
+header h1, #header h1
+{
+    font-weight: normal;
+    padding: 5px 0;
+    margin: 0;
+    color: #5c87b2;
+    border: none;
+    line-height: 2em;
+    font-size: 20px !important;
+    text-shadow: 1px 1px 1px #111;
 }
+
+
+
+
 
 #main {
     padding: 30px 30px 15px 30px;
@@ -252,26 +269,30 @@ div#title {
     text-align: left;
 }
 
-#logindisplay {
+#logindisplay
+{
     font-size: 1.1em;
     display: block;
     text-align: right;
     margin: 10px;
-    color: White;
+    color: #555;
 }
 
-#logindisplay a:link {
-    color: white;
+#logindisplay a:link
+{
+    color: #555;
     text-decoration: underline;
 }
 
-#logindisplay a:visited {
-    color: white;
+#logindisplay a:visited
+{
+    color: #555;
     text-decoration: underline;
 }
 
-#logindisplay a:hover {
-    color: white;
+#logindisplay a:hover
+{
+    color: #555;
     text-decoration: none;
 }
 

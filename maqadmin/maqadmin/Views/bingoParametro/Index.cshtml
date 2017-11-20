@@ -2,21 +2,22 @@
 @{
     ViewBag.Title = "Index";
 }
-@*<h2>Index</h2>*@
+@*  @Html.ActionLink("Nuevo Local", "Create")*@
 <p>
-    @Html.ActionLink("Nuevo Local", "Create")
+    <a class="btn btn-primary btn-small" href="/bingoParametro/Create">Nuevo Local</a>
 </p>
-<table>
+<table class="table table-striped table-bordered">
+<thead class="thead-inverse">
     <tr>
         <th>
             Local
         </th>
         <th>
             Estado Juego
-        </th>       
+        </th>
         <th>
             Premio
-        </th>        
+        </th>
         <th>
             Bingo
         </th>
@@ -26,9 +27,8 @@
         <th>
             Conectar a pantallas
         </th>
-
-
     </tr>
+    </thead>
     @foreach (var item in Model)
     {
         <tr>
@@ -37,69 +37,65 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.estadoJuego.nombre)
-            </td>          
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.premioDefecto)
-            </td>           
+            </td>
             <td>
-                @Html.ActionLink("Nuevo Juego", "Limpiar", new { id = item.idLocal })
+                @Html.ActionLink("Nuevo Juego", "Limpiar", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+                
                 @if (item.idEstadoJuego != 3)
                 {
 
                     if (item.idEstadoJuego == 4)
                     {
-                         @Html.ActionLink("Continuar", "ActivarJuego", new { id = item.idLocal }) 
+                        
+                    @Html.ActionLink("Continuar", "ActivarJuego", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+                     
                     }
                     else
                     {
-                        @Html.ActionLink("Iniciar", "ActivarJuego", new { id = item.idLocal }) 
+                        
+                    @Html.ActionLink("Iniciar", "ActivarJuego", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" }) 
+                    
                     }
 
 
                 }
                 
-                
                 @if (item.idEstadoJuego != 4)
                 {
-                    @Html.ActionLink("Pausar", "Pausar", new { id = item.idLocal })
-                }
-                
-                 @if (item.idEstadoJuego != 1)
-                {
-                    @Html.ActionLink("Finalizar", "FinalizarJuego", new { id = item.idLocal })
-                }
-                </td>
-                <td>
-                
+                    
+                    @Html.ActionLink("Pausar", "Pausar", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
 
+                }
+                
+                @if (item.idEstadoJuego != 1)
+                {
+                    
+                    @Html.ActionLink("Finalizar", "FinalizarJuego", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+
+                }
+            </td>
+            <td>
                 @if (item.idEstadoJuego != 2)
                 {
-                      @Html.ActionLink("Video", "Video", new { id = item.idLocal })
+                    
+                    @Html.ActionLink("Video", "Video", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+
                 }
                 else
                 {
-                    @Html.ActionLink("Bingo", "Pausar", new { id = item.idLocal })
+                    
+                    @Html.ActionLink("Bingo", "Pausar", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
                     
                 }
-                
+            </td>
+            <td>
+                @Html.ActionLink("Detener Refrescar", "DetenerTimer", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
 
-
-
-
-                </td>
-                <td>
-              
-                @Html.ActionLink("Detener Refrescar", "DetenerTimer", new { id = item.idLocal })
-                @Html.ActionLink("Activar Refrescar", "ActivarTimer", new { id = item.idLocal })
-
-
-
-
-
-
-                @* @Html.ActionLink("Editar", "Edit", new { id=item.idParametro }) |
-            @Html.ActionLink("Ver", "Details", new { id=item.idParametro }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idParametro })*@
+                @Html.ActionLink("Activar Refrescar", "ActivarTimer", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+                @* <a class="btn btn-primary btn-mini" type="button" href="/bingoParametro/Limpiar/1">Nuevo Juego</a>*@
             </td>
         </tr>
     }

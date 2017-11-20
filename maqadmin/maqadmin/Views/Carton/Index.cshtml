@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-
-<p>
-    @Html.ActionLink("Nuevo  cartón", "Create")
+<p>   
+    <a class="btn btn-primary btn-small" href="/Carton/Create">Nuevo  cartón</a>
 </p>
 <table>
+<thead class="thead-inverse">
     <tr>
         <th>
             Local
@@ -87,7 +87,7 @@
         </th>
         <th></th>
     </tr>
-
+</thead>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -166,9 +166,9 @@
             @Html.DisplayFor(modelItem => item.n24)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Ver", "Details", new { id=item.id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "btn btn-primary btn-small" }) 
+            @Html.ActionLink("Ver", "Details", new { id = item.id }, new { @class = "btn btn-primary btn-small" }) 
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "btn btn-primary btn-small" })
         </td>
     </tr>
 }
