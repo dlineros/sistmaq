@@ -1,14 +1,14 @@
 ﻿@model maqadmin.Models.bingoParametro
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Estás seguro que deseas eliminar el local?</h3>
 <fieldset>
-    <legend>bingoParametro</legend>
+    <legend>Parametros por local</legend>
 
     <div class="display-label">idLocal</div>
     <div class="display-field">
@@ -58,6 +58,6 @@
 @using (Html.BeginForm()) {
     <p>
         <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Volver", "Index")
     </p>
 }

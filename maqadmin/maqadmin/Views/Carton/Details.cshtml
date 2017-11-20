@@ -4,12 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
 <fieldset>
-    <legend>carton</legend>
+    <legend>Detalles del cartón</legend>
 
-    <div class="display-label">idlocal</div>
+    <div class="display-label">Local</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.idlocal)
     </div>
@@ -135,6 +134,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Volver", "Index")
 </p>
