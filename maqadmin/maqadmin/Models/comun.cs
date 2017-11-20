@@ -92,22 +92,24 @@ namespace maqadmin.Models
         }
 
 
-        public string ClientDownload(int idLocal)
+        public string ClientDownload(int idLocal,string urlDownload)
         {
             //var sesion = Session["idlocal"];
             //var x = User.Identity.Name;
             var client = new WebClient();
             string salida;
-            string url;
-            using (var db = new bdloginEntities())
-            {
-                url = db.bingoParametro.Where(p => p.idLocal == idLocal).Single().urlDownload;
+            //string url;
 
-            }
+           
+            //using (var db = new bdloginEntities())
+            //{
+            //    url = db.bingoParametro.Where(p => p.idLocal == idLocal).Single().urlDownload;
+
+            //}
 
             try
             {
-                salida = client.DownloadString(url);
+                salida = client.DownloadString(urlDownload);
             }
             catch (Exception)
             {

@@ -59,8 +59,7 @@ namespace maqadmin.Controllers
             }
 
         }
-
-
+        
         [System.Web.Mvc.Authorize]
         public ActionResult Bingo()
         {
@@ -69,32 +68,29 @@ namespace maqadmin.Controllers
             var objcomun = new comun();
             objcomun.SeteaEstadoVideo(false, idlocal);
             objcomun.SeteaUltimaActualizacion(idlocal);
-
            
-            //var aTimer = new MyTimer(1000);
-            //if (aTimer.Enabled == false)
-            //{
-            //    aTimer.Elapsed += ActualizaClienteSignal;
-            //    aTimer.Interval = objcomun.ObtieneEsperaNumeroSeq(idlocal) * 1000;
-            //    aTimer.Enabled = true;
-            //    aTimer.idlocal = idlocal;
-            //}
 
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
             return View("Bingo");
         }
 
-
+        
+        public ActionResult BingoVideoDirecto()
+        {
+           return PartialView("_Video");
+        }
 
 
 
         public void ActualizaClienteSignal(object sender, System.Timers.ElapsedEventArgs e)
         {
+
             var objcomun = new comun();
             using (var db = new bdloginEntities())
             {
                 MyTimer timer = (MyTimer)sender;
                 int idlocal = timer.idlocal;
+                string urlDownload = timer.urlDownload;
 
                 var parametro = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
 
@@ -114,7 +110,7 @@ namespace maqadmin.Controllers
                         if ((!parametro.videoActivo)
                             && (parametro.idEstadoJuego == 2))
                         {
-                            var salida = objcomun.ClientDownload(1);
+                            var salida = objcomun.ClientDownload(1,urlDownload);
                             var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
                             context.Clients.All.broadcastMessage(salida + DateTime.Now);
                         }
@@ -122,7 +118,7 @@ namespace maqadmin.Controllers
                         if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3) ||
                             (parametro.idEstadoJuego == 4))
                         {
-                            var salida = objcomun.ClientDownload(1);
+                            var salida = objcomun.ClientDownload(1, urlDownload);
                             var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
                             context.Clients.All.broadcastMessage(salida + DateTime.Now);
                         }

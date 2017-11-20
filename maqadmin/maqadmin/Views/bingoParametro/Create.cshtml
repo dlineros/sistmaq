@@ -1,7 +1,7 @@
 ﻿@model maqadmin.Models.bingoParametro
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Nuevo local";
 }
 
 <h2>Crear nuevo local</h2>
@@ -22,84 +22,60 @@
             @Html.ValidationMessageFor(model => model.idLocal)
         </div>
 
+       <input id="idEstadoJuego" name="idEstadoJuego" type="hidden" value="2"/>
+       <input id="videoActivo" name="videoActivo" type="hidden" value="0"/>
+       <input id="juegoAutomatico" name="juegoAutomatico" type="hidden" value="0"/>
+       <input id="juegoAutomaticoCadaSeg" name="juegoAutomaticoCadaSeg" type="hidden" value="0"/>
+
+       
+
+       
+      
         <div class="editor-label">
-            @Html.LabelFor(model => model.idEstadoJuego, "estadoJuego")
+           Espera entre números
         </div>
         <div class="editor-field">
-            @Html.DropDownList("idEstadoJuego", String.Empty)
-            @Html.ValidationMessageFor(model => model.idEstadoJuego)
+           <input class="text-box single-line" data-val="true" data-val-number="El campo esperaNumeroSeg debe ser un n&amp;#250;mero." data-val-required="El campo esperaNumeroSeg es obligatorio." id="esperaNumeroSeg" name="esperaNumeroSeg" type="text" value="15">
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.videoActivo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.videoActivo)
-            @Html.ValidationMessageFor(model => model.videoActivo)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.esperaNumeroSeg)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.esperaNumeroSeg)
-            @Html.ValidationMessageFor(model => model.esperaNumeroSeg)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.premioDefecto)
+           Premio
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.premioDefecto)
             @Html.ValidationMessageFor(model => model.premioDefecto)
-        </div>
+        </div>        
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.juegoAutomatico)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.juegoAutomatico)
-            @Html.ValidationMessageFor(model => model.juegoAutomatico)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.juegoAutomaticoCadaSeg)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.juegoAutomaticoCadaSeg)
-            @Html.ValidationMessageFor(model => model.juegoAutomaticoCadaSeg)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.urlVideo)
+           Url del video
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.urlVideo)
             @Html.ValidationMessageFor(model => model.urlVideo)
         </div>
 
-         <div class="editor-label">
-            @Html.LabelFor(model => model.urlDownload)
+        @* <div class="editor-label">
+           Url download cliente
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.urlDownload)
-            @Html.ValidationMessageFor(model => model.urlDownload)
-        </div>
+        <input class="text-box single-line" id="urlVideo" name="urlVideo" type="text" value="" size="100">
+              @Html.ValidationMessageFor(model => model.urlDownload)
+        </div>*@
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.MensajeVideo)
+            Mensaje abajo del video
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.MensajeVideo)
+                  <input class="text-box single-line" id="MensajeVideo" name="MensajeVideo" type="text" value=""  width="500px">
             @Html.ValidationMessageFor(model => model.MensajeVideo)
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Crear" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index")
 </div>

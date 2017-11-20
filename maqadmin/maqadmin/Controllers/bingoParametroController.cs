@@ -252,7 +252,7 @@ namespace maqadmin.Controllers
              var aTimer = new MyTimer(1000);
              if (aTimer.Enabled == false)
              {
-
+            
                  var objComun = new comun();
                  objComun.ApagaCliente(false, id);
                  var obj = new HomeController();
@@ -260,6 +260,8 @@ namespace maqadmin.Controllers
                  aTimer.Interval = 10000;
                  aTimer.Enabled = true;
                  aTimer.idlocal = id;
+                 aTimer.urlDownload = String.Format("{0}home/BingoCiclico?varidlocal={1}", Request.UrlReferrer, id);
+                 //aTimer.AutoReset = true;
              }
 
 

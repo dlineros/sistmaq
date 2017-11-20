@@ -13,6 +13,7 @@ namespace maqadmin.Models
         }
 
         public int idlocal { get; set; }
+        public string urlDownload { get; set; }
 
     }
 
