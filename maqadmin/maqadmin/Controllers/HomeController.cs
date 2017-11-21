@@ -59,7 +59,7 @@ namespace maqadmin.Controllers
             }
 
         }
-        
+
         [System.Web.Mvc.Authorize]
         public ActionResult Bingo()
         {
@@ -68,16 +68,27 @@ namespace maqadmin.Controllers
             var objcomun = new comun();
             objcomun.SeteaEstadoVideo(false, idlocal);
             objcomun.SeteaUltimaActualizacion(idlocal);
-           
+
 
             ViewData["hora"] = DateTime.Now.ToLongTimeString();
             return View("Bingo");
         }
 
-        
-        public ActionResult BingoVideoDirecto()
+
+        public ActionResult BingoVideoDirecto(int idlocal = 1)
         {
-           return PartialView("_Video");
+            using (var db = new bdloginEntities())
+            {
+
+                //video activo(Ya se esta ejecutando, no debe refrezcar) y estado2: Muestra el video
+                var videoActivo = db.bingoParametro.Where(p => p.idLocal == idlocal && p.idEstadoJuego == 2).SingleOrDefault();
+                ViewData["urlVideo"] = videoActivo.urlVideo;
+                ViewData["MensajeVideo"] = videoActivo.MensajeVideo;
+                var objcomun = new comun();
+                objcomun.SeteaEstadoVideo(true, idlocal);
+                return PartialView("_Video");
+
+            }
         }
 
 
@@ -110,7 +121,7 @@ namespace maqadmin.Controllers
                         if ((!parametro.videoActivo)
                             && (parametro.idEstadoJuego == 2))
                         {
-                            var salida = objcomun.ClientDownload(1,urlDownload);
+                            var salida = objcomun.ClientDownload(1, urlDownload);
                             var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
                             context.Clients.All.broadcastMessage(salida + DateTime.Now);
                         }
@@ -179,12 +190,12 @@ namespace maqadmin.Controllers
 
                 var cartonesGanadores = objBingo.VerificaCartonGanador(idlocal);
 
-                if (cartonesGanadores.Count()>0)
+                if (cartonesGanadores.Count() > 0)
                 {
-                    bingoParametro.idEstadoJuego =4;
+                    bingoParametro.idEstadoJuego = 4;
                 }
 
-                ViewData["cartonesGanadores"] = string.Join(",",cartonesGanadores);
+                ViewData["cartonesGanadores"] = string.Join(",", cartonesGanadores);
 
                 objBingoFullViewModels.tbltoken = tbltoken;
                 objBingoFullViewModels.bingoJuego = bingoJuego;
