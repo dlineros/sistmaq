@@ -1,21 +1,8 @@
 ﻿@model maqadmin.Models.BingoFullViewModels
-
- <div style="float: right"><img src="@Url.Content("~/Content/imagenes/logo.jpg")" width="100px" height="100px" /></div>
- 
+           
 
  <style type="text/css">
-.tg  
-{
-    border-collapse:collapse;
-    border-spacing:0;
- 
-    }
-.tg td
-{
-    font-family:Arial, sans-serif;font-size:20px;text-align:center;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg .tg-yw4l{vertical-align:middle}
-
+     
 .numberCircle {
     border-radius: 50%;
     behavior: url(PIE.htc); /* remove if you don't care about IE8 */
@@ -111,12 +98,10 @@
    50% { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
-
-
-
 </style>
+<div style="float: right"><img alt="logo" src="@Url.Content("~/Content/imagenes/logo.jpg")" width="100px" height="100px" ></div>
 
-<table class="tg" style="undefined;table-layout: fixed; width: 1200px" bgcolor="#00FF00">
+<table class="table" style="table-layout: fixed; width: 1200px" bgcolor="#00FF00">
 <thead>
 <td>Hora actual:@ViewData["hora"]</td>
 <td class="tg-yw4l" style="width:120px; font-size:50px;"><span class="parpadea text"><strong>@Model.bingoJuego.ultimonumero</strong></td>
@@ -124,11 +109,10 @@
 <td>ESTADO: @ViewData["estadojuego"]</td>
 <td>CARTON(ES) GANADOR(ES): @ViewData["cartonesGanadores"]</td>
 </thead>
-
 </table>
 
 
-<table  background="@Url.Content("~/Content/imagenes/431.jpg")" class="tg" style="undefined;table-layout: fixed; width: 1200px"    >
+<table class="table"  background="@Url.Content("~/Content/imagenes/431.jpg")"  style="table-layout: fixed; width: 1200px">
   <tr>
     <td class="tg-yw4l" style="width:75px;">
       

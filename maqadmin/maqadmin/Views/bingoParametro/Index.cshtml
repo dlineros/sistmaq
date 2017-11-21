@@ -43,6 +43,8 @@
             </td>
             <td>
                 @Html.ActionLink("Nuevo Juego", "Limpiar", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+
+                 @Html.ActionLink("Editar", "Edit", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
                 
                 @if (item.idEstadoJuego != 3)
                 {

@@ -13,10 +13,10 @@
         @Html.DisplayFor(model => model.idlocal)
     </div>
 
-    <div class="display-label">Inicio Juego</div>
+   @* <div class="display-label">Inicio Juego</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.inicioJuego)
-    </div>
+    </div>*@
 
    @* <div class="display-label">Fin Juego</div>
     <div class="display-field">
@@ -28,19 +28,19 @@
         @Html.DisplayFor(model => model.ultimonumero)
     </div>*@
 
-    <div class="display-label">Premio</div>
+   @* <div class="display-label">Premio</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.premio)
-    </div>
+    </div>*@
 
     @*<div class="display-label">esperaNumeroSeg</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.esperaNumeroSeg)
     </div>*@
 
-   @* <div class="display-label">B1</div>
+    <div class="display-label">B1</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.B1)
+        @Html.DisplayFor(model => model.B1) |
     </div>
 
     <div class="display-label">B2</div>
@@ -411,7 +411,7 @@
     <div class="display-label">O75</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.O75)
-    </div>*@
+    </div>
 </fieldset>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id=Model.idbingo }) |
