@@ -91,30 +91,34 @@ namespace maqadmin.Models
 
         }
 
+        public void Visualizar(string valor, int idlocal)
+        {
+
+            using (var db = new bdloginEntities())
+            {
+                var objpar = db.bingoParametro.Where(p => p.idLocal == idlocal).SingleOrDefault();
+                if (objpar != null) objpar.visualizar = valor;
+                db.SaveChanges();
+            }
+
+        }
+
 
         public string ClientDownload(int idLocal,string urlDownload)
         {
-            //var sesion = Session["idlocal"];
-            //var x = User.Identity.Name;
-            var client = new WebClient();
-            string salida;
-            //string url;
-
            
-            //using (var db = new bdloginEntities())
-            //{
-            //    url = db.bingoParametro.Where(p => p.idLocal == idLocal).Single().urlDownload;
-
-            //}
-
+            string salida;
             try
             {
-                salida = client.DownloadString(urlDownload);
+                using (var client = new WebClient())
+                {
+                    salida = client.DownloadString(urlDownload);
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return "Problemas con urlDownload";
+                return "Problemas con urlDownload:" + urlDownload + ex.InnerException;
             }
 
             return salida;

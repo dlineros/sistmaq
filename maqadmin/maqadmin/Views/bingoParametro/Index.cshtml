@@ -24,9 +24,9 @@
         <th>
             Visualizar
         </th>
-        <th>
+        @*<th>
             Conectar a pantallas
-        </th>
+        </th>*@
     </tr>
     </thead>
     @foreach (var item in Model)
@@ -80,7 +80,9 @@
                 }
             </td>
             <td>
-                @if (item.idEstadoJuego != 2)
+            @Html.ActionLink("Video", "Video", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+             @Html.ActionLink("Bingo", "Bingo", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+               @* @if (item.visualizar == "bingo")
                 {
                     
                     @Html.ActionLink("Video", "Video", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
@@ -89,16 +91,16 @@
                 else
                 {
                     
-                    @Html.ActionLink("Bingo", "Pausar", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
+                    @Html.ActionLink("Bingo", "Bingo", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
                     
-                }
+                }*@
             </td>
-            <td>
+           @* <td>
                 @Html.ActionLink("Detener Refrescar", "DetenerTimer", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
 
                 @Html.ActionLink("Activar Refrescar", "ActivarTimer", new { id = item.idLocal }, new { @class = "btn btn-primary btn-small" })
-                @* <a class="btn btn-primary btn-mini" type="button" href="/bingoParametro/Limpiar/1">Nuevo Juego</a>*@
-            </td>
+               
+            </td>*@
         </tr>
     }
 </table>

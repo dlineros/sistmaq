@@ -51,7 +51,16 @@ namespace maqadmin
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
             //var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-           
+
+            var obj = new bingoParametroController();
+            using (var db = new bdloginEntities())
+
+                foreach (var bingop in db.bingoParametro)
+                {
+                    obj.ActivarTimer(bingop.idLocal);
+                }
+            
+
 
 
 

@@ -115,25 +115,24 @@ namespace maqadmin.Controllers
 
                 if (parametro != null)
                 {
-                    if (objcomun.ActualizaCliente(idlocal))
+                    //if (objcomun.ActualizaCliente(idlocal))
+                    //{
+
+                    if ((!parametro.videoActivo)
+                        && (parametro.visualizar == "video"))
                     {
-
-                        if ((!parametro.videoActivo)
-                            && (parametro.idEstadoJuego == 2))
-                        {
-                            var salida = objcomun.ClientDownload(1, urlDownload);
-                            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-                            context.Clients.All.broadcastMessage(salida + DateTime.Now);
-                        }
-
-                        if ((parametro.idEstadoJuego == 1) || (parametro.idEstadoJuego == 3) ||
-                            (parametro.idEstadoJuego == 4))
-                        {
-                            var salida = objcomun.ClientDownload(1, urlDownload);
-                            var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
-                            context.Clients.All.broadcastMessage(salida + DateTime.Now);
-                        }
+                        var salida = objcomun.ClientDownload(1, urlDownload);
+                        var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+                        context.Clients.All.broadcastMessage(salida + DateTime.Now);
                     }
+
+                    if (parametro.visualizar == "bingo")
+                    {
+                        var salida = objcomun.ClientDownload(1, urlDownload);
+                        var context = GlobalHost.ConnectionManager.GetHubContext<signal>();
+                        context.Clients.All.broadcastMessage(salida + DateTime.Now);
+                    }
+                    //}
                 }
             }
         }
@@ -151,42 +150,36 @@ namespace maqadmin.Controllers
 
             using (var db = new bdloginEntities())
             {
-
                 //video activo(Ya se esta ejecutando, no debe refrezcar) y estado2: Muestra el video
-                var videoActivo = db.bingoParametro.Where(p => p.idLocal == idlocal && p.idEstadoJuego == 2).SingleOrDefault();
-
-                if (videoActivo != null)
+                var parametrovideo =
+                    db.bingoParametro.Where(
+                        p => p.idLocal == idlocal && p.visualizar == "video" && p.videoActivo == false).SingleOrDefault();
+                if (parametrovideo != null)
                 {
-                    if (!videoActivo.videoActivo)
-                    {
-                        ViewData["urlVideo"] = videoActivo.urlVideo;
-                        ViewData["MensajeVideo"] = videoActivo.MensajeVideo;
-                        var objcomun = new comun();
-                        objcomun.SeteaEstadoVideo(true, idlocal);
-                        return PartialView("_Video");
-                    }
+                    ViewData["urlVideo"] = parametrovideo.urlVideo;
+                    ViewData["MensajeVideo"] = parametrovideo.MensajeVideo;
+                    parametrovideo.videoActivo = true;
+                    db.SaveChanges();
+                    return PartialView("_Video");
                 }
-            }
-            //Obtiene siguiente numero
 
-            var objBingoFullViewModels = new BingoFullViewModels();
-            using (var db = new bdloginEntities())
-            {
-
+                //Obtiene siguiente numero
+                var objBingoFullViewModels = new BingoFullViewModels();
                 var objBingo = new bingo();
 
                 var bingoJuego = db.bingoJuego.Where(p => p.idlocal == idlocal).Single();
                 var tbltoken = db.tbltoken.Where(p => p.idLocal == idlocal).Single();
                 var bingoParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).Single();
 
-                if (bingoParametro.idEstadoJuego == 3)  //En juego
+                if (bingoParametro.idEstadoJuego == 3) //En juego
                 {
                     objBingo.letraNumeroAleatorio(idlocal);
                     bingoParametro = db.bingoParametro.Where(p => p.idLocal == idlocal).Single();
                 }
 
                 //OBTIENE DATOS A MOSTRAR, 1 OBJETO POR MODELO
-                ViewData["estadoJuego"] = db.estadoJuego.Where(p => p.idestado == bingoParametro.idEstadoJuego).Single().nombre;
+                ViewData["estadoJuego"] =
+                    db.estadoJuego.Where(p => p.idestado == bingoParametro.idEstadoJuego).Single().nombre;
 
                 var cartonesGanadores = objBingo.VerificaCartonGanador(idlocal);
 
@@ -200,9 +193,10 @@ namespace maqadmin.Controllers
                 objBingoFullViewModels.tbltoken = tbltoken;
                 objBingoFullViewModels.bingoJuego = bingoJuego;
                 objBingoFullViewModels.bingoParametro = bingoParametro;
-
+                return PartialView("_Bingo", objBingoFullViewModels);
             }
-            return PartialView("_Bingo", objBingoFullViewModels);
+
+
         }
 
 

@@ -2709,6 +2709,54 @@ namespace maqadmin.Models
         private global::System.Boolean _apagarCliente;
         partial void OnapagarClienteChanging(global::System.Boolean value);
         partial void OnapagarClienteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String visualizar
+        {
+            get
+            {
+                return _visualizar;
+            }
+            set
+            {
+                OnvisualizarChanging(value);
+                ReportPropertyChanging("visualizar");
+                _visualizar = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("visualizar");
+                OnvisualizarChanged();
+            }
+        }
+        private global::System.String _visualizar;
+        partial void OnvisualizarChanging(global::System.String value);
+        partial void OnvisualizarChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String urlcliente
+        {
+            get
+            {
+                return _urlcliente;
+            }
+            set
+            {
+                OnurlclienteChanging(value);
+                ReportPropertyChanging("urlcliente");
+                _urlcliente = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("urlcliente");
+                OnurlclienteChanged();
+            }
+        }
+        private global::System.String _urlcliente;
+        partial void OnurlclienteChanging(global::System.String value);
+        partial void OnurlclienteChanged();
 
         #endregion
 

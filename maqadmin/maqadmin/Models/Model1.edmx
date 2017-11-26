@@ -120,6 +120,8 @@
           <Property Name="MensajeVideo" Type="varchar(max)" />
           <Property Name="ultimaActualizacion" Type="datetime" />
           <Property Name="apagarCliente" Type="bit" Nullable="false" />
+          <Property Name="visualizar" Type="varchar" MaxLength="50" />
+          <Property Name="urlcliente" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="carton">
           <Key>
@@ -372,6 +374,8 @@
           <Property Type="DateTime" Name="ultimaActualizacion" />
           <Property Type="Boolean" Name="apagarCliente" Nullable="false" />
           <NavigationProperty Name="estadoJuego" Relationship="bdloginModel.FK_bingoParametro_estadoJuego" FromRole="bingoParametro" ToRole="estadoJuego" />
+          <Property Type="String" Name="visualizar" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="urlcliente" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_bingoParametro_estadoJuego">
           <End Type="bdloginModel.estadoJuego" Role="estadoJuego" Multiplicity="1" />
@@ -545,6 +549,8 @@
           <EntitySetMapping Name="bingoParametro">
             <EntityTypeMapping TypeName="bdloginModel.bingoParametro">
               <MappingFragment StoreEntitySet="bingoParametro">
+                <ScalarProperty Name="urlcliente" ColumnName="urlcliente" />
+                <ScalarProperty Name="visualizar" ColumnName="visualizar" />
                 <ScalarProperty Name="apagarCliente" ColumnName="apagarCliente" />
                 <ScalarProperty Name="ultimaActualizacion" ColumnName="ultimaActualizacion" />
                 <ScalarProperty Name="MensajeVideo" ColumnName="MensajeVideo" />

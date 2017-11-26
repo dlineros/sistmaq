@@ -214,7 +214,20 @@ namespace maqadmin.Controllers
         public ActionResult Video(int id)
         {
             var objbingoparametro = db.bingoParametro.Where(p => p.idParametro == id).Single();
-            objbingoparametro.idEstadoJuego = 2;
+            objbingoparametro.idEstadoJuego = 4; //Pausado
+            objbingoparametro.visualizar = "video";
+            objbingoparametro.videoActivo = false;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+        }
+
+        public ActionResult Bingo(int id)
+        {
+            var objbingoparametro = db.bingoParametro.Where(p => p.idParametro == id).Single();
+            objbingoparametro.idEstadoJuego = 4; //Pausado
+            objbingoparametro.visualizar = "bingo";
             objbingoparametro.videoActivo = false;
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -249,7 +262,7 @@ namespace maqadmin.Controllers
          public ActionResult ActivarTimer(int id)
          {
 
-             var aTimer = new MyTimer(1000);
+             var aTimer = new MyTimer(5000);
              if (aTimer.Enabled == false)
              {
             
@@ -260,7 +273,17 @@ namespace maqadmin.Controllers
                  aTimer.Interval = 10000;
                  aTimer.Enabled = true;
                  aTimer.idlocal = id;
-                 aTimer.urlDownload = String.Format("{0}home/BingoCiclico?varidlocal={1}", Request.UrlReferrer, id);
+
+                 string urlcliente = string.Empty;
+                 using (var db = new bdloginEntities())
+                 {
+                     urlcliente = db.bingoParametro.Where(p => p.idLocal == 1).Single().urlcliente;
+                 }
+
+                 //string url = Request.UrlReferrer.ToString();
+                 //string url = "http://localhost:51690/";
+
+                 aTimer.urlDownload = String.Format("{0}home/BingoCiclico?varidlocal={1}", urlcliente, id);
                  //aTimer.AutoReset = true;
              }
 
