@@ -1,0 +1,866 @@
+﻿@model maqadmin.Models.BingoFullViewModels
+<style type="text/css">
+
+.text2 {
+  font-size:28px;
+  font-family:helvetica;
+  font-weight:bold;
+  color:#71d90b;
+  text-transform:uppercase;
+}
+
+.tablabingo
+{
+    margin-top: 20px;   
+    background-image: "@Url.Content("~/Content/imagenes/431.jpg")";
+    
+    
+}
+
+.divbolas{
+zoom: 0.2;
+}
+
+.divbolaactual{
+zoom: 0.5;
+}
+
+.ball {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 50%;
+  position: relative;
+  
+}
+
+.ballactual {
+  background: radial-gradient(circle at 50% 120%, #f50505, #f50505 80%, #f50505 100%);
+}
+
+.ballB{
+background: radial-gradient(circle at 50% 120%, #D7EF98, #D7EF98 80%, #D7EF98 100%);
+}
+
+.ballI{
+background: radial-gradient(circle at 50% 120%, #EFA697, #EFA697 80%, #EFA697 100%);
+}
+
+.ballN{
+background: radial-gradient(circle at 50% 120%, #FCE861, #FCE861 80%, #FCE861 100%);
+}
+
+.ballG{
+background: radial-gradient(circle at 50% 120%, #60CDEC, #60CDEC 80%, #60CDEC 100%);
+}
+
+.ballO{
+background: radial-gradient(circle at 50% 120%, #F18EE9, #F18EE9 80%, #F18EE9 100%);
+}
+
+
+.ball:before {
+  content: "";
+  position: absolute;
+  background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  bottom: 2.5%;
+  left: 5%;
+  opacity: 0.6;
+  height: 100%;
+  width: 90%;
+  -webkit-filter: blur(5px);
+  z-index: 2;
+}
+.ball:after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 24%);
+  -webkit-transform: translateX(-80px) translateY(-90px) skewX(-20deg);
+  -moz-transform: translateX(-80px) translateY(-90px) skewX(-20deg);
+  -ms-transform: translateX(-80px) translateY(-90px) skewX(-20deg);
+  -o-transform: translateX(-80px) translateY(-90px) skewX(-20deg);
+  transform: translateX(-80px) translateY(-90px) skewX(-20deg);
+  -webkit-filter: blur(10px);
+}
+.ball .actual, .ball .b, .ball .i, .ball .n, .ball .g, .ball .o,.ball .uno, .ball .dos, .ball .tres, .ball .cuatro, .ball .cinco, .ball .seis, .ball .siete, .ball .ocho, .ball .nueve, .ball .diez, .ball .once, .ball .doce, .ball .trece, .ball .catorce, .ball .quince {
+  width: 110px;
+  height: 110px;
+  margin: 30%;
+  background: white;
+  border-radius: 50%;
+  -webkit-transform: translateX(68px) translateY(-60px) skewX(15deg) skewY(2deg);
+  -moz-transform: translateX(68px) translateY(-60px) skewX(15deg) skewY(2deg);
+  -ms-transform: translateX(68px) translateY(-60px) skewX(15deg) skewY(2deg);
+  -o-transform: translateX(68px) translateY(-60px) skewX(15deg) skewY(2deg);
+  transform: translateX(68px) translateY(-60px) skewX(15deg) skewY(2deg);
+  position: absolute;
+}
+
+.ball .actual:before
+{
+    
+  content: "@ViewData["ultimonumero"]";
+  display: block;
+  position: absolute;
+  text-align: center;
+  height: 80px;
+  width: 100px;
+  left: 50px;
+  margin-left: -40px;
+  top: 44px;
+  margin-top: -40px;
+  color: black;
+  font-family: Arial;
+  font-size: 90px;
+  line-height: 104px;
+}
+
+.ball .b:before {
+  content: "B";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+  }
+
+.ball .i:before {
+  content: "I";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .n:before {
+  content: "N";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .g:before {
+  content: "G";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .o:before {
+ content: "O";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+
+.ball .uno:before {
+ content: "1";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .dos:before {
+  content: "2";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .tres:before {
+  content: "3";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .cuatro:before {
+  content: "4";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .cinco:before {
+  content: "5";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .seis:before {
+  content: "6";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .siete:before {
+  content: "7";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .ocho:before {
+  content: "8";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .nueve:before {
+  content: "9";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .diez:before {
+  content: "10";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .once:before {
+  content: "11";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .doce:before {
+  content: "12";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .trece:before {
+  content: "13";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .catorce:before {
+  content: "14";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+.ball .quince:before {
+  content: "15";  display: block;  position: absolute;  text-align: center;  height: 80px;  width: 100px;  left: 50px;  margin-left: -40px;  top: 44px;  margin-top: -40px;  color: black;  font-family: Arial;  font-size: 90px;  line-height: 104px;
+}
+
+
+.ball .shadow {
+position: absolute;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+-webkit-transform: rotateX(90deg) translateZ(-150px);
+-moz-transform: rotateX(90deg) translateZ(-150px);
+-ms-transform: rotateX(90deg) translateZ(-150px);
+-o-transform: rotateX(90deg) translateZ(-150px);
+transform: rotateX(90deg) translateZ(-150px);
+z-index: -1;
+}
+.stage {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  margin: 20px;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+  -webkit-perspective-origin: 50% 50%;
+  -moz-perspective-origin: 50% 50%;
+  -ms-perspective-origin: 50% 50%;
+  -o-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+}
+
+
+</style>
+<table style="table-layout: fixed; width: 1200px" background="@Url.Content("~/Content/imagenes/casino_card_background_wallpaper_hd_1920x1080.jpg")" >
+    <tr>
+        <td style="width: 250px; height: 200px; vertical-align: middle; text-align: center;"
+            colspan="4">
+            <img alt="logo" width="180px;" height="180px;" src="@Url.Content("~/Content/imagenes/logo.jpg")" />
+        </td>
+        <td style="width: 250px;" colspan="4">
+            <div class="divbolaactual">
+                <section class="stage">
+               
+                @if (Model.bingoJuego.ultimonumero.Substring(0,1)=="B")
+                {
+                    <figure class="ball ballB">
+                            <span class="shadow"></span>
+                            <span class="actual"></span>
+                          </figure>
+                } 
+
+                 @if (Model.bingoJuego.ultimonumero.Substring(0,1)=="I")
+                {
+                    <figure class="ball ballI">
+                            <span class="shadow"></span>
+                            <span class="actual"></span>
+                          </figure>
+                } 
+
+                 @if (Model.bingoJuego.ultimonumero.Substring(0,1)=="N")
+                {
+                    <figure class="ball ballN">
+                            <span class="shadow"></span>
+                            <span class="actual"></span>
+                          </figure>
+                } 
+
+                 @if (Model.bingoJuego.ultimonumero.Substring(0,1)=="G")
+                {
+                    <figure class="ball ballG">
+                            <span class="shadow"></span>
+                            <span class="actual"></span>
+                          </figure>
+                } 
+
+                @if (Model.bingoJuego.ultimonumero.Substring(0,1)=="O")
+                {
+                    <figure class="ball ballO">
+                            <span class="shadow"></span>
+                            <span class="actual"></span>
+                          </figure>
+                } 
+                          
+                      </section>
+            </div>
+        </td>
+        <td style="width: 250px; vertical-align: middle; font-size: 20px; text-align: center;"
+            colspan="4">
+            <p>
+                <strong>CARTON GANADOR:</strong></p>
+            <p>
+                <strong>@ViewData["cartonesGanadores"]</strong></p>
+        </td>
+        <td style="width: 250px; vertical-align: middle" colspan="4">
+            <p>
+                <strong>HORA:@ViewData["hora"]</strong></p>
+            <p>
+                <strong>LOCAL: @ViewData["idlocal"]</strong></p>
+            <p>
+                <strong>ESTADO: @ViewData["estadojuego"]</strong></p>
+        </td>
+        <!--
+<td></td>
+<td></td>-->
+    </tr>
+    <tr>
+        <td class="tg-yw4l" >
+             <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="b"></span></figure></section>
+                </div>
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B1)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="uno"></span></figure></section>
+                </div>
+                 
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B2)
+            {
+               <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="dos"></span></figure></section>
+                </div> 
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B3)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="tres"></span></figure></section>
+                </div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B4)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="cuatro"></span></figure></section>
+                </div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B5)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="cinco"></span></figure></section>
+                </div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B6)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="seis"></span></figure></section>
+                </div>  
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B7)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="siete"></span></figure></section>
+                </div>
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B8)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="ocho"></span></figure></section>
+                </div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B9)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="nueve"></span></figure></section>
+                </div>  
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B10)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="diez"></span></figure></section>
+                </div> 
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B11)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="once"></span></figure></section>
+                </div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B12)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="doce"></span></figure></section>
+                </div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B13)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="trece"></span></figure></section>
+                </div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B14)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="catorce"></span></figure></section>
+                </div>  
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.B15)
+            {
+                <div class="divbolas"><section class="stage"><figure class="ball ballB"><span class="shadow"></span><span class="quince"></span></figure></section>
+                </div>   
+            }
+        </td>
+    </tr>
+    <tr>
+        <td class="tg-yw4l" style="width: 75px;">
+            <div class="divbolas"><section class="stage"><figure class="ball ballI"><span class="shadow"></span><span class="i"></span></figure></section>
+        </div>
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I16)
+            {
+                <div class="numberCircle numberCircleI ">
+                    16</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I17)
+            {
+                <div class="numberCircle numberCircleI ">
+                    17</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I18)
+            {
+                <div class="numberCircle numberCircleI ">
+                    18</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I19)
+            {
+                <div class="numberCircle numberCircleI ">
+                    19</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I20)
+            {
+                <div class="numberCircle numberCircleI ">
+                    20</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I21)
+            {
+                <div class="numberCircle numberCircleI ">
+                    21</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I22)
+            {
+                <div class="numberCircle numberCircleI ">
+                    22</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I23)
+            {
+                <div class="numberCircle numberCircleI ">
+                    23</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I24)
+            {
+                <div class="numberCircle numberCircleI ">
+                    24</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I25)
+            {
+                <div class="numberCircle numberCircleI ">
+                    25</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I26)
+            {
+                <div class="numberCircle numberCircleI ">
+                    26</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I27)
+            {
+                <div class="numberCircle numberCircleI ">
+                    27</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I28)
+            {
+                <div class="numberCircle numberCircleI ">
+                    28</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I29)
+            {
+                <div class="numberCircle numberCircleI ">
+                    29</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.I30)
+            {
+                <div class="numberCircle numberCircleI ">
+                    30</div>   
+            }
+        </td>
+    </tr>
+    <tr>
+        <td class="tg-yw4l" style="width: 75px;">
+           <div class="divbolas"><section class="stage"><figure class="ball ballN"><span class="shadow"></span><span class="n"></span></figure></section>
+                </div>
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N31)
+            {
+                <div class="numberCircle numberCircleN ">
+                    31</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N32)
+            {
+                <div class="numberCircle numberCircleN ">
+                    32</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N33)
+            {
+                <div class="numberCircle numberCircleN ">
+                    33</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N34)
+            {
+                <div class="numberCircle numberCircleN ">
+                    34</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N35)
+            {
+                <div class="numberCircle numberCircleN ">
+                    35</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N36)
+            {
+                <div class="numberCircle numberCircleN ">
+                    36</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N37)
+            {
+                <div class="numberCircle numberCircleN ">
+                    37</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N38)
+            {
+                <div class="numberCircle numberCircleN ">
+                    38</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N39)
+            {
+                <div class="numberCircle numberCircleN ">
+                    39</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N40)
+            {
+                <div class="numberCircle numberCircleN ">
+                    40</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N41)
+            {
+                <div class="numberCircle numberCircleN ">
+                    41</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N42)
+            {
+                <div class="numberCircle numberCircleN ">
+                    42</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N43)
+            {
+                <div class="numberCircle numberCircleN ">
+                    43</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N44)
+            {
+                <div class="numberCircle numberCircleN ">
+                    44</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.N45)
+            {
+                <div class="numberCircle numberCircleN ">
+                    45</div>   
+            }
+        </td>
+    </tr>
+    <tr>
+        <td class="tg-yw4l" style="width: 75px;">
+           <div class="divbolas"><section class="stage"><figure class="ball ballG"><span class="shadow"></span><span class="g"></span></figure></section>
+                </div>
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G46)
+            {
+                <div class="numberCircle numberCircleG ">
+                    46</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G47)
+            {
+                <div class="numberCircle numberCircleG ">
+                    47</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G48)
+            {
+                <div class="numberCircle numberCircleG ">
+                    48</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G49)
+            {
+                <div class="numberCircle numberCircleG ">
+                    49</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G50)
+            {
+                <div class="numberCircle numberCircleG ">
+                    50</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G51)
+            {
+                <div class="numberCircle numberCircleG ">
+                    51</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G52)
+            {
+                <div class="numberCircle numberCircleG ">
+                    52</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G53)
+            {
+                <div class="numberCircle numberCircleG ">
+                    53</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G54)
+            {
+                <div class="numberCircle numberCircleG ">
+                    54</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G55)
+            {
+                <div class="numberCircle numberCircleG ">
+                    55</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G56)
+            {
+                <div class="numberCircle numberCircleG ">
+                    56</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G57)
+            {
+                <div class="numberCircle numberCircleG ">
+                    57</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G58)
+            {
+                <div class="numberCircle numberCircleG ">
+                    58</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G59)
+            {
+                <div class="numberCircle numberCircleG ">
+                    59</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.G60)
+            {
+                <div class="numberCircle numberCircleG ">
+                    60</div>   
+            }
+        </td>
+    </tr>
+    <tr>
+        <td class="tg-yw4l" style="width: 75px;">
+             <div class="divbolas"><section class="stage"><figure class="ball ballO"><span class="shadow"></span><span class="o"></span></figure></section>
+                </div>
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O61)
+            {
+                <div class="numberCircle numberCircleO ">
+                    61</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O62)
+            {
+                <div class="numberCircle numberCircleO ">
+                    62</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O63)
+            {
+                <div class="numberCircle numberCircleO ">
+                    63</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O64)
+            {
+                <div class="numberCircle numberCircleO ">
+                    64</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O65)
+            {
+                <div class="numberCircle numberCircleO ">
+                    65</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O66)
+            {
+                <div class="numberCircle numberCircleO ">
+                    66</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O67)
+            {
+                <div class="numberCircle numberCircleO ">
+                    67</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O68)
+            {
+                <div class="numberCircle numberCircleO ">
+                    68</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O69)
+            {
+                <div class="numberCircle numberCircleO ">
+                    69</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O70)
+            {
+                <div class="numberCircle numberCircleO ">
+                    70</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O71)
+            {
+                <div class="numberCircle numberCircleO ">
+                    71</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O72)
+            {
+                <div class="numberCircle numberCircleO ">
+                    72</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O73)
+            {
+                <div class="numberCircle numberCircleO ">
+                    73</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O74)
+            {
+                <div class="numberCircle numberCircleO ">
+                    74</div>   
+            }
+        </td>
+        <td class="tg-yw4l">
+            @if (Model.bingoJuego.O75)
+            {
+                <div class="numberCircle numberCircleO ">
+                    75</div>   
+            }
+        </td>
+    </tr>
+</table>

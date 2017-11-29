@@ -193,7 +193,19 @@ namespace maqadmin.Controllers
                 objBingoFullViewModels.tbltoken = tbltoken;
                 objBingoFullViewModels.bingoJuego = bingoJuego;
                 objBingoFullViewModels.bingoParametro = bingoParametro;
-                return PartialView("_Bingo", objBingoFullViewModels);
+
+                if (objBingoFullViewModels.bingoJuego.ultimonumero.Length==4)
+                {
+                    ViewData["ultimonumero"] = objBingoFullViewModels.bingoJuego.ultimonumero.Substring(2,2);
+                }
+                else
+                {
+                    ViewData["ultimonumero"] = objBingoFullViewModels.bingoJuego.ultimonumero.Substring(2, 1);
+                }
+
+               
+
+                return PartialView("_Bingo_v2", objBingoFullViewModels);
             }
 
 
