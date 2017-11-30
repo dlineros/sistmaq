@@ -127,6 +127,11 @@
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Content\imagenes\Bet365-Bingo-2.jpg" />
+    <Content Include="Content\imagenes\casino_card_background_wallpaper_hd_1920x1080.jpg" />
+    <Content Include="Content\imagenes\depositphotos_166950338-stock-illustration-gold-coin-splash-bingo-jackpot.jpg" />
+    <Content Include="Content\imagenes\depositphotos_80484076-stock-photo-bingo-background.jpg" />
+    <Content Include="Content\imagenes\LandingPage_genericbg_BS.jpg" />
     <Content Include="Content\imagenes\logo.jpg" />
     <Content Include="Content\marq.css" />
     <Content Include="Content\imagenes\1.png" />
